@@ -44,8 +44,14 @@ task run(dependsOn: classes, type: JavaExec) {
     main = "com.parsecgaming.examples.HostWrapper"
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
-
 }
+
+task testJNA(dependsOn: classes, type: JavaExec) {
+    main = "com.parsecgaming.examples.Host"
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+}
+
 compileKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
