@@ -1,0 +1,2 @@
+The wrapper code by ElectronStudio is MIT licensed.
+The Parsec SDK which is bundled is licensed by its own license, ask Parsec for details.

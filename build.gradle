@@ -1,9 +1,11 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.3.41"
+}
+
 repositories {
 	jcenter()
 }
 
-
-apply plugin: "java"
 
 
 
@@ -17,11 +19,11 @@ sourceSets.main.resources.srcDirs = ["resources/"]
 
 dependencies {
     compile group: 'net.java.dev.jna', name: 'jna', version: '5.3.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.41"
 }
 
 task dist(type: Jar) {
     from files(sourceSets.main.java.outputDir)
-    //   from files(sourceSets.main.kotlin.outputDir)
     from files(sourceSets.main.output.resourcesDir)
     from { configurations.compile.collect { zipTree(it) } }
         manifest {
@@ -39,8 +41,18 @@ artifacts {
 }
 
 task run(dependsOn: classes, type: JavaExec) {
-    main = "com.parsecgaming.examples.Host"
+    main = "com.parsecgaming.examples.HostWrapper"
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
 
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
