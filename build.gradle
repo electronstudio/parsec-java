@@ -24,6 +24,7 @@ dependencies {
 
 task dist(type: Jar) {
     from files(sourceSets.main.java.outputDir)
+    from files(["$project.rootDir/build/classes/kotlin/main"])
     from files(sourceSets.main.output.resourcesDir)
     from { configurations.compile.collect { zipTree(it) } }
         manifest {
