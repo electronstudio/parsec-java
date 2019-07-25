@@ -1,21 +1,12 @@
 package uk.co.electronstudio.parsec
 
-import com.parsecgaming.parsec.ParsecGamepadAxisMessage
-import com.parsecgaming.parsec.ParsecGamepadButtonMessage
-import com.parsecgaming.parsec.ParsecGamepadUnplugMessage
-import com.parsecgaming.parsec.ParsecGuest
-import com.parsecgaming.parsec.ParsecHostConfig
-import com.parsecgaming.parsec.ParsecKeyboardMessage
-import com.parsecgaming.parsec.ParsecLibrary
+import com.parsecgaming.parsec.*
 import com.parsecgaming.parsec.ParsecLibrary.PARSEC_VER
-import com.parsecgaming.parsec.ParsecMessage
-import com.parsecgaming.parsec.ParsecMouseButtonMessage
-import com.parsecgaming.parsec.ParsecMouseMotionMessage
-import com.parsecgaming.parsec.ParsecMouseWheelMessage
 import com.sun.jna.Memory
 import com.sun.jna.Pointer
 import com.sun.jna.ptr.PointerByReference
 import sun.management.Agent.error
+import com.parsecgaming.parsec.ParsecLibrary.ParsecHostEventType.*
 
 
 class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp: Boolean? = null, clientPort: Int? = null, serverPort: Int? = null) : AutoCloseable {
@@ -38,61 +29,7 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
         }
     }
 
-//    lateinit var parsecHostCallbacks: ParsecHostCallbacks   // reference kept to make sure it doesnt get GCed
-//
-//
-//    private fun createCallBacks(callbacks: ParsecHostListener): ParsecHostCallbacks {
-//
-//        val gst = object : ParsecHostCallbacks.guestStateChange_callback {
-//            override fun apply(guest: ParsecGuest?, opaque: Pointer?) {
-//                if (guest != null) {
-//                    val name = String(guest.name)
-//                    when (guest.state) {
-//                        ParsecLibrary.ParsecGuestState.GUEST_CONNECTED -> {
-//                            callbacks.guestConnected(guest.id, name, guest.attemptID)
-//                        }
-//                        ParsecLibrary.ParsecGuestState.GUEST_DISCONNECTED -> {
-//                            callbacks.guestDisconnected(guest.id, name, guest.attemptID)
-//                        }
-//                        ParsecLibrary.ParsecGuestState.GUEST_CONNECTING -> {
-//                            callbacks.guestConnecting(guest.id, name, guest.attemptID)
-//                        }
-//                        ParsecLibrary.ParsecGuestState.GUEST_FAILED -> {
-//                            callbacks.guestFailed(guest.id, name, guest.attemptID)
-//                        }
-//                        ParsecLibrary.ParsecGuestState.GUEST_WAITING -> {
-//                            callbacks.guestWaiting(guest.id, name, guest.attemptID)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//
-//        val udc = object : ParsecHostCallbacks.userData_callback {
-//            override fun apply(guest: ParsecGuest?, id: Int, text: Pointer?, opaque: Pointer?) {
-//                if (guest != null) {
-//                    callbacks.userData(guest, id, if (text != null) text.getString(0) else "")
-//                }
-//            }
-//
-//        }
-//
-//        val sic = object : ParsecHostCallbacks.serverID_callback {
-//            override fun apply(hostID: Int, serverID: Int, opaque: Pointer?) {
-//
-//                callbacks.serverId(hostID, serverID)
-//
-//            }
-//        }
-//
-//        val isi = object : ParsecHostCallbacks.invalidSessionID_callback {
-//            override fun apply(opaque: Pointer?) {
-//                callbacks.invalidSessionId()
-//            }
-//        }
-//
-//        return ParsecHostCallbacks(gst, udc, sic, isi)
-//    }
+    lateinit var parsecHostListener: ParsecHostListener
 
     init {
 
@@ -123,6 +60,54 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
         return events
     }
 
+    fun runHostCallbacks() {
+        val event = ParsecHostEvent()
+        while (ParsecLibrary.ParsecHostPollEvents(parsecPointer, 0, event).toInt() == 1) {
+            when (event.type) {
+                HOST_EVENT_GUEST_STATE_CHANGE -> {
+                    event.field1.setType(ParsecGuestStateChangeEvent::class.java)
+                    event.field1.read()
+                    val guest = event.field1.guestStateChange.guest
+                    val name = String(guest.name)
+                    when (guest.state) {
+                        ParsecLibrary.ParsecGuestState.GUEST_CONNECTED -> {
+                            parsecHostListener.guestConnected(guest.id, name, guest.attemptID)
+                        }
+                        ParsecLibrary.ParsecGuestState.GUEST_DISCONNECTED -> {
+                            parsecHostListener.guestDisconnected(guest.id, name, guest.attemptID)
+                        }
+                        ParsecLibrary.ParsecGuestState.GUEST_CONNECTING -> {
+                            parsecHostListener.guestConnecting(guest.id, name, guest.attemptID)
+                        }
+                        ParsecLibrary.ParsecGuestState.GUEST_FAILED -> {
+                            parsecHostListener.guestFailed(guest.id, name, guest.attemptID)
+                        }
+                        ParsecLibrary.ParsecGuestState.GUEST_WAITING -> {
+                            parsecHostListener.guestWaiting(guest.id, name, guest.attemptID)
+                        }
+                    }
+                }
+                HOST_EVENT_USER_DATA -> {
+                    event.field1.setType(ParsecUserDataEvent::class.java)
+                    event.field1.read()
+                    val guest = event.field1.userData.guest
+                    val id = event.field1.userData.id
+                    val key = event.field1.userData.key
+                    val buffer = ParsecLibrary.ParsecGetBuffer(parsecPointer, key)
+                    parsecHostListener.userData(guest, id, buffer.getString(0))
+                    ParsecLibrary.ParsecFree(buffer)
+                }
+                HOST_EVENT_SERVER_ID -> {
+                    event.field1.setType(ParsecServerIDEvent::class.java)
+                    event.field1.read()
+                    parsecHostListener.serverId(event.field1.serverID.serverID, event.field1.serverID.userID)
+                }
+                HOST_EVENT_INVALID_SESSION_ID -> {
+                    parsecHostListener.invalidSessionId()
+                }
+            }
+        }
+    }
 
     fun hostStart(mode: Int, parsecHostConfig: ParsecHostConfig?, parsecHostListener: ParsecHostListener, nameString: String, sessionId: String, serverId: Int, opaque: Pointer?): Int {
         val sessionIdM = Memory((sessionId.length + 1).toLong()) // WARNING: assumes ascii-only string
@@ -132,7 +117,8 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
             it.setString(0, nameString)
         }
 
-       // parsecHostCallbacks = createCallBacks(parsecHostListener)
+        // parsecHostCallbacks = createCallBacks(parsecHostListener)
+        this.parsecHostListener = parsecHostListener
 
         statusCode = ParsecLibrary.ParsecHostStart(parsecPointer,
                 mode,
@@ -163,13 +149,13 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
         ParsecLibrary.ParsecHostGLSubmitFrame(parsecPointer, textureObjectHandle)
     }
 
-    fun submitAudio(rate: Int, pcm: ByteArray, samples: Int){
+    fun submitAudio(rate: Int, pcm: ByteArray, samples: Int) {
         val buffer = Memory(pcm.size.toLong())
         buffer.write(0L, pcm, 0, pcm.size)
         ParsecLibrary.ParsecHostSubmitAudio(parsecPointer, ParsecLibrary.ParsecPCMFormat.PCM_FORMAT_INT16, rate, buffer, samples)
     }
 
-    fun submitAudioFloat(rate: Int, pcm: ByteArray, samples: Int){
+    fun submitAudioFloat(rate: Int, pcm: ByteArray, samples: Int) {
         val buffer = Memory(pcm.size.toLong())
         buffer.write(0L, pcm, 0, pcm.size)
         ParsecLibrary.ParsecHostSubmitAudio(parsecPointer, ParsecLibrary.ParsecPCMFormat.PCM_FORMAT_FLOAT, rate, buffer, samples)

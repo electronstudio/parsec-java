@@ -28,6 +28,7 @@ public class HostWrapper {
                 throw new RuntimeException("Parsec error " + parsec.getStatusCode());
 
             while (true) {
+                parsec.runHostCallbacks();
                 Thread.sleep(1000);
             }
         }
@@ -46,17 +47,17 @@ class HostListener implements ParsecHostListener {
 
     @Override
     public void userData(@NotNull ParsecGuest guest, int id, @NotNull String text) {
-
+        System.out.println("guest "+guest.id+" userData "+text);
     }
 
     @Override
     public void serverId(int hostID, int serverID) {
-
+        System.out.println("hostID "+hostID+" serverID "+serverID);
     }
 
     @Override
     public void invalidSessionId() {
-
+        System.out.println("invalid sesion id");
     }
 
     @Override
