@@ -3,7 +3,7 @@ package com.parsecgaming.examples;
 import com.parsecgaming.parsec.ParsecGuest;
 import com.parsecgaming.parsec.ParsecLibrary.ParsecStatus;
 import org.jetbrains.annotations.NotNull;
-import uk.co.electronstudio.parsec.Parsec;
+import uk.co.electronstudio.parsec.*;
 
 import static com.parsecgaming.parsec.ParsecLibrary.ParsecLogLevel.LOG_DEBUG;
 
@@ -35,14 +35,14 @@ public class HostWrapper {
 }
 
 
-class LogListener implements Parsec.ParsecLogListener {
+class LogListener implements ParsecLogListener {
     @Override
     public void log(int level, @NotNull String msg) {
         System.out.println("[" + (level == LOG_DEBUG ? "D" : "I") + "] " + msg);
     }
 }
 
-class HostListener implements Parsec.ParsecHostListener {
+class HostListener implements ParsecHostListener {
 
     @Override
     public void userData(@NotNull ParsecGuest guest, int id, @NotNull String text) {
