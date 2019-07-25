@@ -1,5 +1,4 @@
 package com.parsecgaming.parsec;
-import com.ochafik.lang.jnaerator.runtime.NativeSize;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
 import java.util.Arrays;
@@ -10,14 +9,12 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecCursor extends Structure {
-	/** < `true` if the cursor has switched absolute/relative mode. The `relative`, `positionX`, and `positionY` members are valid. */
-	public byte modeUpdate;
-	/** < `true` if the cursor has has an updated image. The `width`, `height`, `hotX`, `hotY`, and `size` members are valid. */
-	public byte imageUpdate;
-	/** < `true` if the host is in relative mode, indicating the client should probably send mouse motion in relative mode. */
-	public byte relative;
 	/** < Size in bytes of the cursor image buffer. */
-	public NativeSize size;
+	public int size;
+	/** < When leaving relative mode, the horizontal position in screen coordinates where the cursor reappears. */
+	public int positionX;
+	/** < When leaving relative mode, the vertical position in screen coordinates where the cursor reappears. */
+	public int positionY;
 	/** < Width of the cursor image in pixels. */
 	public short width;
 	/** < Height of the cursor position in pixels. */
@@ -26,15 +23,19 @@ public class ParsecCursor extends Structure {
 	public short hotX;
 	/** < Vertical pixel position of the cursor hotspot within the image. */
 	public short hotY;
-	/** < When the host leaves relative mode, the horizontal position in screen coordinates where the cursor reappears. */
-	public short positionX;
-	/** < When the host leaves relative mode, the vertical position in screen coordinates where the cursor reappears. */
-	public short positionY;
+	/** < `true` if the cursor mode should be updated. The `relative`, `positionX`, and `positionY` members are valid. */
+	public byte modeUpdate;
+	/** < `true` if the cursor image should be updated. The `width`, `height`, `hotX`, `hotY`, and `size` members are valid. */
+	public byte imageUpdate;
+	/** < `true` if in relative mode, meaning the client should submit mouse motion in relative distances rather than absolute screen coordinates. */
+	public byte relative;
+	/** C type : uint8_t[1] */
+	public byte[] __pad = new byte[1];
 	public ParsecCursor() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("modeUpdate", "imageUpdate", "relative", "size", "width", "height", "hotX", "hotY", "positionX", "positionY");
+		return Arrays.asList("size", "positionX", "positionY", "width", "height", "hotX", "hotY", "modeUpdate", "imageUpdate", "relative", "__pad");
 	}
 	public ParsecCursor(Pointer peer) {
 		super(peer);

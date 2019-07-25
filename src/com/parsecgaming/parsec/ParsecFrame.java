@@ -1,5 +1,4 @@
 package com.parsecgaming.parsec;
-import com.ochafik.lang.jnaerator.runtime.NativeSize;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
 import java.util.Arrays;
@@ -11,12 +10,13 @@ import java.util.List;
  */
 public class ParsecFrame extends Structure {
 	/**
+	 * @see ParsecLibrary.ParsecColorFormat
 	 * < A YUV color format.<br>
 	 * C type : ParsecColorFormat
 	 */
 	public int format;
-	/** < Size in bytes of the `image` buffer returned from `ParsecClientLockFrame`. */
-	public NativeSize size;
+	/** < Size in bytes of the `image` buffer parameter of ::ParsecFrameCallback. */
+	public int size;
 	/** < Width in pixels of the visible area of the frame. */
 	public int width;
 	/** < Height in pixels of the visible area of the frame. */
@@ -35,13 +35,13 @@ public class ParsecFrame extends Structure {
 	 * @param format @see ParsecColorFormat<br>
 	 * < A YUV color format.<br>
 	 * C type : ParsecColorFormat<br>
-	 * @param size < Size in bytes of the `image` buffer returned from `ParsecClientLockFrame`.<br>
+	 * @param size < Size in bytes of the `image` buffer parameter of ::ParsecFrameCallback.<br>
 	 * @param width < Width in pixels of the visible area of the frame.<br>
 	 * @param height < Height in pixels of the visible area of the frame.<br>
 	 * @param fullWidth < Actual width of the frame including padding.<br>
 	 * @param fullHeight < Actual height of the frame including padding.
 	 */
-	public ParsecFrame(int format, NativeSize size, int width, int height, int fullWidth, int fullHeight) {
+	public ParsecFrame(int format, int size, int width, int height, int fullWidth, int fullHeight) {
 		super();
 		this.format = format;
 		this.size = size;

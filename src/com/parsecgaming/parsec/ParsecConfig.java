@@ -14,23 +14,23 @@ public class ParsecConfig extends Structure {
 	/** < First port tried for client connections. A value of `0` uses a pseudo random default. */
 	public int clientPort;
 	/** < First port used to accept host connections. A value of `0` uses a pseudo random default. */
-	public int serverPort;
+	public int hostPort;
 	public ParsecConfig() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("upnp", "clientPort", "serverPort");
+		return Arrays.asList("upnp", "clientPort", "hostPort");
 	}
 	/**
 	 * @param upnp < `1` enables and maintains UPnP to assist NAT traversal, `0` disables it.<br>
 	 * @param clientPort < First port tried for client connections. A value of `0` uses a pseudo random default.<br>
-	 * @param serverPort < First port used to accept host connections. A value of `0` uses a pseudo random default.
+	 * @param hostPort < First port used to accept host connections. A value of `0` uses a pseudo random default.
 	 */
-	public ParsecConfig(int upnp, int clientPort, int serverPort) {
+	public ParsecConfig(int upnp, int clientPort, int hostPort) {
 		super();
 		this.upnp = upnp;
 		this.clientPort = clientPort;
-		this.serverPort = serverPort;
+		this.hostPort = hostPort;
 	}
 	public ParsecConfig(Pointer peer) {
 		super(peer);

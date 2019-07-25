@@ -10,33 +10,50 @@ import java.util.List;
  */
 public class ParsecClientStatus extends Structure {
 	/**
+	 * < Video processing and network performance metrics.<br>
+	 * C type : ParsecMetrics
+	 */
+	public ParsecMetrics metrics;
+	/**
+	 * @see ParsecLibrary.ParsecStatus
 	 * < Internal status of the audio subsystem. `PARSEC_OK` indicates proper behavior.<br>
 	 * C type : ParsecStatus
 	 */
 	public int audio;
 	/**
+	 * @see ParsecLibrary.ParsecStatus
 	 * < Internal status of the messaging subsystem. `PARSEC_OK` indicates proper behavior.<br>
 	 * C type : ParsecStatus
 	 */
 	public int msg;
 	/**
+	 * @see ParsecLibrary.ParsecStatus
 	 * < Internal status of the video decode subsystem. `PARSEC_OK` indicates proper behavior.<br>
 	 * C type : ParsecStatus
 	 */
 	public int decode;
+	/**
+	 * < Most recent connection attempt ID. Valid even if `ParsecClientConnect` does not return `PARSEC_OK`.<br>
+	 * C type : char[56]
+	 */
+	public byte[] attemptID = new byte[56];
 	/** < Client is currently experiencing network failure. */
 	public byte networkFailure;
-	/** < `true` after calling `ParsecClientStart`. */
+	/** < `true` after calling `ParsecClientConnect`. */
 	public byte running;
 	/** < `true` if the client had to fallback to software decoding after being unable to internally initialize a hardware accelerated decoder. */
 	public byte decoderFallback;
+	/** C type : uint8_t[1] */
+	public byte[] __pad = new byte[1];
 	public ParsecClientStatus() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("audio", "msg", "decode", "networkFailure", "running", "decoderFallback");
+		return Arrays.asList("metrics", "audio", "msg", "decode", "attemptID", "networkFailure", "running", "decoderFallback", "__pad");
 	}
 	/**
+	 * @param metrics < Video processing and network performance metrics.<br>
+	 * C type : ParsecMetrics<br>
 	 * @param audio @see ParsecStatus<br>
 	 * < Internal status of the audio subsystem. `PARSEC_OK` indicates proper behavior.<br>
 	 * C type : ParsecStatus<br>
@@ -46,18 +63,28 @@ public class ParsecClientStatus extends Structure {
 	 * @param decode @see ParsecStatus<br>
 	 * < Internal status of the video decode subsystem. `PARSEC_OK` indicates proper behavior.<br>
 	 * C type : ParsecStatus<br>
+	 * @param attemptID < Most recent connection attempt ID. Valid even if `ParsecClientConnect` does not return `PARSEC_OK`.<br>
+	 * C type : char[56]<br>
 	 * @param networkFailure < Client is currently experiencing network failure.<br>
-	 * @param running < `true` after calling `ParsecClientStart`.<br>
-	 * @param decoderFallback < `true` if the client had to fallback to software decoding after being unable to internally initialize a hardware accelerated decoder.
+	 * @param running < `true` after calling `ParsecClientConnect`.<br>
+	 * @param decoderFallback < `true` if the client had to fallback to software decoding after being unable to internally initialize a hardware accelerated decoder.<br>
+	 * @param __pad C type : uint8_t[1]
 	 */
-	public ParsecClientStatus(int audio, int msg, int decode, byte networkFailure, byte running, byte decoderFallback) {
+	public ParsecClientStatus(ParsecMetrics metrics, int audio, int msg, int decode, byte attemptID[], byte networkFailure, byte running, byte decoderFallback, byte __pad[]) {
 		super();
+		this.metrics = metrics;
 		this.audio = audio;
 		this.msg = msg;
 		this.decode = decode;
+		if ((attemptID.length != this.attemptID.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.attemptID = attemptID;
 		this.networkFailure = networkFailure;
 		this.running = running;
 		this.decoderFallback = decoderFallback;
+		if ((__pad.length != this.__pad.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.__pad = __pad;
 	}
 	public ParsecClientStatus(Pointer peer) {
 		super(peer);

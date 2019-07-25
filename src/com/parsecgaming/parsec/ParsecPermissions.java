@@ -9,28 +9,34 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecPermissions extends Structure {
-	/** < `1` if the guest can send gamepad input, otherwise `0`. */
-	public int gamepad;
-	/** < `1` if the guest can send keyboard input, otherwise `0`. */
-	public int keyboard;
-	/** < `1` if the guest can send mouse button, motion, and wheel input, otherwise `0`. */
-	public int mouse;
+	/** < The guest can send gamepad input. */
+	public byte gamepad;
+	/** < The guest can send keyboard input. */
+	public byte keyboard;
+	/** < The guest can send mouse button. */
+	public byte mouse;
+	/** C type : uint8_t[1] */
+	public byte[] __pad = new byte[1];
 	public ParsecPermissions() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("gamepad", "keyboard", "mouse");
+		return Arrays.asList("gamepad", "keyboard", "mouse", "__pad");
 	}
 	/**
-	 * @param gamepad < `1` if the guest can send gamepad input, otherwise `0`.<br>
-	 * @param keyboard < `1` if the guest can send keyboard input, otherwise `0`.<br>
-	 * @param mouse < `1` if the guest can send mouse button, motion, and wheel input, otherwise `0`.
+	 * @param gamepad < The guest can send gamepad input.<br>
+	 * @param keyboard < The guest can send keyboard input.<br>
+	 * @param mouse < The guest can send mouse button.<br>
+	 * @param __pad C type : uint8_t[1]
 	 */
-	public ParsecPermissions(int gamepad, int keyboard, int mouse) {
+	public ParsecPermissions(byte gamepad, byte keyboard, byte mouse, byte __pad[]) {
 		super();
 		this.gamepad = gamepad;
 		this.keyboard = keyboard;
 		this.mouse = mouse;
+		if ((__pad.length != this.__pad.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.__pad = __pad;
 	}
 	public ParsecPermissions(Pointer peer) {
 		super(peer);

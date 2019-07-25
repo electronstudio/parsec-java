@@ -9,33 +9,40 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecGamepadAxisMessage extends Structure {
-	/** < Unique client-provided index identifying the gamepad. */
-	public int id;
 	/**
+	 * @see ParsecLibrary.ParsecGamepadAxis
 	 * < `ParsecGamepadAxis` axis.<br>
 	 * C type : ParsecGamepadAxis
 	 */
 	public int axis;
+	/** < Unique client-provided index identifying the gamepad. */
+	public int id;
 	/** < The new value of the axis between -32,768 (left/down) and 32,767 (right/up). */
 	public short value;
+	/** C type : uint8_t[2] */
+	public byte[] __pad = new byte[2];
 	public ParsecGamepadAxisMessage() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("id", "axis", "value");
+		return Arrays.asList("axis", "id", "value", "__pad");
 	}
 	/**
-	 * @param id < Unique client-provided index identifying the gamepad.<br>
 	 * @param axis @see ParsecGamepadAxis<br>
 	 * < `ParsecGamepadAxis` axis.<br>
 	 * C type : ParsecGamepadAxis<br>
-	 * @param value < The new value of the axis between -32,768 (left/down) and 32,767 (right/up).
+	 * @param id < Unique client-provided index identifying the gamepad.<br>
+	 * @param value < The new value of the axis between -32,768 (left/down) and 32,767 (right/up).<br>
+	 * @param __pad C type : uint8_t[2]
 	 */
-	public ParsecGamepadAxisMessage(int id, int axis, short value) {
+	public ParsecGamepadAxisMessage(int axis, int id, short value, byte __pad[]) {
 		super();
-		this.id = id;
 		this.axis = axis;
+		this.id = id;
 		this.value = value;
+		if ((__pad.length != this.__pad.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.__pad = __pad;
 	}
 	public ParsecGamepadAxisMessage(Pointer peer) {
 		super(peer);

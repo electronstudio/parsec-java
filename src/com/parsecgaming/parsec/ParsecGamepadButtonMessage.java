@@ -9,33 +9,40 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecGamepadButtonMessage extends Structure {
-	/** < Unique client-provided index identifying the gamepad. */
-	public int id;
-	/** < `true` if the button was pressed, `false` if released. */
-	public byte pressed;
 	/**
+	 * @see ParsecLibrary.ParsecGamepadButton
 	 * < `ParsecGamepadButton` button.<br>
 	 * C type : ParsecGamepadButton
 	 */
 	public int button;
+	/** < Unique client-provided index identifying the gamepad. */
+	public int id;
+	/** < `true` if the button was pressed, `false` if released. */
+	public byte pressed;
+	/** C type : uint8_t[3] */
+	public byte[] __pad = new byte[3];
 	public ParsecGamepadButtonMessage() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("id", "pressed", "button");
+		return Arrays.asList("button", "id", "pressed", "__pad");
 	}
 	/**
-	 * @param id < Unique client-provided index identifying the gamepad.<br>
-	 * @param pressed < `true` if the button was pressed, `false` if released.<br>
 	 * @param button @see ParsecGamepadButton<br>
 	 * < `ParsecGamepadButton` button.<br>
-	 * C type : ParsecGamepadButton
+	 * C type : ParsecGamepadButton<br>
+	 * @param id < Unique client-provided index identifying the gamepad.<br>
+	 * @param pressed < `true` if the button was pressed, `false` if released.<br>
+	 * @param __pad C type : uint8_t[3]
 	 */
-	public ParsecGamepadButtonMessage(int id, byte pressed, int button) {
+	public ParsecGamepadButtonMessage(int button, int id, byte pressed, byte __pad[]) {
 		super();
+		this.button = button;
 		this.id = id;
 		this.pressed = pressed;
-		this.button = button;
+		if ((__pad.length != this.__pad.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.__pad = __pad;
 	}
 	public ParsecGamepadButtonMessage(Pointer peer) {
 		super(peer);

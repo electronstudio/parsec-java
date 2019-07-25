@@ -1,4 +1,8 @@
 package com.parsecgaming.parsec;
+import com.parsecgaming.parsec.ParsecGamepadAxisMessage;
+import com.parsecgaming.parsec.ParsecGamepadButtonMessage;
+import com.parsecgaming.parsec.ParsecGamepadUnplugMessage;
+import com.parsecgaming.parsec.ParsecKeyboardMessage;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
 import com.sun.jna.Union;
@@ -11,14 +15,14 @@ import java.util.List;
  */
 public class ParsecMessage extends Structure {
 	/**
-	 * @see ParsecMessageType<br>
+	 * @see ParsecLibrary.ParsecMessageType
 	 * < `ParsecMessageType` type.<br>
 	 * C type : ParsecMessageType
 	 */
 	public int type;
 	/** C type : field1_union */
 	public field1_union field1;
-	/** <i>native declaration : line 544</i> */
+	/** <i>native declaration : line 606</i> */
 	public static class field1_union extends Union {
 		/**
 		 * < Keyboard message.<br>

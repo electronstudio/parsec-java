@@ -9,12 +9,10 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecClientConfig extends Structure {
-	/** < Timeout in milliseconds to wait for the remote host to approve a non-admin connection. */
-	public int approvalTimeout;
 	/** < `true` to force decoding of video frames via a software implementation. */
 	public int decoderSoftware;
 	/** < `ParsecContainer` value of either `CONTAINER_PARSEC` or `CONTAINER_MP4`. */
-	public int videoContainer;
+	public int mediaContainer;
 	/** < `ParsecProtocol` value of either `PROTO_MODE_BUD` or `PROTO_MODE_SCTP`. */
 	public int protocol;
 	/** < See above. */
@@ -25,32 +23,36 @@ public class ParsecClientConfig extends Structure {
 	public int refreshRate;
 	/** < `true` to return a compressed PNG cursor image in `ParsecCursorCallback`, `false` to return a 32-bit RGBA image. */
 	public byte pngCursor;
+	/** C type : uint8_t[3] */
+	public byte[] __pad = new byte[3];
 	public ParsecClientConfig() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("approvalTimeout", "decoderSoftware", "videoContainer", "protocol", "resolutionX", "resolutionY", "refreshRate", "pngCursor");
+		return Arrays.asList("decoderSoftware", "mediaContainer", "protocol", "resolutionX", "resolutionY", "refreshRate", "pngCursor", "__pad");
 	}
 	/**
-	 * @param approvalTimeout < Timeout in milliseconds to wait for the remote host to approve a non-admin connection.<br>
 	 * @param decoderSoftware < `true` to force decoding of video frames via a software implementation.<br>
-	 * @param videoContainer < `ParsecContainer` value of either `CONTAINER_PARSEC` or `CONTAINER_MP4`.<br>
+	 * @param mediaContainer < `ParsecContainer` value of either `CONTAINER_PARSEC` or `CONTAINER_MP4`.<br>
 	 * @param protocol < `ParsecProtocol` value of either `PROTO_MODE_BUD` or `PROTO_MODE_SCTP`.<br>
 	 * @param resolutionX < See above.<br>
 	 * @param resolutionY < See above.<br>
 	 * @param refreshRate < See above.<br>
-	 * @param pngCursor < `true` to return a compressed PNG cursor image in `ParsecCursorCallback`, `false` to return a 32-bit RGBA image.
+	 * @param pngCursor < `true` to return a compressed PNG cursor image in `ParsecCursorCallback`, `false` to return a 32-bit RGBA image.<br>
+	 * @param __pad C type : uint8_t[3]
 	 */
-	public ParsecClientConfig(int approvalTimeout, int decoderSoftware, int videoContainer, int protocol, int resolutionX, int resolutionY, int refreshRate, byte pngCursor) {
+	public ParsecClientConfig(int decoderSoftware, int mediaContainer, int protocol, int resolutionX, int resolutionY, int refreshRate, byte pngCursor, byte __pad[]) {
 		super();
-		this.approvalTimeout = approvalTimeout;
 		this.decoderSoftware = decoderSoftware;
-		this.videoContainer = videoContainer;
+		this.mediaContainer = mediaContainer;
 		this.protocol = protocol;
 		this.resolutionX = resolutionX;
 		this.resolutionY = resolutionY;
 		this.refreshRate = refreshRate;
 		this.pngCursor = pngCursor;
+		if ((__pad.length != this.__pad.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.__pad = __pad;
 	}
 	public ParsecClientConfig(Pointer peer) {
 		super(peer);

@@ -1,4 +1,5 @@
 package com.parsecgaming.parsec;
+import com.parsecgaming.parsec.ParsecHostConfig;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
 import java.util.Arrays;
@@ -9,40 +10,46 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecHostStatus extends Structure {
+	/**
+	 * < The currently active host settings.<br>
+	 * C type : ParsecHostConfig
+	 */
+	public ParsecHostConfig cfg;
+	/** < The current `serverID` assigned to the host. */
+	public int serverID;
 	/** < The host is currently accepting guests after calling `ParsecHostStart`. */
 	public byte running;
 	/** < `true` if the host's `sessionID` has become invalid. */
 	public byte invalidSessionID;
 	/** < `true` if the virtual gamepad driver is working properly, otherwise `false`. */
 	public byte gamepadSupport;
-	/** < The current `serverID` assigned to the host. */
-	public int serverID;
-	/**
-	 * < The currently active host settings.<br>
-	 * C type : ParsecHostConfig
-	 */
-	public ParsecHostConfig cfg;
+	/** C type : uint8_t[1] */
+	public byte[] __pad = new byte[1];
 	public ParsecHostStatus() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("running", "invalidSessionID", "gamepadSupport", "serverID", "cfg");
+		return Arrays.asList("cfg", "serverID", "running", "invalidSessionID", "gamepadSupport", "__pad");
 	}
 	/**
+	 * @param cfg < The currently active host settings.<br>
+	 * C type : ParsecHostConfig<br>
+	 * @param serverID < The current `serverID` assigned to the host.<br>
 	 * @param running < The host is currently accepting guests after calling `ParsecHostStart`.<br>
 	 * @param invalidSessionID < `true` if the host's `sessionID` has become invalid.<br>
 	 * @param gamepadSupport < `true` if the virtual gamepad driver is working properly, otherwise `false`.<br>
-	 * @param serverID < The current `serverID` assigned to the host.<br>
-	 * @param cfg < The currently active host settings.<br>
-	 * C type : ParsecHostConfig
+	 * @param __pad C type : uint8_t[1]
 	 */
-	public ParsecHostStatus(byte running, byte invalidSessionID, byte gamepadSupport, int serverID, ParsecHostConfig cfg) {
+	public ParsecHostStatus(ParsecHostConfig cfg, int serverID, byte running, byte invalidSessionID, byte gamepadSupport, byte __pad[]) {
 		super();
+		this.cfg = cfg;
+		this.serverID = serverID;
 		this.running = running;
 		this.invalidSessionID = invalidSessionID;
 		this.gamepadSupport = gamepadSupport;
-		this.serverID = serverID;
-		this.cfg = cfg;
+		if ((__pad.length != this.__pad.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.__pad = __pad;
 	}
 	public ParsecHostStatus(Pointer peer) {
 		super(peer);

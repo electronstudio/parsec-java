@@ -9,61 +9,80 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecGuest extends Structure {
-	/** < Guest ID passed to various host functions. */
-	public int id;
-	/** < The guest is also the owner of the host computer. */
-	public byte owner;
-	/**
-	 * < UTF-8 guest name string.<br>
-	 * C type : char[255]
-	 */
-	public byte[] name = new byte[255];
-	/**
-	 * < Unique connection ID valid while `state` is `GUEST_WAITING`, otherwise filled with zeroes.<br>
-	 * C type : char[54]
-	 */
-	public byte[] attemptID = new byte[54];
-	/**
-	 * < `ParsecGuestState` describing connection state.<br>
-	 * C type : ParsecGuestState
-	 */
-	public int state;
 	/**
 	 * < Structure describing allowed input.<br>
 	 * C type : ParsecPermissions
 	 */
 	public ParsecPermissions perms;
+	/**
+	 * < Video processing and network performance metrics, only valid in state `GUEST_CONNECTED`.<br>
+	 * C type : ParsecMetrics
+	 */
+	public ParsecMetrics metrics;
+	/**
+	 * @see ParsecLibrary.ParsecGuestState
+	 * < `ParsecGuestState` describing connection state.<br>
+	 * C type : ParsecGuestState
+	 */
+	public int state;
+	/** < Guest ID passed to various host functions. */
+	public int id;
+	/** < Parsec global user ID for use with the Parsec API. */
+	public int userID;
+	/**
+	 * < UTF-8 guest name string.<br>
+	 * C type : char[320]
+	 */
+	public byte[] name = new byte[320];
+	/**
+	 * < Unique connection ID valid while `state` is `GUEST_WAITING`, otherwise filled with zeroes.<br>
+	 * C type : char[56]
+	 */
+	public byte[] attemptID = new byte[56];
+	/** < The guest is also the owner of the host computer. */
+	public byte owner;
+	/** C type : uint8_t[3] */
+	public byte[] __pad = new byte[3];
 	public ParsecGuest() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("id", "owner", "name", "attemptID", "state", "perms");
+		return Arrays.asList("perms", "metrics", "state", "id", "userID", "name", "attemptID", "owner", "__pad");
 	}
 	/**
-	 * @param id < Guest ID passed to various host functions.<br>
-	 * @param owner < The guest is also the owner of the host computer.<br>
-	 * @param name < UTF-8 guest name string.<br>
-	 * C type : char[255]<br>
-	 * @param attemptID < Unique connection ID valid while `state` is `GUEST_WAITING`, otherwise filled with zeroes.<br>
-	 * C type : char[54]<br>
+	 * @param perms < Structure describing allowed input.<br>
+	 * C type : ParsecPermissions<br>
+	 * @param metrics < Video processing and network performance metrics, only valid in state `GUEST_CONNECTED`.<br>
+	 * C type : ParsecMetrics<br>
 	 * @param state @see ParsecGuestState<br>
 	 * < `ParsecGuestState` describing connection state.<br>
 	 * C type : ParsecGuestState<br>
-	 * @param perms < Structure describing allowed input.<br>
-	 * C type : ParsecPermissions
+	 * @param id < Guest ID passed to various host functions.<br>
+	 * @param userID < Parsec global user ID for use with the Parsec API.<br>
+	 * @param name < UTF-8 guest name string.<br>
+	 * C type : char[320]<br>
+	 * @param attemptID < Unique connection ID valid while `state` is `GUEST_WAITING`, otherwise filled with zeroes.<br>
+	 * C type : char[56]<br>
+	 * @param owner < The guest is also the owner of the host computer.<br>
+	 * @param __pad C type : uint8_t[3]
 	 */
-	public ParsecGuest(int id, byte owner, byte name[], byte attemptID[], int state, ParsecPermissions perms) {
+	public ParsecGuest(ParsecPermissions perms, ParsecMetrics metrics, int state, int id, int userID, byte name[], byte attemptID[], byte owner, byte __pad[]) {
 		super();
+		this.perms = perms;
+		this.metrics = metrics;
+		this.state = state;
 		this.id = id;
-		this.owner = owner;
+		this.userID = userID;
 		if ((name.length != this.name.length)) 
 			throw new IllegalArgumentException("Wrong array size !");
 		this.name = name;
 		if ((attemptID.length != this.attemptID.length)) 
 			throw new IllegalArgumentException("Wrong array size !");
 		this.attemptID = attemptID;
-		this.state = state;
-		this.perms = perms;
+		this.owner = owner;
+		if ((__pad.length != this.__pad.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.__pad = __pad;
 	}
 	public ParsecGuest(Pointer peer) {
 		super(peer);

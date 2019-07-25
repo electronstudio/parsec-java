@@ -9,29 +9,36 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecMouseButtonMessage extends Structure {
-	/** < `true` if clicked, `false` if released. */
-	public byte pressed;
 	/**
+	 * @see ParsecLibrary.ParsecMouseButton
 	 * < `ParsecMouseButton` value.<br>
 	 * C type : ParsecMouseButton
 	 */
 	public int button;
+	/** < `true` if clicked, `false` if released. */
+	public byte pressed;
+	/** C type : uint8_t[3] */
+	public byte[] __pad = new byte[3];
 	public ParsecMouseButtonMessage() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("pressed", "button");
+		return Arrays.asList("button", "pressed", "__pad");
 	}
 	/**
-	 * @param pressed < `true` if clicked, `false` if released.<br>
 	 * @param button @see ParsecMouseButton<br>
 	 * < `ParsecMouseButton` value.<br>
-	 * C type : ParsecMouseButton
+	 * C type : ParsecMouseButton<br>
+	 * @param pressed < `true` if clicked, `false` if released.<br>
+	 * @param __pad C type : uint8_t[3]
 	 */
-	public ParsecMouseButtonMessage(byte pressed, int button) {
+	public ParsecMouseButtonMessage(int button, byte pressed, byte __pad[]) {
 		super();
-		this.pressed = pressed;
 		this.button = button;
+		this.pressed = pressed;
+		if ((__pad.length != this.__pad.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.__pad = __pad;
 	}
 	public ParsecMouseButtonMessage(Pointer peer) {
 		super(peer);

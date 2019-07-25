@@ -9,38 +9,46 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecKeyboardMessage extends Structure {
-	/** < `true` if pressed, `false` if released. */
-	public byte pressed;
 	/**
+	 * @see ParsecLibrary.ParsecKeycode
 	 * < `ParsecKeymod` modifier key value.<br>
 	 * C type : ParsecKeycode
 	 */
 	public int code;
 	/**
+	 * @see ParsecLibrary.ParsecKeymod
 	 * < `ParsecKeycode` value.<br>
 	 * C type : ParsecKeymod
 	 */
 	public int mod;
+	/** < `true` if pressed, `false` if released. */
+	public byte pressed;
+	/** C type : uint8_t[3] */
+	public byte[] __pad = new byte[3];
 	public ParsecKeyboardMessage() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("pressed", "code", "mod");
+		return Arrays.asList("code", "mod", "pressed", "__pad");
 	}
 	/**
-	 * @param pressed < `true` if pressed, `false` if released.<br>
 	 * @param code @see ParsecKeycode<br>
 	 * < `ParsecKeymod` modifier key value.<br>
 	 * C type : ParsecKeycode<br>
 	 * @param mod @see ParsecKeymod<br>
 	 * < `ParsecKeycode` value.<br>
-	 * C type : ParsecKeymod
+	 * C type : ParsecKeymod<br>
+	 * @param pressed < `true` if pressed, `false` if released.<br>
+	 * @param __pad C type : uint8_t[3]
 	 */
-	public ParsecKeyboardMessage(byte pressed, int code, int mod) {
+	public ParsecKeyboardMessage(int code, int mod, byte pressed, byte __pad[]) {
 		super();
-		this.pressed = pressed;
 		this.code = code;
 		this.mod = mod;
+		this.pressed = pressed;
+		if ((__pad.length != this.__pad.length)) 
+			throw new IllegalArgumentException("Wrong array size !");
+		this.__pad = __pad;
 	}
 	public ParsecKeyboardMessage(Pointer peer) {
 		super(peer);
