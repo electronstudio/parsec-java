@@ -8,6 +8,7 @@ import com.parsecgaming.parsec.ParsecHostCallbacks
 import com.parsecgaming.parsec.ParsecHostConfig
 import com.parsecgaming.parsec.ParsecKeyboardMessage
 import com.parsecgaming.parsec.ParsecLibrary
+import com.parsecgaming.parsec.ParsecLibrary.PARSEC_VER
 import com.parsecgaming.parsec.ParsecMessage
 import com.parsecgaming.parsec.ParsecMouseButtonMessage
 import com.parsecgaming.parsec.ParsecMouseMotionMessage
@@ -101,9 +102,9 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
 
         upnp?.let { parsecConfig.upnp = if (upnp) 1 else 0 }
         clientPort?.let { parsecConfig.clientPort = it }
-        serverPort?.let { parsecConfig.serverPort = it }
+        serverPort?.let { parsecConfig.hostPort = it }
 
-        statusCode = ParsecLibrary.ParsecInit(parsecConfig, null, parsecRef)
+        statusCode = ParsecLibrary.ParsecInit(PARSEC_VER, parsecConfig, null, parsecRef)
 
 
 
