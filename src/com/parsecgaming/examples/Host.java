@@ -50,26 +50,27 @@ public class Host {
             Memory sessionId = new Memory(idString.length() + 1);
             sessionId.setString(0, idString);
 
-            ParsecLibrary.ParsecHostStart(parsec, HOST_DESKTOP, cfg, null,sessionId, Integer.parseInt(args[1]));
+            ParsecLibrary.ParsecHostStart(parsec, HOST_DESKTOP, cfg, null, sessionId, Integer.parseInt(args[1]));
 
             ParsecHostEvent event = new ParsecHostEvent();
-
             while (true) {
-                ParsecLibrary.ParsecHostPollEvents(parsec,1000,event);
-                switch (event.type){
-                    case HOST_EVENT_GUEST_STATE_CHANGE:
-                        event.field1.setType(ParsecGuestStateChangeEvent.class);
-                        guestStateChange(event.field1.guestStateChange.guest);
+                if (ParsecLibrary.ParsecHostPollEvents(parsec, 1000, event) == 1) {
+                    switch (event.type) {
+                        case HOST_EVENT_GUEST_STATE_CHANGE:
+                            event.field1.setType(ParsecGuestStateChangeEvent.class);
+                            event.field1.read();
+                            guestStateChange(event.field1.guestStateChange.guest);
+                            break;
+                    }
                 }
             }
-
+        } catch (Throwable e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
         } finally {
             ParsecLibrary.ParsecDestroy(parsec);
         }
-
     }
-
-
 }
 
 class LogCallback implements ParsecLibrary.ParsecLogCallback {

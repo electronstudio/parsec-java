@@ -2054,7 +2054,6 @@ public class ParsecLibrary implements Library {
 	 * @returns The length of the array returned in `guests`.<br>
 	 * Original signature : <code>uint32_t ParsecHostGetGuests(Parsec*, ParsecGuestState, ParsecGuest**)</code><br>
 	 * <i>native declaration : line 1034</i><br>
-	 * @deprecated use the safer method {@link #ParsecHostGetGuests(com.sun.jna.ptr.PointerByReference, int, ParsecGuest.ByReference[])} instead
 	 */
 	@Deprecated 
 	public static native int ParsecHostGetGuests(Pointer ps, int state, PointerByReference guests);
@@ -2063,7 +2062,7 @@ public class ParsecLibrary implements Library {
 	 * Original signature : <code>uint32_t ParsecHostGetGuests(Parsec*, ParsecGuestState, ParsecGuest**)</code><br>
 	 * <i>native declaration : line 1034</i>
 	 */
-	public static native int ParsecHostGetGuests(PointerByReference ps, int state, ParsecGuest.ByReference guests[]);
+	//public static native int ParsecHostGetGuests(PointerByReference ps, int state, ParsecGuest.ByReference guests[]);
 	/**
 	 * @param[in] allow `true` to allow the guest to connect, `false` to have them disconnect immediately.<br>
 	 * Original signature : <code>void ParsecHostAllowGuest(Parsec*, char*, bool)</code><br>
