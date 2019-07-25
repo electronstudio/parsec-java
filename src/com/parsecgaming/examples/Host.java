@@ -50,7 +50,9 @@ public class Host {
             Memory sessionId = new Memory(idString.length() + 1);
             sessionId.setString(0, idString);
 
-            ParsecLibrary.ParsecHostStart(parsec, HOST_DESKTOP, cfg, null, sessionId, Integer.parseInt(args[1]));
+
+            e = ParsecLibrary.ParsecHostStart(parsec, HOST_DESKTOP, cfg, null, sessionId, Integer.parseInt(args[1]));
+            if (e != ParsecStatus.PARSEC_OK) throw new RuntimeException("Parsec error " + e);
 
             ParsecHostEvent event = new ParsecHostEvent();
             while (true) {
