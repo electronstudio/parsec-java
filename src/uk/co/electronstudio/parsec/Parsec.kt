@@ -181,6 +181,7 @@ abstract class InputEvent private constructor() {
             when (msg.type) {
                 ParsecLibrary.ParsecMessageType.MESSAGE_GAMEPAD_BUTTON -> {
                     msg.field1.setType(ParsecGamepadButtonMessage::class.java)
+                    msg.field1.read()
                     val id = msg.field1.gamepadButton.id
                     val button = msg.field1.gamepadButton.button
                     val pressed = (msg.field1.gamepadButton.pressed.toInt() == 1)
@@ -188,6 +189,7 @@ abstract class InputEvent private constructor() {
                 }
                 ParsecLibrary.ParsecMessageType.MESSAGE_GAMEPAD_AXIS -> {
                     msg.field1.setType(ParsecGamepadAxisMessage::class.java)
+                    msg.field1.read()
                     val axis = msg.field1.gamepadAxis.axis
                     val id = msg.field1.gamepadAxis.id
                     val value = msg.field1.gamepadAxis.value
@@ -195,6 +197,7 @@ abstract class InputEvent private constructor() {
                 }
                 ParsecLibrary.ParsecMessageType.MESSAGE_KEYBOARD -> {
                     msg.field1.setType(ParsecKeyboardMessage::class.java)
+                    msg.field1.read()
                     val pressed = (msg.field1.keyboard.pressed.toInt() == 1)
                     val code = msg.field1.keyboard.code
                     val mod = msg.field1.keyboard.mod
@@ -202,18 +205,21 @@ abstract class InputEvent private constructor() {
                 }
                 ParsecLibrary.ParsecMessageType.MESSAGE_MOUSE_BUTTON -> {
                     msg.field1.setType(ParsecMouseButtonMessage::class.java)
+                    msg.field1.read()
                     val pressed = (msg.field1.mouseButton.pressed.toInt() == 1)
                     val button = msg.field1.mouseButton.button
                     return MouseButtonEvent(guest.id, pressed, button)
                 }
                 ParsecLibrary.ParsecMessageType.MESSAGE_MOUSE_WHEEL -> {
                     msg.field1.setType(ParsecMouseWheelMessage::class.java)
+                    msg.field1.read()
                     val x = msg.field1.mouseWheel.x
                     val y = msg.field1.mouseWheel.y
                     return MouseWheelEvent(guest.id, x, y)
                 }
                 ParsecLibrary.ParsecMessageType.MESSAGE_MOUSE_MOTION -> {
                     msg.field1.setType(ParsecMouseMotionMessage::class.java)
+                    msg.field1.read()
                     val relative = (msg.field1.mouseMotion.relative.toInt() == 1)
                     val x = msg.field1.mouseMotion.x
                     val y = msg.field1.mouseMotion.y
@@ -221,6 +227,7 @@ abstract class InputEvent private constructor() {
                 }
                 ParsecLibrary.ParsecMessageType.MESSAGE_GAMEPAD_UNPLUG -> {
                     msg.field1.setType(ParsecGamepadUnplugMessage::class.java)
+                    msg.field1.read()
                     val id = msg.field1.gamepadUnplug.id
                     return GamepadUnpluggedEvent(guest.id, id)
                 }
