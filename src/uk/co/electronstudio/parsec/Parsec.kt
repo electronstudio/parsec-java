@@ -167,6 +167,13 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
         ParsecLibrary.ParsecHostAllowGuest(parsecPointer, m, if (allow) 1.toByte() else 0.toByte())
     }
 
+    fun sendMessage(guestId: Int, text: String){
+        val t = Memory((text.length + 1).toLong()).also {
+            it.setString(0, text)
+        }
+        ParsecLibrary.ParsecHostSendUserData(parsecPointer, guestId, 0, t)
+    }
+
     fun dispose() {
         ParsecLibrary.ParsecDestroy(parsecPointer)
     }
