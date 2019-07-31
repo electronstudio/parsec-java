@@ -51,8 +51,10 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
     val guest = ParsecGuest()
     val msg = ParsecMessage()
 
+    val events = arrayListOf<InputEvent>()
+
     fun hostPollInput(): List<InputEvent> {
-        val events = arrayListOf<InputEvent>()
+        events.clear()
         while (ParsecLibrary.ParsecHostPollInput(parsecPointer, 0, guest, msg).toInt() == 1) {
             val e = InputEvent.build(guest, msg)
             if (e != null) events.add(e)
@@ -68,7 +70,7 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
                     event.field1.setType(ParsecGuestStateChangeEvent::class.java)
                     event.field1.read()
                     val guest = event.field1.guestStateChange.guest
-                    val name = String(guest.name)
+                    val name = String(guest.name.takeWhile { it != 0.toByte() }.toByteArray())
                     when (guest.state) {
                         ParsecLibrary.ParsecGuestState.GUEST_CONNECTED -> {
                             parsecHostListener.guestConnected(guest.id, name, guest.attemptID)
