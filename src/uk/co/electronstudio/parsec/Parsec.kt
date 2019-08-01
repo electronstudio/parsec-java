@@ -102,7 +102,7 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
                 HOST_EVENT_SERVER_ID -> {
                     event.field1.setType(ParsecServerIDEvent::class.java)
                     event.field1.read()
-                    parsecHostListener.serverId(event.field1.serverID.serverID, event.field1.serverID.userID)
+                    parsecHostListener.serverId(event.field1.serverID.userID, event.field1.serverID.serverID)
                 }
                 HOST_EVENT_INVALID_SESSION_ID -> {
                     parsecHostListener.invalidSessionId()
@@ -259,7 +259,7 @@ abstract class InputEvent private constructor() {
 
 interface ParsecHostListener {
     fun userData(guest: ParsecGuest, id: Int, text: String)
-    fun serverId(hostID: Int, serverID: Int)
+    fun serverId(userID: Int, serverID: Int)
     fun invalidSessionId()
     fun guestConnected(id: Int, name: String, attemptID: ByteArray)
     fun guestDisconnected(id: Int, name: String, attemptID: ByteArray)
