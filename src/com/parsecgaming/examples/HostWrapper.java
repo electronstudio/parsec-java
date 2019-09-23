@@ -11,7 +11,7 @@ public class HostWrapper {
 
 
     public static void main(String[] args) throws InterruptedException {
-        if (args.length < 2) {
+        if (args.length < 1) {
             System.out.println("Usage: java HostWrapper sessionID");
             return;
         }
