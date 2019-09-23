@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecLibrary implements Library {
-	public static final String JNA_LIBRARY_NAME = "com/parsecgaming/parsec";
+	public static final String JNA_LIBRARY_NAME = "parsec";
 	public static final NativeLibrary JNA_NATIVE_LIB = NativeLibrary.getInstance(ParsecLibrary.JNA_LIBRARY_NAME);
 	static {
 		Native.register(ParsecLibrary.class, ParsecLibrary.JNA_NATIVE_LIB);
@@ -2096,7 +2096,6 @@ public class ParsecLibrary implements Library {
 	 * @returns The length of the array returned in `guests`.<br>
 	 * Original signature : <code>uint32_t ParsecHostGetGuests(Parsec*, ParsecGuestState, ParsecGuest**)</code><br>
 	 * <i>native declaration : line 1105</i><br>
-	 * @deprecated use the safer method {@link #ParsecHostGetGuests(com.sun.jna.ptr.PointerByReference, int, ParsecGuest.ByReference[])} instead
 	 */
 	@Deprecated 
 	public static native int ParsecHostGetGuests(Pointer ps, int state, PointerByReference guests);
@@ -2105,7 +2104,7 @@ public class ParsecLibrary implements Library {
 	 * Original signature : <code>uint32_t ParsecHostGetGuests(Parsec*, ParsecGuestState, ParsecGuest**)</code><br>
 	 * <i>native declaration : line 1105</i>
 	 */
-	public static native int ParsecHostGetGuests(PointerByReference ps, int state, ParsecGuest.ByReference guests[]);
+	//public static native int ParsecHostGetGuests(PointerByReference ps, int state, ParsecGuest.ByReference guests[]);
 	/**
 	 * @returns ::PARSEC_OK if the guest was successfully kicked, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostKickGuest(Parsec*, uint32_t)</code><br>
