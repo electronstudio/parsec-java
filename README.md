@@ -15,7 +15,7 @@ where XXXXXXXXX is your sessionId
 
 ## Use
 
-*com.parsecgaming.parsec.ParsecLibrary* is an auto-generated JNA wrapper from the Parsec C header.
+*com.parsecgaming.ParsecLibrary* is an auto-generated JNA wrapper from the Parsec C header.
 
 See *com.parsecgaming.examples.Host* for how to use it.
 

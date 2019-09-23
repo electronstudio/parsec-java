@@ -31,8 +31,8 @@ public class Host {
 
 
     public static void main(String[] args) throws InterruptedException {
-        if (args.length < 2) {
-            System.out.println("Usage: java Host sessionID serverID");
+        if (args.length < 1) {
+            System.out.println("Usage: java Host sessionID");
             return;
         }
         PointerByReference pointer = new PointerByReference();
@@ -44,14 +44,14 @@ public class Host {
 
             ParsecLibrary.ParsecSetLogCallback(logCallback, null);
 
-            ParsecHostConfig cfg = ParsecLibrary.ParsecHostDefaults();
+            ParsecHostConfig cfg = new ParsecHostConfig();
 
             String idString = args[0];
             Memory sessionId = new Memory(idString.length() + 1);
             sessionId.setString(0, idString);
 
 
-            e = ParsecLibrary.ParsecHostStart(parsec, HOST_DESKTOP, cfg, null, sessionId, Integer.parseInt(args[1]));
+            e = ParsecLibrary.ParsecHostStart(parsec, HOST_DESKTOP, cfg, sessionId);
             if (e != ParsecStatus.PARSEC_OK) throw new RuntimeException("Parsec error " + e);
 
             ParsecHostEvent event = new ParsecHostEvent();

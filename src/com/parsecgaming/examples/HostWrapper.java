@@ -12,7 +12,7 @@ public class HostWrapper {
 
     public static void main(String[] args) throws InterruptedException {
         if (args.length < 2) {
-            System.out.println("Usage: java HostWrapper sessionID serverID");
+            System.out.println("Usage: java HostWrapper sessionID");
             return;
         }
 
@@ -22,7 +22,7 @@ public class HostWrapper {
             if (parsec.getStatusCode() != ParsecStatus.PARSEC_OK)
                 throw new RuntimeException("Parsec error " + parsec.getStatusCode());
 
-            parsec.hostStartDesktop(null, new HostListener(), "My host", args[0], Integer.parseInt(args[1]));
+            parsec.hostStartDesktop(null, new HostListener(),  args[0]);
 
             if (parsec.getStatusCode() != ParsecStatus.PARSEC_OK)
                 throw new RuntimeException("Parsec error " + parsec.getStatusCode());
@@ -48,11 +48,6 @@ class HostListener implements ParsecHostListener {
     @Override
     public void userData(@NotNull ParsecGuest guest, int id, @NotNull String text) {
         System.out.println("guest "+guest.id+" userData "+text);
-    }
-
-    @Override
-    public void serverId(int hostID, int serverID) {
-        System.out.println("hostID "+hostID+" serverID "+serverID);
     }
 
     @Override

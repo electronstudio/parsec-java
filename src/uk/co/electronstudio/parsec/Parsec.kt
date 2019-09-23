@@ -21,7 +21,7 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
     @Volatile
     var statusCode = 0
 
-    val parsecConfig = ParsecLibrary.ParsecDefaults()
+    val parsecConfig = ParsecConfig()
 
     val parsecLogCallback = object : ParsecLibrary.ParsecLogCallback {
         override fun apply(level: Int, msg: Pointer?, opaque: Pointer?) {
@@ -34,7 +34,6 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
     init {
 
         ParsecLibrary.ParsecSetLogCallback(parsecLogCallback, null)
-
 
         upnp?.let { parsecConfig.upnp = if (upnp) 1 else 0 }
         clientPort?.let { parsecConfig.clientPort = it }
@@ -99,11 +98,11 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
                     parsecHostListener.userData(guest, id, buffer.getString(0))
                     ParsecLibrary.ParsecFree(buffer)
                 }
-                HOST_EVENT_SERVER_ID -> {
-                    event.field1.setType(ParsecServerIDEvent::class.java)
-                    event.field1.read()
-                    parsecHostListener.serverId(event.field1.serverID.userID, event.field1.serverID.serverID)
-                }
+//                HOST_EVENT_SERVER_ID -> {
+//                    event.field1.setType(ParsecServerIDEvent::class.java)
+//                    event.field1.read()
+//                    parsecHostListener.serverId(event.field1.serverID.userID, event.field1.serverID.serverID)
+//                }
                 HOST_EVENT_INVALID_SESSION_ID -> {
                     parsecHostListener.invalidSessionId()
                 }
@@ -111,13 +110,13 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
         }
     }
 
-    fun hostStart(mode: Int, parsecHostConfig: ParsecHostConfig?, parsecHostListener: ParsecHostListener, nameString: String, sessionId: String, serverId: Int, opaque: Pointer?): Int {
+    fun hostStart(mode: Int, parsecHostConfig: ParsecHostConfig?, parsecHostListener: ParsecHostListener,  sessionId: String): Int {
         val sessionIdM = Memory((sessionId.length + 1).toLong()) // WARNING: assumes ascii-only string
         sessionIdM.setString(0, sessionId)
 
-        val name = Memory((nameString.length + 1).toLong()).also {
-            it.setString(0, nameString)
-        }
+//        val name = Memory((nameString.length + 1).toLong()).also {
+//            it.setString(0, nameString)
+//        }
 
         // parsecHostCallbacks = createCallBacks(parsecHostListener)
         this.parsecHostListener = parsecHostListener
@@ -125,20 +124,19 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
         statusCode = ParsecLibrary.ParsecHostStart(parsecPointer,
                 mode,
                 parsecHostConfig,
-                name,
-                sessionIdM,
-                serverId)
+                sessionIdM
+                )
         return statusCode
     }
 
     @JvmOverloads
-    fun hostStartDesktop(parsecHostConfig: ParsecHostConfig?, parsecHostListener: ParsecHostListener, name: String, sessionId: String, serverId: Int = 0, opaque: Pointer? = null): Int {
-        return hostStart(ParsecLibrary.ParsecHostMode.HOST_DESKTOP, parsecHostConfig, parsecHostListener, name, sessionId, serverId, opaque)
+    fun hostStartDesktop(parsecHostConfig: ParsecHostConfig?, parsecHostListener: ParsecHostListener, sessionId: String): Int {
+        return hostStart(ParsecLibrary.ParsecHostMode.HOST_DESKTOP, parsecHostConfig, parsecHostListener, sessionId)
     }
 
     @JvmOverloads
-    fun hostStartGame(parsecHostConfig: ParsecHostConfig?, parsecHostListener: ParsecHostListener, name: String, sessionId: String, serverId: Int = 0, opaque: Pointer? = null): Int {
-        return hostStart(ParsecLibrary.ParsecHostMode.HOST_GAME, parsecHostConfig, parsecHostListener, name, sessionId, serverId, opaque)
+    fun hostStartGame(parsecHostConfig: ParsecHostConfig?, parsecHostListener: ParsecHostListener, sessionId: String): Int {
+        return hostStart(ParsecLibrary.ParsecHostMode.HOST_GAME, parsecHostConfig, parsecHostListener, sessionId)
     }
 
     fun hostStop() {
@@ -259,7 +257,7 @@ abstract class InputEvent private constructor() {
 
 interface ParsecHostListener {
     fun userData(guest: ParsecGuest, id: Int, text: String)
-    fun serverId(userID: Int, serverID: Int)
+//    fun serverId(userID: Int, serverID: Int)
     fun invalidSessionId()
     fun guestConnected(id: Int, name: String, attemptID: ByteArray)
     fun guestDisconnected(id: Int, name: String, attemptID: ByteArray)
