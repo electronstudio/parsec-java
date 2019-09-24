@@ -174,6 +174,12 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
         ParsecLibrary.ParsecHostSendUserData(parsecPointer, guestId, 0, t)
     }
 
+    fun getStatus(): ParsecHostStatus{
+        val status = ParsecHostStatus()
+        ParsecLibrary.ParsecHostGetStatus(parsecPointer, status)
+        return status
+    }
+
     fun dispose() {
         ParsecLibrary.ParsecDestroy(parsecPointer)
     }
