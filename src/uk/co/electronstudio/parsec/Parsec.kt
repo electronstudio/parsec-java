@@ -5,7 +5,6 @@ import com.parsecgaming.parsec.ParsecLibrary.PARSEC_VER
 import com.sun.jna.Memory
 import com.sun.jna.Pointer
 import com.sun.jna.ptr.PointerByReference
-import sun.management.Agent.error
 import com.parsecgaming.parsec.ParsecLibrary.ParsecHostEventType.*
 
 
