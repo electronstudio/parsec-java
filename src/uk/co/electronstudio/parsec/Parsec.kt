@@ -71,19 +71,19 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
                     val name = String(guest.name.takeWhile { it != 0.toByte() }.toByteArray())
                     when (guest.state) {
                         ParsecLibrary.ParsecGuestState.GUEST_CONNECTED -> {
-                            parsecHostListener.guestConnected(guest.id, name, guest.attemptID)
+                            parsecHostListener.guestConnected(guest.id, name)
                         }
                         ParsecLibrary.ParsecGuestState.GUEST_DISCONNECTED -> {
-                            parsecHostListener.guestDisconnected(guest.id, name, guest.attemptID)
+                            parsecHostListener.guestDisconnected(guest.id, name)
                         }
                         ParsecLibrary.ParsecGuestState.GUEST_CONNECTING -> {
-                            parsecHostListener.guestConnecting(guest.id, name, guest.attemptID)
+                            parsecHostListener.guestConnecting(guest.id, name)
                         }
                         ParsecLibrary.ParsecGuestState.GUEST_FAILED -> {
-                            parsecHostListener.guestFailed(guest.id, name, guest.attemptID)
+                            parsecHostListener.guestFailed(guest.id, name)
                         }
                         ParsecLibrary.ParsecGuestState.GUEST_WAITING -> {
-                            parsecHostListener.guestWaiting(guest.id, name, guest.attemptID)
+                            parsecHostListener.guestWaiting(guest.id, name)
                         }
                     }
                 }
@@ -160,10 +160,8 @@ class Parsec @JvmOverloads constructor(val logListener: ParsecLogListener, upnp:
         ParsecLibrary.ParsecHostSubmitAudio(parsecPointer, ParsecLibrary.ParsecPCMFormat.PCM_FORMAT_FLOAT, rate, buffer, samples)
     }
 
-    fun hostAllowGuest(attemptID: ByteArray, allow: Boolean) {
-        val m = Memory(attemptID.size.toLong())
-        m.write(0, attemptID, 0, attemptID.size)
-        ParsecLibrary.ParsecHostAllowGuest(parsecPointer, m, if (allow) 1.toByte() else 0.toByte())
+    fun hostAllowGuest(guestID: Int, allow: Boolean) {
+        ParsecLibrary.ParsecHostAllowGuest(parsecPointer, guestID, if (allow) 1.toByte() else 0.toByte())
     }
 
     fun sendMessage(guestId: Int, text: String){
@@ -264,11 +262,11 @@ interface ParsecHostListener {
     fun userData(guest: ParsecGuest, id: Int, text: String)
 //    fun serverId(userID: Int, serverID: Int)
     fun invalidSessionId()
-    fun guestConnected(id: Int, name: String, attemptID: ByteArray)
-    fun guestDisconnected(id: Int, name: String, attemptID: ByteArray)
-    fun guestConnecting(id: Int, name: String, attemptID: ByteArray)
-    fun guestFailed(id: Int, name: String, attemptID: ByteArray)
-    fun guestWaiting(id: Int, name: String, attemptID: ByteArray)
+    fun guestConnected(id: Int, name: String)
+    fun guestDisconnected(id: Int, name: String)
+    fun guestConnecting(id: Int, name: String)
+    fun guestFailed(id: Int, name: String)
+    fun guestWaiting(id: Int, name: String)
 }
 
 interface ParsecLogListener {

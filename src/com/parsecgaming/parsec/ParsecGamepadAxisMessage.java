@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class ParsecGamepadAxisMessage extends Structure {
 	/**
+	 * @see ParsecLibrary.ParsecGamepadAxis
 	 * < Gamepad axes related to thumbsticks and triggers.<br>
 	 * C type : ParsecGamepadAxis
 	 */

@@ -10,23 +10,23 @@ import java.util.List;
  */
 public class ParsecHostConfig extends Structure {
 	/** < Resolution width. ::HOST_DESKTOP owner only. */
-	public int resolutionX = 0;
+	public int resolutionX;
 	/** < Resolution height. ::HOST_DESKTOP owner only. */
-	public int resolutionY = 0;
+	public int resolutionY;
 	/** < Refresh rate in Hz. ::HOST_DESKTOP owner only. */
-	public int refreshRate = 60 ;
+	public int refreshRate;
 	/** < Mute local audio on owner connection. ::HOST_DESKTOP owner only. */
-	public int adminMute = 1;
+	public int adminMute;
 	/** < Block remote input when local host input occurs. ::HOST_DESKTOP only. */
-	public int exclusiveInput = 1;
+	public int exclusiveInput;
 	/** < Desired frames per second. */
-	public int encoderFPS = 0;
+	public int encoderFPS;
 	/** < Maximum output bitrate in Mbps, split between guests. */
-	public int encoderMaxBitrate = 10;
+	public int encoderMaxBitrate;
 	/** < Allow H.265 codec. */
-	public int encoderH265 = 0;
+	public int encoderH265;
 	/** < Total number of guests allowed at once. This number should not include the local host. */
-	public int maxGuests = 20;
+	public int maxGuests;
 	/**
 	 * < UTF-8 null-terminated name string. May be zeroed to use hostname.<br>
 	 * C type : char[256]
@@ -42,15 +42,20 @@ public class ParsecHostConfig extends Structure {
 	 * C type : char[72]
 	 */
 	public byte[] gameID = new byte[72];
+	/**
+	 * < ASCII null-terminated secret code that can be distributed to guests to allow temporary access. Minimum 8 characters.<br>
+	 * C type : char[32]
+	 */
+	public byte[] secret = new byte[32];
 	/** < Set to `true` to allow the hosting session to be visible publicly in the Parsec Arcade. ::HOST_GAME only. */
-	public byte publicGame = 0;
+	public byte publicGame;
 	/** C type : uint8_t[3] */
 	public byte[] __pad = new byte[3];
 	public ParsecHostConfig() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("resolutionX", "resolutionY", "refreshRate", "adminMute", "exclusiveInput", "encoderFPS", "encoderMaxBitrate", "encoderH265", "maxGuests", "name", "desc", "gameID", "publicGame", "__pad");
+		return Arrays.asList("resolutionX", "resolutionY", "refreshRate", "adminMute", "exclusiveInput", "encoderFPS", "encoderMaxBitrate", "encoderH265", "maxGuests", "name", "desc", "gameID", "secret", "publicGame", "__pad");
 	}
 	public ParsecHostConfig(Pointer peer) {
 		super(peer);

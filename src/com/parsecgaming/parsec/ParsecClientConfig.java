@@ -15,44 +15,30 @@ public class ParsecClientConfig extends Structure {
 	public int mediaContainer;
 	/** < ::ParsecProtocol value. */
 	public int protocol;
-	/** < See above. */
+	/** < See details. */
 	public int resolutionX;
-	/** < See above. */
+	/** < See details. */
 	public int resolutionY;
-	/** < See above. */
+	/** < See details. */
 	public int refreshRate;
+	/**
+	 * < ASCII null-terminated secret code that may be used to gain temporary access to a host.<br>
+	 * C type : char[32]
+	 */
+	public byte[] secret = new byte[32];
 	/** < `true` to return compressed PNG cursor images during ::ParsecClientPollEvents, `false` to return a 32-bit RGBA image. */
 	public byte pngCursor;
-	/** C type : uint8_t[3] */
-	public byte[] __pad = new byte[3];
+	/** < `true` to set the decoder to compatibility mode. This should be tried if having playback issues, especially on NVIDIA devices. */
+	public byte decoderCompatibility;
+	/** < `true` to allow H.265 codec. This must be enabled on both the client and host. */
+	public byte decoderH265;
+	/** C type : uint8_t[1] */
+	public byte[] __pad = new byte[1];
 	public ParsecClientConfig() {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("decoderSoftware", "mediaContainer", "protocol", "resolutionX", "resolutionY", "refreshRate", "pngCursor", "__pad");
-	}
-	/**
-	 * @param decoderSoftware < `true` to force decoding of video frames via a software implementation.<br>
-	 * @param mediaContainer < ::ParsecContainer value.<br>
-	 * @param protocol < ::ParsecProtocol value.<br>
-	 * @param resolutionX < See above.<br>
-	 * @param resolutionY < See above.<br>
-	 * @param refreshRate < See above.<br>
-	 * @param pngCursor < `true` to return compressed PNG cursor images during ::ParsecClientPollEvents, `false` to return a 32-bit RGBA image.<br>
-	 * @param __pad C type : uint8_t[3]
-	 */
-	public ParsecClientConfig(int decoderSoftware, int mediaContainer, int protocol, int resolutionX, int resolutionY, int refreshRate, byte pngCursor, byte __pad[]) {
-		super();
-		this.decoderSoftware = decoderSoftware;
-		this.mediaContainer = mediaContainer;
-		this.protocol = protocol;
-		this.resolutionX = resolutionX;
-		this.resolutionY = resolutionY;
-		this.refreshRate = refreshRate;
-		this.pngCursor = pngCursor;
-		if ((__pad.length != this.__pad.length)) 
-			throw new IllegalArgumentException("Wrong array size !");
-		this.__pad = __pad;
+		return Arrays.asList("decoderSoftware", "mediaContainer", "protocol", "resolutionX", "resolutionY", "refreshRate", "secret", "pngCursor", "decoderCompatibility", "decoderH265", "__pad");
 	}
 	public ParsecClientConfig(Pointer peer) {
 		super(peer);

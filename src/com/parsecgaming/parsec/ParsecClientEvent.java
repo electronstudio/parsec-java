@@ -11,13 +11,14 @@ import java.util.List;
  */
 public class ParsecClientEvent extends Structure {
 	/**
+	 * @see ParsecLibrary.ParsecClientEventType
 	 * < Client event type.<br>
 	 * C type : ParsecClientEventType
 	 */
 	public int type;
 	/** C type : field1_union */
 	public field1_union field1;
-	/** <i>native declaration : line 755</i> */
+	/** <i>native declaration : line 794</i> */
 	public static class field1_union extends Union {
 		/**
 		 * < Cursor mode/image update event.<br>

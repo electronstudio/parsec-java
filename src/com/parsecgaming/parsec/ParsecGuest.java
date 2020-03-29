@@ -20,6 +20,7 @@ public class ParsecGuest extends Structure {
 	 */
 	public ParsecMetrics metrics;
 	/**
+	 * @see ParsecLibrary.ParsecGuestState
 	 * < Guest connection lifecycle states.<br>
 	 * C type : ParsecGuestState
 	 */
@@ -30,14 +31,9 @@ public class ParsecGuest extends Structure {
 	public int userID;
 	/**
 	 * < UTF-8 null-terminated name guest name string.<br>
-	 * C type : char[320]
+	 * C type : char[32]
 	 */
-	public byte[] name = new byte[320];
-	/**
-	 * < Unique connection ID valid while `state` is ::GUEST_WAITING, otherwise filled with zeroes. ::HOST_DESKTOP only.<br>
-	 * C type : char[56]
-	 */
-	public byte[] attemptID = new byte[56];
+	public byte[] name = new byte[32];
 	/** < The guest is also the owner of the host computer. ::HOST_DESKTOP only. */
 	public byte owner;
 	/** C type : uint8_t[3] */
@@ -46,7 +42,7 @@ public class ParsecGuest extends Structure {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("perms", "metrics", "state", "id", "userID", "name", "attemptID", "owner", "__pad");
+		return Arrays.asList("perms", "metrics", "state", "id", "userID", "name", "owner", "__pad");
 	}
 	/**
 	 * @param perms < Guest input permissions. ::HOST_DESKTOP only.<br>
@@ -59,13 +55,11 @@ public class ParsecGuest extends Structure {
 	 * @param id < Guest ID passed to various host functions.<br>
 	 * @param userID < Parsec unique user ID.<br>
 	 * @param name < UTF-8 null-terminated name guest name string.<br>
-	 * C type : char[320]<br>
-	 * @param attemptID < Unique connection ID valid while `state` is ::GUEST_WAITING, otherwise filled with zeroes. ::HOST_DESKTOP only.<br>
-	 * C type : char[56]<br>
+	 * C type : char[32]<br>
 	 * @param owner < The guest is also the owner of the host computer. ::HOST_DESKTOP only.<br>
 	 * @param __pad C type : uint8_t[3]
 	 */
-	public ParsecGuest(ParsecPermissions perms, ParsecMetrics metrics, int state, int id, int userID, byte name[], byte attemptID[], byte owner, byte __pad[]) {
+	public ParsecGuest(ParsecPermissions perms, ParsecMetrics metrics, int state, int id, int userID, byte name[], byte owner, byte __pad[]) {
 		super();
 		this.perms = perms;
 		this.metrics = metrics;
@@ -75,9 +69,6 @@ public class ParsecGuest extends Structure {
 		if ((name.length != this.name.length)) 
 			throw new IllegalArgumentException("Wrong array size !");
 		this.name = name;
-		if ((attemptID.length != this.attemptID.length)) 
-			throw new IllegalArgumentException("Wrong array size !");
-		this.attemptID = attemptID;
 		this.owner = owner;
 		if ((__pad.length != this.__pad.length)) 
 			throw new IllegalArgumentException("Wrong array size !");

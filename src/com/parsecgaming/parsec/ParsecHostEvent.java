@@ -11,13 +11,14 @@ import java.util.List;
  */
 public class ParsecHostEvent extends Structure {
 	/**
+	 * @see ParsecLibrary.ParsecHostEventType
 	 * < Host event type.<br>
 	 * C type : ParsecHostEventType
 	 */
 	public int type;
 	/** C type : field1_union */
 	public field1_union field1;
-	/** <i>native declaration : line 811</i> */
+	/** <i>native declaration : line 851</i> */
 	public static class field1_union extends Union {
 		/**
 		 * < Guest connection state change event.<br>

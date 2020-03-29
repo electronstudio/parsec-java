@@ -14,11 +14,6 @@ public class ParsecClientStatus extends Structure {
 	 * C type : ParsecMetrics
 	 */
 	public ParsecMetrics metrics;
-	/**
-	 * < Most recent connection `attemptID`. Valid even if ::ParsecClientConnect does not return ::PARSEC_OK.<br>
-	 * C type : char[56]
-	 */
-	public byte[] attemptID = new byte[56];
 	/** < Client is currently experiencing network failure. */
 	public byte networkFailure;
 	/** < `true` if the client had to fallback to software decoding after being unable to internally initialize a hardware accelerated decoder. */
@@ -29,23 +24,18 @@ public class ParsecClientStatus extends Structure {
 		super();
 	}
 	protected List<String> getFieldOrder() {
-		return Arrays.asList("metrics", "attemptID", "networkFailure", "decoderFallback", "__pad");
+		return Arrays.asList("metrics", "networkFailure", "decoderFallback", "__pad");
 	}
 	/**
 	 * @param metrics < Latency performance metrics.<br>
 	 * C type : ParsecMetrics<br>
-	 * @param attemptID < Most recent connection `attemptID`. Valid even if ::ParsecClientConnect does not return ::PARSEC_OK.<br>
-	 * C type : char[56]<br>
 	 * @param networkFailure < Client is currently experiencing network failure.<br>
 	 * @param decoderFallback < `true` if the client had to fallback to software decoding after being unable to internally initialize a hardware accelerated decoder.<br>
 	 * @param __pad C type : uint8_t[1]
 	 */
-	public ParsecClientStatus(ParsecMetrics metrics, byte attemptID[], byte networkFailure, byte decoderFallback, byte __pad[]) {
+	public ParsecClientStatus(ParsecMetrics metrics, byte networkFailure, byte decoderFallback, byte __pad[]) {
 		super();
 		this.metrics = metrics;
-		if ((attemptID.length != this.attemptID.length)) 
-			throw new IllegalArgumentException("Wrong array size !");
-		this.attemptID = attemptID;
 		this.networkFailure = networkFailure;
 		this.decoderFallback = decoderFallback;
 		if ((__pad.length != this.__pad.length)) 

@@ -10,11 +10,13 @@ import java.util.List;
  */
 public class ParsecKeyboardMessage extends Structure {
 	/**
+	 * @see ParsecLibrary.ParsecKeycode
 	 * < Keyboard input.<br>
 	 * C type : ParsecKeycode
 	 */
 	public int code;
 	/**
+	 * @see ParsecLibrary.ParsecKeymod
 	 * < Stateful modifier keys applied to keyboard input.<br>
 	 * C type : ParsecKeymod
 	 */

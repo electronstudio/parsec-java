@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class ParsecMouseButtonMessage extends Structure {
 	/**
+	 * @see ParsecLibrary.ParsecMouseButton
 	 * < Mouse button.<br>
 	 * C type : ParsecMouseButton
 	 */

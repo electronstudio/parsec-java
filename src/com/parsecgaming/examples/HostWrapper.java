@@ -56,27 +56,27 @@ class HostListener implements ParsecHostListener {
     }
 
     @Override
-    public void guestConnected(int id, @NotNull String name, @NotNull byte[] attemptID) {
+    public void guestConnected(int id, @NotNull String name) {
         System.out.println(name + "#" + id + " connected.");
     }
 
     @Override
-    public void guestDisconnected(int id, @NotNull String name, @NotNull byte[] attemptID) {
+    public void guestDisconnected(int id, @NotNull String name) {
         System.out.println(name + "#" + id + " disconnected.");
     }
 
     @Override
-    public void guestConnecting(int id, @NotNull String name, @NotNull byte[] attemptID) {
+    public void guestConnecting(int id, @NotNull String name) {
 
     }
 
     @Override
-    public void guestFailed(int id, @NotNull String name, @NotNull byte[] attemptID) {
+    public void guestFailed(int id, @NotNull String name) {
 
     }
 
     @Override
-    public void guestWaiting(int id, @NotNull String name, @NotNull byte[] attemptID) {
+    public void guestWaiting(int id, @NotNull String name) {
 
     }
 }

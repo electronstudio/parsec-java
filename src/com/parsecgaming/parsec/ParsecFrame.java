@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class ParsecFrame extends Structure {
 	/**
+	 * @see ParsecLibrary.ParsecColorFormat
 	 * < Color format.<br>
 	 * C type : ParsecColorFormat
 	 */

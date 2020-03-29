@@ -11,13 +11,14 @@ import java.util.List;
  */
 public class ParsecMessage extends Structure {
 	/**
+	 * @see ParsecLibrary.ParsecMessageType
 	 * < Input message type.<br>
 	 * C type : ParsecMessageType
 	 */
 	public int type;
 	/** C type : field1_union */
 	public field1_union field1;
-	/** <i>native declaration : line 690</i> */
+	/** <i>native declaration : line 726</i> */
 	public static class field1_union extends Union {
 		/**
 		 * < Keyboard message.<br>
@@ -54,6 +55,11 @@ public class ParsecMessage extends Structure {
 		 * C type : ParsecGamepadUnplugMessage
 		 */
 		public ParsecGamepadUnplugMessage gamepadUnplug;
+		/**
+		 * < Gamepad state message.<br>
+		 * C type : ParsecGamepadStateMessage
+		 */
+		public ParsecGamepadStateMessage gamepadState;
 		public field1_union() {
 			super();
 		}
@@ -119,6 +125,15 @@ public class ParsecMessage extends Structure {
 			super();
 			this.gamepadUnplug = gamepadUnplug;
 			setType(ParsecGamepadUnplugMessage.class);
+		}
+		/**
+		 * @param gamepadState < Gamepad state message.<br>
+		 * C type : ParsecGamepadStateMessage
+		 */
+		public field1_union(ParsecGamepadStateMessage gamepadState) {
+			super();
+			this.gamepadState = gamepadState;
+			setType(ParsecGamepadStateMessage.class);
 		}
 		public field1_union(Pointer peer) {
 			super(peer);

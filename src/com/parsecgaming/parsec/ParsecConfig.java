@@ -10,11 +10,11 @@ import java.util.List;
  */
 public class ParsecConfig extends Structure {
 	/** < `1` enables and maintains UPnP to assist NAT traversal, `0` disables it. */
-	public int upnp = 1;
+	public int upnp;
 	/** < First port tried for client connections. A value of `0` uses a pseudo random default. */
-	public int clientPort = 0;
+	public int clientPort;
 	/** < First port used to accept host connections. A value of `0` uses a pseudo random default. */
-	public int hostPort = 0;
+	public int hostPort;
 	public ParsecConfig() {
 		super();
 	}

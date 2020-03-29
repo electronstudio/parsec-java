@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class ParsecGamepadButtonMessage extends Structure {
 	/**
+	 * @see ParsecLibrary.ParsecGamepadButton
 	 * < Gamepad button.<br>
 	 * C type : ParsecGamepadButton
 	 */
