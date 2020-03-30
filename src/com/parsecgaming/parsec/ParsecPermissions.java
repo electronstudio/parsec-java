@@ -9,11 +9,11 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecPermissions extends Structure {
-	/** < The guest can send gamepad input. */
+	/**  The guest can send gamepad input. */
 	public byte gamepad;
-	/** < The guest can send keyboard input. */
+	/**  The guest can send keyboard input. */
 	public byte keyboard;
-	/** < The guest can send mouse button. */
+	/**  The guest can send mouse button. */
 	public byte mouse;
 	/** C type : uint8_t[1] */
 	public byte[] __pad = new byte[1];
@@ -24,10 +24,10 @@ public class ParsecPermissions extends Structure {
 		return Arrays.asList("gamepad", "keyboard", "mouse", "__pad");
 	}
 	/**
-	 * @param gamepad < The guest can send gamepad input.<br>
-	 * @param keyboard < The guest can send keyboard input.<br>
-	 * @param mouse < The guest can send mouse button.<br>
-	 * @param __pad C type : uint8_t[1]
+	 * @param gamepad  The guest can send gamepad input.<br>
+	 * @param keyboard  The guest can send keyboard input.<br>
+	 * @param mouse  The guest can send mouse button.<br>
+	 * @param __pad  type : uint8_t[1]
 	 */
 	public ParsecPermissions(byte gamepad, byte keyboard, byte mouse, byte __pad[]) {
 		super();

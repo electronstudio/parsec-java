@@ -9,11 +9,11 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecClientRumbleEvent extends Structure {
-	/** < Unique client-assigned index identifying the gamepad connected to the client. */
+	/**  Unique client-assigned index identifying the gamepad connected to the client. */
 	public int gamepadID;
-	/** < 8-bit unsigned value for large motor vibration. */
+	/**  8-bit unsigned value for large motor vibration. */
 	public byte motorBig;
-	/** < 8-bit unsigned value for small motor vibration. */
+	/**  8-bit unsigned value for small motor vibration. */
 	public byte motorSmall;
 	/** C type : uint8_t[2] */
 	public byte[] __pad = new byte[2];
@@ -24,9 +24,9 @@ public class ParsecClientRumbleEvent extends Structure {
 		return Arrays.asList("gamepadID", "motorBig", "motorSmall", "__pad");
 	}
 	/**
-	 * @param gamepadID < Unique client-assigned index identifying the gamepad connected to the client.<br>
-	 * @param motorBig < 8-bit unsigned value for large motor vibration.<br>
-	 * @param motorSmall < 8-bit unsigned value for small motor vibration.<br>
+	 * @param gamepadID  Unique client-assigned index identifying the gamepad connected to the client.<br>
+	 * @param motorBig  8-bit unsigned value for large motor vibration.<br>
+	 * @param motorSmall 8-bit unsigned value for small motor vibration.<br>
 	 * @param __pad C type : uint8_t[2]
 	 */
 	public ParsecClientRumbleEvent(int gamepadID, byte motorBig, byte motorSmall, byte __pad[]) {

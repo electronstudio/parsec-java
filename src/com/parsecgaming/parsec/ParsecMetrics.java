@@ -9,11 +9,11 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecMetrics extends Structure {
-	/** < Average time in milliseconds for the host to encode a frame. */
+	/**  Average time in milliseconds for the host to encode a frame. */
 	public float encodeLatency;
-	/** < Average time in milliseconds for the client to decode a frame. */
+	/**  Average time in milliseconds for the client to decode a frame. */
 	public float decodeLatency;
-	/** < Average round trip time between the client and host. */
+	/**  Average round trip time between the client and host. */
 	public float networkLatency;
 	public ParsecMetrics() {
 		super();
@@ -22,9 +22,9 @@ public class ParsecMetrics extends Structure {
 		return Arrays.asList("encodeLatency", "decodeLatency", "networkLatency");
 	}
 	/**
-	 * @param encodeLatency < Average time in milliseconds for the host to encode a frame.<br>
-	 * @param decodeLatency < Average time in milliseconds for the client to decode a frame.<br>
-	 * @param networkLatency < Average round trip time between the client and host.
+	 * @param encodeLatency  Average time in milliseconds for the host to encode a frame.<br>
+	 * @param decodeLatency  Average time in milliseconds for the client to decode a frame.<br>
+	 * @param networkLatency  Average round trip time between the client and host.
 	 */
 	public ParsecMetrics(float encodeLatency, float decodeLatency, float networkLatency) {
 		super();

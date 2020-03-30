@@ -9,7 +9,7 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecGamepadUnplugMessage extends Structure {
-	/** < Unique client-provided index identifying the gamepad. */
+	/**  Unique client-provided index identifying the gamepad. */
 	public int id;
 	public ParsecGamepadUnplugMessage() {
 		super();
@@ -17,7 +17,7 @@ public class ParsecGamepadUnplugMessage extends Structure {
 	protected List<String> getFieldOrder() {
 		return Arrays.asList("id");
 	}
-	/** @param id < Unique client-provided index identifying the gamepad. */
+	/** @param id  Unique client-provided index identifying the gamepad. */
 	public ParsecGamepadUnplugMessage(int id) {
 		super();
 		this.id = id;

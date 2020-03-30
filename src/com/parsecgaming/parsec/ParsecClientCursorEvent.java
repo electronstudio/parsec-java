@@ -10,11 +10,11 @@ import java.util.List;
  */
 public class ParsecClientCursorEvent extends Structure {
 	/**
-	 * < Cursor properties.<br>
+	 * Cursor properties.<br>
 	 * C type : ParsecCursor
 	 */
 	public ParsecCursor cursor;
-	/** < Buffer lookup key passed to ::ParsecGetBuffer to retrieve the cursor image, if available. */
+	/**  Buffer lookup key passed to ::ParsecGetBuffer to retrieve the cursor image, if available. */
 	public int key;
 	public ParsecClientCursorEvent() {
 		super();
@@ -23,9 +23,9 @@ public class ParsecClientCursorEvent extends Structure {
 		return Arrays.asList("cursor", "key");
 	}
 	/**
-	 * @param cursor < Cursor properties.<br>
+	 * @param cursor Cursor properties.<br>
 	 * C type : ParsecCursor<br>
-	 * @param key < Buffer lookup key passed to ::ParsecGetBuffer to retrieve the cursor image, if available.
+	 * @param key Buffer lookup key passed to ::ParsecGetBuffer to retrieve the cursor image, if available.
 	 */
 	public ParsecClientCursorEvent(ParsecCursor cursor, int key) {
 		super();

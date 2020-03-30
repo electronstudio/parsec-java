@@ -11,19 +11,19 @@ import java.util.List;
 public class ParsecFrame extends Structure {
 	/**
 	 * @see ParsecLibrary.ParsecColorFormat
-	 * < Color format.<br>
+	 * Color format.<br>
 	 * C type : ParsecColorFormat
 	 */
 	public int format;
-	/** < Size in bytes of the `image` buffer parameter of ::ParsecFrameCallback. */
+	/**  Size in bytes of the `image` buffer parameter of ::ParsecFrameCallback. */
 	public int size;
-	/** < Width in pixels of the visible area of the frame. */
+	/**  Width in pixels of the visible area of the frame. */
 	public int width;
-	/** < Height in pixels of the visible area of the frame. */
+	/**  Height in pixels of the visible area of the frame. */
 	public int height;
-	/** < Actual width of the frame including padding. */
+	/**  Actual width of the frame including padding. */
 	public int fullWidth;
-	/** < Actual height of the frame including padding. */
+	/**  Actual height of the frame including padding. */
 	public int fullHeight;
 	public ParsecFrame() {
 		super();
@@ -32,14 +32,13 @@ public class ParsecFrame extends Structure {
 		return Arrays.asList("format", "size", "width", "height", "fullWidth", "fullHeight");
 	}
 	/**
-	 * @param format @see ParsecColorFormat<br>
-	 * < Color format.<br>
+	 * @param format Color format.<br> @see ParsecColorFormat<br>
 	 * C type : ParsecColorFormat<br>
-	 * @param size < Size in bytes of the `image` buffer parameter of ::ParsecFrameCallback.<br>
-	 * @param width < Width in pixels of the visible area of the frame.<br>
-	 * @param height < Height in pixels of the visible area of the frame.<br>
-	 * @param fullWidth < Actual width of the frame including padding.<br>
-	 * @param fullHeight < Actual height of the frame including padding.
+	 * @param size  Size in bytes of the `image` buffer parameter of ::ParsecFrameCallback.<br>
+	 * @param width  Width in pixels of the visible area of the frame.<br>
+	 * @param height  Height in pixels of the visible area of the frame.<br>
+	 * @param fullWidth  Actual width of the frame including padding.<br>
+	 * @param fullHeight  Actual height of the frame including padding.
 	 */
 	public ParsecFrame(int format, int size, int width, int height, int fullWidth, int fullHeight) {
 		super();

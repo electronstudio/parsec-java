@@ -11,13 +11,13 @@ import java.util.List;
 public class ParsecGamepadAxisMessage extends Structure {
 	/**
 	 * @see ParsecLibrary.ParsecGamepadAxis
-	 * < Gamepad axes related to thumbsticks and triggers.<br>
+	 * Gamepad axes related to thumbsticks and triggers.<br>
 	 * C type : ParsecGamepadAxis
 	 */
 	public int axis;
-	/** < Unique client-provided index identifying the gamepad. */
+	/**  Unique client-provided index identifying the gamepad. */
 	public int id;
-	/** < The new value of the axis between -32,768 (left/down) and 32,767 (right/up). */
+	/**  The new value of the axis between -32,768 (left/down) and 32,767 (right/up). */
 	public short value;
 	/** C type : uint8_t[2] */
 	public byte[] __pad = new byte[2];
@@ -28,11 +28,10 @@ public class ParsecGamepadAxisMessage extends Structure {
 		return Arrays.asList("axis", "id", "value", "__pad");
 	}
 	/**
-	 * @param axis @see ParsecGamepadAxis<br>
-	 * < Gamepad axes related to thumbsticks and triggers.<br>
-	 * C type : ParsecGamepadAxis<br>
-	 * @param id < Unique client-provided index identifying the gamepad.<br>
-	 * @param value < The new value of the axis between -32,768 (left/down) and 32,767 (right/up).<br>
+	 * @param axis Gamepad axes related to thumbsticks and triggers.<br>
+	 * C type : ParsecGamepadAxis<br> @see ParsecGamepadAxis<br>
+	 * @param id Unique client-provided index identifying the gamepad.<br>
+	 * @param value  The new value of the axis between -32,768 (left/down) and 32,767 (right/up).<br>
 	 * @param __pad C type : uint8_t[2]
 	 */
 	public ParsecGamepadAxisMessage(int axis, int id, short value, byte __pad[]) {

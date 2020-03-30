@@ -10,13 +10,13 @@ import java.util.List;
  */
 public class ParsecUserDataEvent extends Structure {
 	/**
-	 * < Guest ::ParsecGuest properties.<br>
+	 * Guest ::ParsecGuest properties.<br>
 	 * C type : ParsecGuest
 	 */
 	public ParsecGuest guest;
-	/** < User-defined message ID set by the client. */
+	/**  User-defined message ID set by the client. */
 	public int id;
-	/** < Buffer lookup key passed to ::ParsecGetBuffer to retrieve the message. */
+	/**  Buffer lookup key passed to ::ParsecGetBuffer to retrieve the message. */
 	public int key;
 	public ParsecUserDataEvent() {
 		super();
@@ -25,10 +25,10 @@ public class ParsecUserDataEvent extends Structure {
 		return Arrays.asList("guest", "id", "key");
 	}
 	/**
-	 * @param guest < Guest ::ParsecGuest properties.<br>
+	 * @param guest  Guest ::ParsecGuest properties.<br>
 	 * C type : ParsecGuest<br>
-	 * @param id < User-defined message ID set by the client.<br>
-	 * @param key < Buffer lookup key passed to ::ParsecGetBuffer to retrieve the message.
+	 * @param id  User-defined message ID set by the client.<br>
+	 * @param key  Buffer lookup key passed to ::ParsecGetBuffer to retrieve the message.
 	 */
 	public ParsecUserDataEvent(ParsecGuest guest, int id, int key) {
 		super();

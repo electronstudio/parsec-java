@@ -12,7 +12,7 @@ import java.util.List;
 public class ParsecHostEvent extends Structure {
 	/**
 	 * @see ParsecLibrary.ParsecHostEventType
-	 * < Host event type.<br>
+	 * Host event type.<br>
 	 * C type : ParsecHostEventType
 	 */
 	public int type;
@@ -21,12 +21,12 @@ public class ParsecHostEvent extends Structure {
 	/** <i>native declaration : line 851</i> */
 	public static class field1_union extends Union {
 		/**
-		 * < Guest connection state change event.<br>
+		 * Guest connection state change event.<br>
 		 * C type : ParsecGuestStateChangeEvent
 		 */
 		public ParsecGuestStateChangeEvent guestStateChange;
 		/**
-		 * < User-defined guest message event.<br>
+		 * User-defined guest message event.<br>
 		 * C type : ParsecUserDataEvent
 		 */
 		public ParsecUserDataEvent userData;
@@ -34,7 +34,7 @@ public class ParsecHostEvent extends Structure {
 			super();
 		}
 		/**
-		 * @param guestStateChange < Guest connection state change event.<br>
+		 * @param guestStateChange  Guest connection state change event.<br>
 		 * C type : ParsecGuestStateChangeEvent
 		 */
 		public field1_union(ParsecGuestStateChangeEvent guestStateChange) {
@@ -43,7 +43,7 @@ public class ParsecHostEvent extends Structure {
 			setType(ParsecGuestStateChangeEvent.class);
 		}
 		/**
-		 * @param userData < User-defined guest message event.<br>
+		 * @param userData  User-defined guest message event.<br>
 		 * C type : ParsecUserDataEvent
 		 */
 		public field1_union(ParsecUserDataEvent userData) {
@@ -68,9 +68,9 @@ public class ParsecHostEvent extends Structure {
 		return Arrays.asList("type", "field1");
 	}
 	/**
-	 * @param type @see ParsecHostEventType<br>
-	 * < Host event type.<br>
-	 * C type : ParsecHostEventType<br>
+	 * @param type <br>
+	 * Host event type.<br>
+	 * C type : ParsecHostEventType<br> @see ParsecHostEventType
 	 * @param field1 C type : field1_union
 	 */
 	public ParsecHostEvent(int type, field1_union field1) {

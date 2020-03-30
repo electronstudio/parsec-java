@@ -9,28 +9,28 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecClientConfig extends Structure {
-	/** < `true` to force decoding of video frames via a software implementation. */
+	/**  `true` to force decoding of video frames via a software implementation. */
 	public int decoderSoftware;
-	/** < ::ParsecContainer value. */
+	/**  ::ParsecContainer value. */
 	public int mediaContainer;
-	/** < ::ParsecProtocol value. */
+	/**  ::ParsecProtocol value. */
 	public int protocol;
-	/** < See details. */
+	/**  See details. */
 	public int resolutionX;
-	/** < See details. */
+	/**  See details. */
 	public int resolutionY;
-	/** < See details. */
+	/**  See details. */
 	public int refreshRate;
 	/**
-	 * < ASCII null-terminated secret code that may be used to gain temporary access to a host.<br>
+	 * SCII null-terminated secret code that may be used to gain temporary access to a host.<br>
 	 * C type : char[32]
 	 */
 	public byte[] secret = new byte[32];
-	/** < `true` to return compressed PNG cursor images during ::ParsecClientPollEvents, `false` to return a 32-bit RGBA image. */
+	/**  `true` to return compressed PNG cursor images during ::ParsecClientPollEvents, `false` to return a 32-bit RGBA image. */
 	public byte pngCursor;
-	/** < `true` to set the decoder to compatibility mode. This should be tried if having playback issues, especially on NVIDIA devices. */
+	/**  `true` to set the decoder to compatibility mode. This should be tried if having playback issues, especially on NVIDIA devices. */
 	public byte decoderCompatibility;
-	/** < `true` to allow H.265 codec. This must be enabled on both the client and host. */
+	/**  `true` to allow H.265 codec. This must be enabled on both the client and host. */
 	public byte decoderH265;
 	/** C type : uint8_t[1] */
 	public byte[] __pad = new byte[1];

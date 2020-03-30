@@ -9,21 +9,21 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecGamepadStateMessage extends Structure {
-	/** < Unique client-provided index identifying the gamepad. */
+	/**  Unique client-provided index identifying the gamepad. */
 	public int id;
-	/** < Bitwise OR of ::ParsecGamepadState values representing buttons pressed. */
+	/**  Bitwise OR of ::ParsecGamepadState values representing buttons pressed. */
 	public short buttons;
-	/** < The left thumbstick X axis value between -32768 and 32767. */
+	/**  The left thumbstick X axis value between -32768 and 32767. */
 	public short thumbLX;
-	/** < The left thumbstick Y axis value between -32768 and 32767. */
+	/**  The left thumbstick Y axis value between -32768 and 32767. */
 	public short thumbLY;
-	/** < The right thumbstick X axis value between -32768 and 32767. */
+	/**  The right thumbstick X axis value between -32768 and 32767. */
 	public short thumbRX;
-	/** < The right thumbstick Y axis value between -32768 and 32767. */
+	/**  The right thumbstick Y axis value between -32768 and 32767. */
 	public short thumbRY;
-	/** < Value of the left trigger between 0 and 255. */
+	/**  Value of the left trigger between 0 and 255. */
 	public byte leftTrigger;
-	/** < Value of the right trigger between 0 and 255. */
+	/**  Value of the right trigger between 0 and 255. */
 	public byte rightTrigger;
 	public ParsecGamepadStateMessage() {
 		super();
@@ -32,14 +32,14 @@ public class ParsecGamepadStateMessage extends Structure {
 		return Arrays.asList("id", "buttons", "thumbLX", "thumbLY", "thumbRX", "thumbRY", "leftTrigger", "rightTrigger");
 	}
 	/**
-	 * @param id < Unique client-provided index identifying the gamepad.<br>
-	 * @param buttons < Bitwise OR of ::ParsecGamepadState values representing buttons pressed.<br>
-	 * @param thumbLX < The left thumbstick X axis value between -32768 and 32767.<br>
-	 * @param thumbLY < The left thumbstick Y axis value between -32768 and 32767.<br>
-	 * @param thumbRX < The right thumbstick X axis value between -32768 and 32767.<br>
-	 * @param thumbRY < The right thumbstick Y axis value between -32768 and 32767.<br>
-	 * @param leftTrigger < Value of the left trigger between 0 and 255.<br>
-	 * @param rightTrigger < Value of the right trigger between 0 and 255.
+	 * @param id  Unique client-provided index identifying the gamepad.<br>
+	 * @param buttons  Bitwise OR of ::ParsecGamepadState values representing buttons pressed.<br>
+	 * @param thumbLX  The left thumbstick X axis value between -32768 and 32767.<br>
+	 * @param thumbLY  The left thumbstick Y axis value between -32768 and 32767.<br>
+	 * @param thumbRX  The right thumbstick X axis value between -32768 and 32767.<br>
+	 * @param thumbRY  The right thumbstick Y axis value between -32768 and 32767.<br>
+	 * @param leftTrigger  Value of the left trigger between 0 and 255.<br>
+	 * @param rightTrigger  Value of the right trigger between 0 and 255.
 	 */
 	public ParsecGamepadStateMessage(int id, short buttons, short thumbLX, short thumbLY, short thumbRX, short thumbRY, byte leftTrigger, byte rightTrigger) {
 		super();

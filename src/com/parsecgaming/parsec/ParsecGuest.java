@@ -10,31 +10,31 @@ import java.util.List;
  */
 public class ParsecGuest extends Structure {
 	/**
-	 * < Guest input permissions. ::HOST_DESKTOP only.<br>
+	 * Guest input permissions. ::HOST_DESKTOP only.<br>
 	 * C type : ParsecPermissions
 	 */
 	public ParsecPermissions perms;
 	/**
-	 * < Latency performance metrics, only valid in state ::GUEST_CONNECTED.<br>
+	 * Latency performance metrics, only valid in state ::GUEST_CONNECTED.<br>
 	 * C type : ParsecMetrics
 	 */
 	public ParsecMetrics metrics;
 	/**
 	 * @see ParsecLibrary.ParsecGuestState
-	 * < Guest connection lifecycle states.<br>
+	 * Guest connection lifecycle states.<br>
 	 * C type : ParsecGuestState
 	 */
 	public int state;
-	/** < Guest ID passed to various host functions. */
+	/**  Guest ID passed to various host functions. */
 	public int id;
-	/** < Parsec unique user ID. */
+	/**  Parsec unique user ID. */
 	public int userID;
 	/**
-	 * < UTF-8 null-terminated name guest name string.<br>
+	 * UTF-8 null-terminated name guest name string.<br>
 	 * C type : char[32]
 	 */
 	public byte[] name = new byte[32];
-	/** < The guest is also the owner of the host computer. ::HOST_DESKTOP only. */
+	/**  The guest is also the owner of the host computer. ::HOST_DESKTOP only. */
 	public byte owner;
 	/** C type : uint8_t[3] */
 	public byte[] __pad = new byte[3];
@@ -45,18 +45,17 @@ public class ParsecGuest extends Structure {
 		return Arrays.asList("perms", "metrics", "state", "id", "userID", "name", "owner", "__pad");
 	}
 	/**
-	 * @param perms < Guest input permissions. ::HOST_DESKTOP only.<br>
+	 * @param perms  Guest input permissions. ::HOST_DESKTOP only.<br>
 	 * C type : ParsecPermissions<br>
-	 * @param metrics < Latency performance metrics, only valid in state ::GUEST_CONNECTED.<br>
+	 * @param metrics  Latency performance metrics, only valid in state ::GUEST_CONNECTED.<br>
 	 * C type : ParsecMetrics<br>
-	 * @param state @see ParsecGuestState<br>
-	 * < Guest connection lifecycle states.<br>
-	 * C type : ParsecGuestState<br>
-	 * @param id < Guest ID passed to various host functions.<br>
-	 * @param userID < Parsec unique user ID.<br>
-	 * @param name < UTF-8 null-terminated name guest name string.<br>
+	 * @param state Guest connection lifecycle states.<br>
+	 * C type : ParsecGuestState<br> @see ParsecGuestState<br>
+	 * @param id  Guest ID passed to various host functions.<br>
+	 * @param userID  Parsec unique user ID.<br>
+	 * @param name  UTF-8 null-terminated name guest name string.<br>
 	 * C type : char[32]<br>
-	 * @param owner < The guest is also the owner of the host computer. ::HOST_DESKTOP only.<br>
+	 * @param owner  The guest is also the owner of the host computer. ::HOST_DESKTOP only.<br>
 	 * @param __pad C type : uint8_t[3]
 	 */
 	public ParsecGuest(ParsecPermissions perms, ParsecMetrics metrics, int state, int id, int userID, byte name[], byte owner, byte __pad[]) {

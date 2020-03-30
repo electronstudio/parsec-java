@@ -11,13 +11,13 @@ import java.util.List;
 public class ParsecGamepadButtonMessage extends Structure {
 	/**
 	 * @see ParsecLibrary.ParsecGamepadButton
-	 * < Gamepad button.<br>
+	 * Gamepad button.<br>
 	 * C type : ParsecGamepadButton
 	 */
 	public int button;
-	/** < Unique client-provided index identifying the gamepad. */
+	/**  Unique client-provided index identifying the gamepad. */
 	public int id;
-	/** < `true` if the button was pressed, `false` if released. */
+	/**  `true` if the button was pressed, `false` if released. */
 	public byte pressed;
 	/** C type : uint8_t[3] */
 	public byte[] __pad = new byte[3];
@@ -28,11 +28,10 @@ public class ParsecGamepadButtonMessage extends Structure {
 		return Arrays.asList("button", "id", "pressed", "__pad");
 	}
 	/**
-	 * @param button @see ParsecGamepadButton<br>
-	 * < Gamepad button.<br>
+	 * @param button Gamepad button.<br> @see ParsecGamepadButton<br>
 	 * C type : ParsecGamepadButton<br>
-	 * @param id < Unique client-provided index identifying the gamepad.<br>
-	 * @param pressed < `true` if the button was pressed, `false` if released.<br>
+	 * @param id  Unique client-provided index identifying the gamepad.<br>
+	 * @param pressed  `true` if the button was pressed, `false` if released.<br>
 	 * @param __pad C type : uint8_t[3]
 	 */
 	public ParsecGamepadButtonMessage(int button, int id, byte pressed, byte __pad[]) {

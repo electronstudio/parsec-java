@@ -9,25 +9,25 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecCursor extends Structure {
-	/** < Size in bytes of the cursor image buffer. */
+	/**  Size in bytes of the cursor image buffer. */
 	public int size;
-	/** < When leaving relative mode, the horizontal position in screen coordinates where the cursor reappears. */
+	/**  When leaving relative mode, the horizontal position in screen coordinates where the cursor reappears. */
 	public int positionX;
-	/** < When leaving relative mode, the vertical position in screen coordinates where the cursor reappears. */
+	/**  When leaving relative mode, the vertical position in screen coordinates where the cursor reappears. */
 	public int positionY;
-	/** < Width of the cursor image in pixels. */
+	/**  Width of the cursor image in pixels. */
 	public short width;
-	/** < Height of the cursor position in pixels. */
+	/**  Height of the cursor position in pixels. */
 	public short height;
-	/** < Horizontal pixel position of the cursor hotspot within the image. */
+	/**  Horizontal pixel position of the cursor hotspot within the image. */
 	public short hotX;
-	/** < Vertical pixel position of the cursor hotspot within the image. */
+	/**  Vertical pixel position of the cursor hotspot within the image. */
 	public short hotY;
-	/** < `true` if the cursor mode should be updated. The `relative`, `positionX`, and `positionY` members are valid. */
+	/**  `true` if the cursor mode should be updated. The `relative`, `positionX`, and `positionY` members are valid. */
 	public byte modeUpdate;
-	/** < `true` if the cursor image should be updated. The `width`, `height`, `hotX`, `hotY`, and `size` members are valid. */
+	/**  `true` if the cursor image should be updated. The `width`, `height`, `hotX`, `hotY`, and `size` members are valid. */
 	public byte imageUpdate;
-	/** < `true` if in relative mode, meaning the client should submit mouse motion in relative distances rather than absolute screen coordinates. */
+	/**  `true` if in relative mode, meaning the client should submit mouse motion in relative distances rather than absolute screen coordinates. */
 	public byte relative;
 	/** C type : uint8_t[1] */
 	public byte[] __pad = new byte[1];

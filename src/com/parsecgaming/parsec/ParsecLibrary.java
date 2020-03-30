@@ -24,677 +24,677 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecStatus {
 		/**
-		 * < 0<br>
+		 * 0<br>
 		 * <i>native declaration : line 87</i>
 		 */
 		public static final int PARSEC_OK = 0;
 		/**
-		 * < 4<br>
+		 * 4<br>
 		 * <i>native declaration : line 89</i>
 		 */
 		public static final int HOST_WRN_SHUTDOWN = 4;
 		/**
-		 * < 5<br>
+		 * 5<br>
 		 * <i>native declaration : line 90</i>
 		 */
 		public static final int HOST_WRN_KICKED = 5;
 		/**
-		 * < 6<br>
+		 * 6<br>
 		 * <i>native declaration : line 92</i>
 		 */
 		public static final int CONNECT_WRN_APPROVAL = 6;
 		/**
-		 * < 8<br>
+		 * 8<br>
 		 * <i>native declaration : line 93</i>
 		 */
 		public static final int CONNECT_WRN_DECLINED = 8;
 		/**
-		 * < 9<br>
+		 * 9<br>
 		 * <i>native declaration : line 94</i>
 		 */
 		public static final int CONNECT_WRN_CANCELED = 9;
 		/**
-		 * < 11<br>
+		 * 11<br>
 		 * <i>native declaration : line 95</i>
 		 */
 		public static final int CONNECT_WRN_NO_ROOM = 11;
 		/**
-		 * < 99<br>
+		 * 99<br>
 		 * <i>native declaration : line 96</i>
 		 */
 		public static final int CONNECT_WRN_PEER_GONE = 99;
 		/**
-		 * < 100<br>
+		 * 100<br>
 		 * <i>native declaration : line 97</i>
 		 */
 		public static final int CONNECT_WRN_UNCONFIRMED = 100;
 		/**
-		 * < 10<br>
+		 * 10<br>
 		 * <i>native declaration : line 99</i>
 		 */
 		public static final int WRN_CONTINUE = 10;
 		/**
-		 * < 20<br>
+		 * 20<br>
 		 * <i>native declaration : line 100</i>
 		 */
 		public static final int PARSEC_CONNECTING = 20;
 		/**
-		 * < 1000<br>
+		 * 1000<br>
 		 * <i>native declaration : line 102</i>
 		 */
 		public static final int DECODE_WRN_CONTINUE = 1000;
 		/**
-		 * < 1001<br>
+		 * 1001<br>
 		 * <i>native declaration : line 103</i>
 		 */
 		public static final int DECODE_WRN_ACCEPTED = 1001;
 		/**
-		 * < 1003<br>
+		 * 1003<br>
 		 * <i>native declaration : line 104</i>
 		 */
 		public static final int DECODE_WRN_REINIT = 1003;
 		/**
-		 * < 2000<br>
+		 * 2000<br>
 		 * <i>native declaration : line 106</i>
 		 */
 		public static final int NETWORK_WRN_TIMEOUT = 2000;
 		/**
-		 * < 6000<br>
+		 * 6000<br>
 		 * <i>native declaration : line 108</i>
 		 */
 		public static final int AUDIO_WRN_NO_DATA = 6000;
 		/**
-		 * < -1<br>
+		 * -1<br>
 		 * <i>native declaration : line 110</i>
 		 */
 		public static final int ERR_DEFAULT = -1;
 		/**
-		 * < -3<br>
+		 * -3<br>
 		 * <i>native declaration : line 112</i>
 		 */
 		public static final int PARSEC_NOT_RUNNING = -3;
 		/**
-		 * < -4<br>
+		 * -4<br>
 		 * <i>native declaration : line 113</i>
 		 */
 		public static final int PARSEC_ALREADY_RUNNING = -4;
 		/**
-		 * < -5<br>
+		 * -5<br>
 		 * <i>native declaration : line 114</i>
 		 */
 		public static final int PARSEC_NOT_IMPLEMENTED = -5;
 		/**
-		 * < -6<br>
+		 * -6<br>
 		 * <i>native declaration : line 115</i>
 		 */
 		public static final int PARSEC_ERR_PRE_RENDER = -6;
 		/**
-		 * < -10<br>
+		 * -10<br>
 		 * <i>native declaration : line 117</i>
 		 */
 		public static final int DECODE_ERR_INIT = -10;
 		/**
-		 * < -11<br>
+		 * -11<br>
 		 * <i>native declaration : line 118</i>
 		 */
 		public static final int DECODE_ERR_LOAD = -11;
 		/**
-		 * < -13<br>
+		 * -13<br>
 		 * <i>native declaration : line 119</i>
 		 */
 		public static final int DECODE_ERR_MAP = -13;
 		/**
-		 * < -14<br>
+		 * -14<br>
 		 * <i>native declaration : line 120</i>
 		 */
 		public static final int DECODE_ERR_DECODE = -14;
 		/**
-		 * < -15<br>
+		 * -15<br>
 		 * <i>native declaration : line 121</i>
 		 */
 		public static final int DECODE_ERR_CLEANUP = -15;
 		/**
-		 * < -16<br>
+		 * -16<br>
 		 * <i>native declaration : line 122</i>
 		 */
 		public static final int DECODE_ERR_PARSE = -16;
 		/**
-		 * < -17<br>
+		 * -17<br>
 		 * <i>native declaration : line 123</i>
 		 */
 		public static final int DECODE_ERR_NO_SUPPORT = -17;
 		/**
-		 * < -18<br>
+		 * -18<br>
 		 * <i>native declaration : line 124</i>
 		 */
 		public static final int DECODE_ERR_PIXEL_FORMAT = -18;
 		/**
-		 * < -19<br>
+		 * -19<br>
 		 * <i>native declaration : line 125</i>
 		 */
 		public static final int DECODE_ERR_BUFFER = -19;
 		/**
-		 * < -20<br>
+		 * -20<br>
 		 * <i>native declaration : line 126</i>
 		 */
 		public static final int DECODE_ERR_RESOLUTION = -20;
 		/**
-		 * < -6101<br>
+		 * -6101<br>
 		 * <i>native declaration : line 128</i>
 		 */
 		public static final int WS_ERR_CONNECT = -6101;
 		/**
-		 * < -3001<br>
+		 * -3001<br>
 		 * <i>native declaration : line 129</i>
 		 */
 		public static final int WS_ERR_POLL = -3001;
 		/**
-		 * < -3002<br>
+		 * -3002<br>
 		 * <i>native declaration : line 130</i>
 		 */
 		public static final int WS_ERR_READ = -3002;
 		/**
-		 * < -3003<br>
+		 * -3003<br>
 		 * <i>native declaration : line 131</i>
 		 */
 		public static final int WS_ERR_WRITE = -3003;
 		/**
-		 * < -6105<br>
+		 * -6105<br>
 		 * <i>native declaration : line 132</i>
 		 */
 		public static final int WS_ERR_CLOSE = -6105;
 		/**
-		 * < -3005<br>
+		 * -3005<br>
 		 * <i>native declaration : line 133</i>
 		 */
 		public static final int WS_ERR_PING = -3005;
 		/**
-		 * < -3006<br>
+		 * -3006<br>
 		 * <i>native declaration : line 134</i>
 		 */
 		public static final int WS_ERR_PONG_TIMEOUT = -3006;
 		/**
-		 * < -3007<br>
+		 * -3007<br>
 		 * <i>native declaration : line 135</i>
 		 */
 		public static final int WS_ERR_PONG = -3007;
 		/**
-		 * < -3008<br>
+		 * -3008<br>
 		 * <i>native declaration : line 136</i>
 		 */
 		public static final int WS_ERR_AUTH = -3008;
 		/**
-		 * < -3009<br>
+		 * -3009<br>
 		 * <i>native declaration : line 137</i>
 		 */
 		public static final int WS_ERR_GOING_AWAY = -3009;
 		/**
-		 * < -6023<br>
+		 * -6023<br>
 		 * <i>native declaration : line 139</i>
 		 */
 		public static final int NAT_ERR_PEER_PHASE = -6023;
 		/**
-		 * < -6024<br>
+		 * -6024<br>
 		 * <i>native declaration : line 140</i>
 		 */
 		public static final int NAT_ERR_STUN_PHASE = -6024;
 		/**
-		 * < -6033<br>
+		 * -6033<br>
 		 * <i>native declaration : line 141</i>
 		 */
 		public static final int NAT_ERR_NO_CANDIDATES = -6033;
 		/**
-		 * < -6111<br>
+		 * -6111<br>
 		 * <i>native declaration : line 142</i>
 		 */
 		public static final int NAT_ERR_JSON_ACTION = -6111;
 		/**
-		 * < -6112<br>
+		 * -6112<br>
 		 * <i>native declaration : line 143</i>
 		 */
 		public static final int NAT_ERR_NO_SOCKET = -6112;
 		/**
-		 * < -6200<br>
+		 * -6200<br>
 		 * <i>native declaration : line 144</i>
 		 */
 		public static final int NAT_ERR_WEBRTC = -6200;
 		/**
-		 * < -7000<br>
+		 * -7000<br>
 		 * <i>native declaration : line 146</i>
 		 */
 		public static final int OPENGL_ERR_CONTEXT = -7000;
 		/**
-		 * < -7001<br>
+		 * -7001<br>
 		 * <i>native declaration : line 147</i>
 		 */
 		public static final int OPENGL_ERR_SHARE = -7001;
 		/**
-		 * < -7002<br>
+		 * -7002<br>
 		 * <i>native declaration : line 148</i>
 		 */
 		public static final int OPENGL_ERR_PIXFORMAT = -7002;
 		/**
-		 * < -7003<br>
+		 * -7003<br>
 		 * <i>native declaration : line 149</i>
 		 */
 		public static final int OPENGL_ERR_CURRENT = -7003;
 		/**
-		 * < -7004<br>
+		 * -7004<br>
 		 * <i>native declaration : line 150</i>
 		 */
 		public static final int OPENGL_ERR_DC = -7004;
 		/**
-		 * < -7005<br>
+		 * -7005<br>
 		 * <i>native declaration : line 151</i>
 		 */
 		public static final int OPENGL_ERR_SHADER = -7005;
 		/**
-		 * < -7006<br>
+		 * -7006<br>
 		 * <i>native declaration : line 152</i>
 		 */
 		public static final int OPENGL_ERR_PROGRAM = -7006;
 		/**
-		 * < -7007<br>
+		 * -7007<br>
 		 * <i>native declaration : line 153</i>
 		 */
 		public static final int OPENGL_ERR_VERSION = -7007;
 		/**
-		 * < -7008<br>
+		 * -7008<br>
 		 * <i>native declaration : line 154</i>
 		 */
 		public static final int OPENGL_ERR_TEXTURE = -7008;
 		/**
-		 * < -9000<br>
+		 * -9000<br>
 		 * <i>native declaration : line 156</i>
 		 */
 		public static final int AUDIO_ERR_CAPTURE_INIT = -9000;
 		/**
-		 * < -9001<br>
+		 * -9001<br>
 		 * <i>native declaration : line 157</i>
 		 */
 		public static final int AUDIO_ERR_CAPTURE = -9001;
 		/**
-		 * < -9002<br>
+		 * -9002<br>
 		 * <i>native declaration : line 158</i>
 		 */
 		public static final int AUDIO_ERR_NETWORK = -9002;
 		/**
-		 * < -9003<br>
+		 * -9003<br>
 		 * <i>native declaration : line 159</i>
 		 */
 		public static final int AUDIO_ERR_FREE = -9003;
 		/**
-		 * < -10000<br>
+		 * -10000<br>
 		 * <i>native declaration : line 161</i>
 		 */
 		public static final int AUDIO_OPUS_ERR_INIT = -10000;
 		/**
-		 * < -10001<br>
+		 * -10001<br>
 		 * <i>native declaration : line 162</i>
 		 */
 		public static final int AUDIO_OPUS_ERR_DECODE = -10001;
 		/**
-		 * < -10002<br>
+		 * -10002<br>
 		 * <i>native declaration : line 163</i>
 		 */
 		public static final int AUDIO_OPUS_ERR_ENCODE = -10002;
 		/**
-		 * < -12007<br>
+		 * -12007<br>
 		 * <i>native declaration : line 165</i>
 		 */
 		public static final int NETWORK_ERR_BG_TIMEOUT = -12007;
 		/**
-		 * < -12008<br>
+		 * -12008<br>
 		 * <i>native declaration : line 166</i>
 		 */
 		public static final int NETWORK_ERR_BAD_PACKET = -12008;
 		/**
-		 * < -12011<br>
+		 * -12011<br>
 		 * <i>native declaration : line 167</i>
 		 */
 		public static final int NETWORK_ERR_BUFFER = -12011;
 		/**
-		 * < -12017<br>
+		 * -12017<br>
 		 * <i>native declaration : line 168</i>
 		 */
 		public static final int NETWORK_ERR_SHUTDOWN = -12017;
 		/**
-		 * < -12018<br>
+		 * -12018<br>
 		 * <i>native declaration : line 169</i>
 		 */
 		public static final int NETWORK_ERR_UNSUPPORTED = -12018;
 		/**
-		 * < -12019<br>
+		 * -12019<br>
 		 * <i>native declaration : line 170</i>
 		 */
 		public static final int NETWORK_ERR_INTERRUPTED = -12019;
 		/**
-		 * < -13000<br>
+		 * -13000<br>
 		 * <i>native declaration : line 172</i>
 		 */
 		public static final int SERVER_ERR_DISPLAY = -13000;
 		/**
-		 * < -13008<br>
+		 * -13008<br>
 		 * <i>native declaration : line 173</i>
 		 */
 		public static final int SERVER_ERR_RESOLUTION = -13008;
 		/**
-		 * < -13009<br>
+		 * -13009<br>
 		 * <i>native declaration : line 174</i>
 		 */
 		public static final int SERVER_ERR_MAX_RESOLUTION = -13009;
 		/**
-		 * < -13011<br>
+		 * -13011<br>
 		 * <i>native declaration : line 175</i>
 		 */
 		public static final int SERVER_ERR_NO_USER = -13011;
 		/**
-		 * < -13013<br>
+		 * -13013<br>
 		 * <i>native declaration : line 176</i>
 		 */
 		public static final int SERVER_ERR_VIDEO_DONE = -13013;
 		/**
-		 * < -13014<br>
+		 * -13014<br>
 		 * <i>native declaration : line 177</i>
 		 */
 		public static final int SERVER_ERR_CLIENT_ABORT = -13014;
 		/**
-		 * < -13015<br>
+		 * -13015<br>
 		 * <i>native declaration : line 178</i>
 		 */
 		public static final int SERVER_ERR_CLIENT_GONE = -13015;
 		/**
-		 * < -14003<br>
+		 * -14003<br>
 		 * <i>native declaration : line 180</i>
 		 */
 		public static final int CAPTURE_ERR_INIT = -14003;
 		/**
-		 * < -14004<br>
+		 * -14004<br>
 		 * <i>native declaration : line 181</i>
 		 */
 		public static final int CAPTURE_ERR_TEXTURE = -14004;
 		/**
-		 * < -15000<br>
+		 * -15000<br>
 		 * <i>native declaration : line 183</i>
 		 */
 		public static final int ENCODE_ERR_INIT = -15000;
 		/**
-		 * < -15002<br>
+		 * -15002<br>
 		 * <i>native declaration : line 184</i>
 		 */
 		public static final int ENCODE_ERR_ENCODE = -15002;
 		/**
-		 * < -15006<br>
+		 * -15006<br>
 		 * <i>native declaration : line 185</i>
 		 */
 		public static final int ENCODE_ERR_BUFFER = -15006;
 		/**
-		 * < -15100<br>
+		 * -15100<br>
 		 * <i>native declaration : line 186</i>
 		 */
 		public static final int ENCODE_ERR_PROPERTIES = -15100;
 		/**
-		 * < -15101<br>
+		 * -15101<br>
 		 * <i>native declaration : line 187</i>
 		 */
 		public static final int ENCODE_ERR_LIBRARY = -15101;
 		/**
-		 * < -15007<br>
+		 * -15007<br>
 		 * <i>native declaration : line 188</i>
 		 */
 		public static final int ENCODE_ERR_SESSION = -15007;
 		/**
-		 * < -15103<br>
+		 * -15103<br>
 		 * <i>native declaration : line 189</i>
 		 */
 		public static final int ENCODE_ERR_SESSION1 = -15103;
 		/**
-		 * < -15104<br>
+		 * -15104<br>
 		 * <i>native declaration : line 190</i>
 		 */
 		public static final int ENCODE_ERR_SESSION2 = -15104;
 		/**
-		 * < -15105<br>
+		 * -15105<br>
 		 * <i>native declaration : line 191</i>
 		 */
 		public static final int ENCODE_ERR_OUTPUT_INIT = -15105;
 		/**
-		 * < -15106<br>
+		 * -15106<br>
 		 * <i>native declaration : line 192</i>
 		 */
 		public static final int ENCODE_ERR_TEXTURE = -15106;
 		/**
-		 * < -15107<br>
+		 * -15107<br>
 		 * <i>native declaration : line 193</i>
 		 */
 		public static final int ENCODE_ERR_OUTPUT = -15107;
 		/**
-		 * < -15108<br>
+		 * -15108<br>
 		 * <i>native declaration : line 194</i>
 		 */
 		public static final int ENCODE_ERR_UNSUPPORTED = -15108;
 		/**
-		 * < -15109<br>
+		 * -15109<br>
 		 * <i>native declaration : line 195</i>
 		 */
 		public static final int ENCODE_ERR_HANDLE = -15109;
 		/**
-		 * < -15110<br>
+		 * -15110<br>
 		 * <i>native declaration : line 196</i>
 		 */
 		public static final int ENCODE_ERR_CAPS = -15110;
 		/**
-		 * < -19000<br>
+		 * -19000<br>
 		 * <i>native declaration : line 198</i>
 		 */
 		public static final int UPNP_ERR = -19000;
 		/**
-		 * < -22000<br>
+		 * -22000<br>
 		 * <i>native declaration : line 200</i>
 		 */
 		public static final int D3D_ERR_TEXTURE = -22000;
 		/**
-		 * < -22001<br>
+		 * -22001<br>
 		 * <i>native declaration : line 201</i>
 		 */
 		public static final int D3D_ERR_SHADER = -22001;
 		/**
-		 * < -22002<br>
+		 * -22002<br>
 		 * <i>native declaration : line 202</i>
 		 */
 		public static final int D3D_ERR_BUFFER = -22002;
 		/**
-		 * < -22003<br>
+		 * -22003<br>
 		 * <i>native declaration : line 203</i>
 		 */
 		public static final int D3D_ERR_LAYOUT = -22003;
 		/**
-		 * < -22004<br>
+		 * -22004<br>
 		 * <i>native declaration : line 204</i>
 		 */
 		public static final int D3D_ERR_DEVICE = -22004;
 		/**
-		 * < -22005<br>
+		 * -22005<br>
 		 * <i>native declaration : line 205</i>
 		 */
 		public static final int D3D_ERR_MT = -22005;
 		/**
-		 * < -22006<br>
+		 * -22006<br>
 		 * <i>native declaration : line 206</i>
 		 */
 		public static final int D3D_ERR_ADAPTER = -22006;
 		/**
-		 * < -22007<br>
+		 * -22007<br>
 		 * <i>native declaration : line 207</i>
 		 */
 		public static final int D3D_ERR_FACTORY = -22007;
 		/**
-		 * < -22008<br>
+		 * -22008<br>
 		 * <i>native declaration : line 208</i>
 		 */
 		public static final int D3D_ERR_OUTPUT = -22008;
 		/**
-		 * < -22009<br>
+		 * -22009<br>
 		 * <i>native declaration : line 209</i>
 		 */
 		public static final int D3D_ERR_CONTEXT = -22009;
 		/**
-		 * < -22010<br>
+		 * -22010<br>
 		 * <i>native declaration : line 210</i>
 		 */
 		public static final int D3D_ERR_OUTPUT1 = -22010;
 		/**
-		 * < -22011<br>
+		 * -22011<br>
 		 * <i>native declaration : line 211</i>
 		 */
 		public static final int D3D_ERR_SWAP_CHAIN = -22011;
 		/**
-		 * < -22012<br>
+		 * -22012<br>
 		 * <i>native declaration : line 212</i>
 		 */
 		public static final int D3D_ERR_DRAW = -22012;
 		/**
-		 * < -22013<br>
+		 * -22013<br>
 		 * <i>native declaration : line 213</i>
 		 */
 		public static final int D3D_ERR_OUTPUT5 = -22013;
 		/**
-		 * < -23000<br>
+		 * -23000<br>
 		 * <i>native declaration : line 215</i>
 		 */
 		public static final int H26X_ERR_NOT_FOUND = -23000;
 		/**
-		 * < -28000<br>
+		 * -28000<br>
 		 * <i>native declaration : line 217</i>
 		 */
 		public static final int AES_GCM_ERR_KEY_LEN = -28000;
 		/**
-		 * < -28004<br>
+		 * -28004<br>
 		 * <i>native declaration : line 218</i>
 		 */
 		public static final int AES_GCM_ERR_BUFFER = -28004;
 		/**
-		 * < -32000<br>
+		 * -32000<br>
 		 * <i>native declaration : line 220</i>
 		 */
 		public static final int SCTP_ERR_GLOBAL_INIT = -32000;
 		/**
-		 * < -32001<br>
+		 * -32001<br>
 		 * <i>native declaration : line 221</i>
 		 */
 		public static final int SCTP_ERR_WRITE = -32001;
 		/**
-		 * < -32002<br>
+		 * -32002<br>
 		 * <i>native declaration : line 222</i>
 		 */
 		public static final int SCTP_ERR_SOCKET = -32002;
 		/**
-		 * < -32003<br>
+		 * -32003<br>
 		 * <i>native declaration : line 223</i>
 		 */
 		public static final int SCTP_ERR_BIND = -32003;
 		/**
-		 * < -32004<br>
+		 * -32004<br>
 		 * <i>native declaration : line 224</i>
 		 */
 		public static final int SCTP_ERR_CONNECT = -32004;
 		/**
-		 * < -33000<br>
+		 * -33000<br>
 		 * <i>native declaration : line 226</i>
 		 */
 		public static final int DTLS_ERR_BIO_WRITE = -33000;
 		/**
-		 * < -33001<br>
+		 * -33001<br>
 		 * <i>native declaration : line 227</i>
 		 */
 		public static final int DTLS_ERR_BIO_READ = -33001;
 		/**
-		 * < -33002<br>
+		 * -33002<br>
 		 * <i>native declaration : line 228</i>
 		 */
 		public static final int DTLS_ERR_SSL = -33002;
 		/**
-		 * < -33003<br>
+		 * -33003<br>
 		 * <i>native declaration : line 229</i>
 		 */
 		public static final int DTLS_ERR_BUFFER = -33003;
 		/**
-		 * < -33004<br>
+		 * -33004<br>
 		 * <i>native declaration : line 230</i>
 		 */
 		public static final int DTLS_ERR_NO_DATA = -33004;
 		/**
-		 * < -33005<br>
+		 * -33005<br>
 		 * <i>native declaration : line 231</i>
 		 */
 		public static final int DTLS_ERR_CERT = -33005;
 		/**
-		 * < -34000<br>
+		 * -34000<br>
 		 * <i>native declaration : line 233</i>
 		 */
 		public static final int STUN_ERR_PACKET = -34000;
 		/**
-		 * < -34001<br>
+		 * -34001<br>
 		 * <i>native declaration : line 234</i>
 		 */
 		public static final int STUN_ERR_PARSE_HEADER = -34001;
 		/**
-		 * < -34002<br>
+		 * -34002<br>
 		 * <i>native declaration : line 235</i>
 		 */
 		public static final int STUN_ERR_PARSE_ADDRESS = -34002;
 		/**
-		 * < -35000<br>
+		 * -35000<br>
 		 * <i>native declaration : line 237</i>
 		 */
 		public static final int SO_ERR_OPEN = -35000;
 		/**
-		 * < -35001<br>
+		 * -35001<br>
 		 * <i>native declaration : line 238</i>
 		 */
 		public static final int SO_ERR_SYMBOL = -35001;
 		/**
-		 * < -36000<br>
+		 * -36000<br>
 		 * <i>native declaration : line 240</i>
 		 */
 		public static final int PARSEC_ERR_VERSION = -36000;
 		/**
-		 * < -36001<br>
+		 * -36001<br>
 		 * <i>native declaration : line 241</i>
 		 */
 		public static final int PARSEC_ERR_VER_DATA = -36001;
 		/**
-		 * < -37000<br>
+		 * -37000<br>
 		 * <i>native declaration : line 243</i>
 		 */
 		public static final int RESAMPLE_ERR_INIT = -37000;
 		/**
-		 * < -37001<br>
+		 * -37001<br>
 		 * <i>native declaration : line 244</i>
 		 */
 		public static final int RESAMPLE_ERR_RESAMPLE = -37001;
 		/**
-		 * < Caused when the graphics render engine isn't supported in Unity.<br>
+		 * Caused when the graphics render engine isn't supported in Unity.<br>
 		 * <i>native declaration : line 246</i>
 		 */
 		public static final int UNITY_UNSUPPORTED_ENGINE = -38000;
 		/**
-		 * > -39000<br>
+		 *  -39000<br>
 		 * <i>native declaration : line 248</i>
 		 */
 		public static final int METAL_ERR_INIT = -39000;
 		/**
-		 * > -40000<br>
+		 *  -40000<br>
 		 * <i>native declaration : line 250</i>
 		 */
 		public static final int RPI_ERR_MEM_SPLIT = -40000;
 		/**
-		 * < `SSL_get_error` value will be subtracted from this value.<br>
+		 * `SSL_get_error` value will be subtracted from this value.<br>
 		 * <i>native declaration : line 252</i>
 		 */
 		public static final int OPENSSL_ERR = -600000;
 		/**
-		 * < `WSAGetLastError` value will be subtracted from this value.<br>
+		 * `WSAGetLastError` value will be subtracted from this value.<br>
 		 * <i>native declaration : line 255</i>
 		 */
 		public static final int SOCKET_ERR = -700000;
@@ -704,12 +704,12 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecLogLevel {
 		/**
-		 * < Messages interesting to support staff trying to figure out the context of an issue.<br>
+		 * Messages interesting to support staff trying to figure out the context of an issue.<br>
 		 * <i>native declaration : line 266</i>
 		 */
 		public static final int LOG_INFO = 0x0069;
 		/**
-		 * < Messages interesting to developers trying to debug an issue.<br>
+		 * Messages interesting to developers trying to debug an issue.<br>
 		 * <i>native declaration : line 267</i>
 		 */
 		public static final int LOG_DEBUG = 0x0064;
@@ -719,607 +719,607 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecKeycode {
 		/**
-		 * < 4<br>
+		 * 4<br>
 		 * <i>native declaration : line 274</i>
 		 */
 		public static final int KEY_A = 4;
 		/**
-		 * < 5<br>
+		 * 5<br>
 		 * <i>native declaration : line 275</i>
 		 */
 		public static final int KEY_B = 5;
 		/**
-		 * < 6<br>
+		 * 6<br>
 		 * <i>native declaration : line 276</i>
 		 */
 		public static final int KEY_C = 6;
 		/**
-		 * < 7<br>
+		 * 7<br>
 		 * <i>native declaration : line 277</i>
 		 */
 		public static final int KEY_D = 7;
 		/**
-		 * < 8<br>
+		 * 8<br>
 		 * <i>native declaration : line 278</i>
 		 */
 		public static final int KEY_E = 8;
 		/**
-		 * < 9<br>
+		 * 9<br>
 		 * <i>native declaration : line 279</i>
 		 */
 		public static final int KEY_F = 9;
 		/**
-		 * < 10<br>
+		 * 10<br>
 		 * <i>native declaration : line 280</i>
 		 */
 		public static final int KEY_G = 10;
 		/**
-		 * < 11<br>
+		 * 11<br>
 		 * <i>native declaration : line 281</i>
 		 */
 		public static final int KEY_H = 11;
 		/**
-		 * < 12<br>
+		 * 12<br>
 		 * <i>native declaration : line 282</i>
 		 */
 		public static final int KEY_I = 12;
 		/**
-		 * < 13<br>
+		 * 13<br>
 		 * <i>native declaration : line 283</i>
 		 */
 		public static final int KEY_J = 13;
 		/**
-		 * < 14<br>
+		 * 14<br>
 		 * <i>native declaration : line 284</i>
 		 */
 		public static final int KEY_K = 14;
 		/**
-		 * < 15<br>
+		 * 15<br>
 		 * <i>native declaration : line 285</i>
 		 */
 		public static final int KEY_L = 15;
 		/**
-		 * < 16<br>
+		 * 16<br>
 		 * <i>native declaration : line 286</i>
 		 */
 		public static final int KEY_M = 16;
 		/**
-		 * < 17<br>
+		 * 17<br>
 		 * <i>native declaration : line 287</i>
 		 */
 		public static final int KEY_N = 17;
 		/**
-		 * < 18<br>
+		 * 18<br>
 		 * <i>native declaration : line 288</i>
 		 */
 		public static final int KEY_O = 18;
 		/**
-		 * < 19<br>
+		 * 19<br>
 		 * <i>native declaration : line 289</i>
 		 */
 		public static final int KEY_P = 19;
 		/**
-		 * < 20<br>
+		 * 20<br>
 		 * <i>native declaration : line 290</i>
 		 */
 		public static final int KEY_Q = 20;
 		/**
-		 * < 21<br>
+		 * 21<br>
 		 * <i>native declaration : line 291</i>
 		 */
 		public static final int KEY_R = 21;
 		/**
-		 * < 22<br>
+		 * 22<br>
 		 * <i>native declaration : line 292</i>
 		 */
 		public static final int KEY_S = 22;
 		/**
-		 * < 23<br>
+		 * 23<br>
 		 * <i>native declaration : line 293</i>
 		 */
 		public static final int KEY_T = 23;
 		/**
-		 * < 24<br>
+		 * 24<br>
 		 * <i>native declaration : line 294</i>
 		 */
 		public static final int KEY_U = 24;
 		/**
-		 * < 25<br>
+		 * 25<br>
 		 * <i>native declaration : line 295</i>
 		 */
 		public static final int KEY_V = 25;
 		/**
-		 * < 26<br>
+		 * 26<br>
 		 * <i>native declaration : line 296</i>
 		 */
 		public static final int KEY_W = 26;
 		/**
-		 * < 27<br>
+		 * 27<br>
 		 * <i>native declaration : line 297</i>
 		 */
 		public static final int KEY_X = 27;
 		/**
-		 * < 28<br>
+		 * 28<br>
 		 * <i>native declaration : line 298</i>
 		 */
 		public static final int KEY_Y = 28;
 		/**
-		 * < 29<br>
+		 * 29<br>
 		 * <i>native declaration : line 299</i>
 		 */
 		public static final int KEY_Z = 29;
 		/**
-		 * < 30<br>
+		 * 30<br>
 		 * <i>native declaration : line 300</i>
 		 */
 		public static final int KEY_1 = 30;
 		/**
-		 * < 31<br>
+		 * 31<br>
 		 * <i>native declaration : line 301</i>
 		 */
 		public static final int KEY_2 = 31;
 		/**
-		 * < 32<br>
+		 * 32<br>
 		 * <i>native declaration : line 302</i>
 		 */
 		public static final int KEY_3 = 32;
 		/**
-		 * < 33<br>
+		 * 33<br>
 		 * <i>native declaration : line 303</i>
 		 */
 		public static final int KEY_4 = 33;
 		/**
-		 * < 34<br>
+		 * 34<br>
 		 * <i>native declaration : line 304</i>
 		 */
 		public static final int KEY_5 = 34;
 		/**
-		 * < 35<br>
+		 * 35<br>
 		 * <i>native declaration : line 305</i>
 		 */
 		public static final int KEY_6 = 35;
 		/**
-		 * < 36<br>
+		 * 36<br>
 		 * <i>native declaration : line 306</i>
 		 */
 		public static final int KEY_7 = 36;
 		/**
-		 * < 37<br>
+		 * 37<br>
 		 * <i>native declaration : line 307</i>
 		 */
 		public static final int KEY_8 = 37;
 		/**
-		 * < 38<br>
+		 * 38<br>
 		 * <i>native declaration : line 308</i>
 		 */
 		public static final int KEY_9 = 38;
 		/**
-		 * < 39<br>
+		 * 39<br>
 		 * <i>native declaration : line 309</i>
 		 */
 		public static final int KEY_0 = 39;
 		/**
-		 * < 40<br>
+		 * 40<br>
 		 * <i>native declaration : line 310</i>
 		 */
 		public static final int KEY_ENTER = 40;
 		/**
-		 * < 41<br>
+		 * 41<br>
 		 * <i>native declaration : line 311</i>
 		 */
 		public static final int KEY_ESCAPE = 41;
 		/**
-		 * < 42<br>
+		 * 42<br>
 		 * <i>native declaration : line 312</i>
 		 */
 		public static final int KEY_BACKSPACE = 42;
 		/**
-		 * < 43<br>
+		 * 43<br>
 		 * <i>native declaration : line 313</i>
 		 */
 		public static final int KEY_TAB = 43;
 		/**
-		 * < 44<br>
+		 * 44<br>
 		 * <i>native declaration : line 314</i>
 		 */
 		public static final int KEY_SPACE = 44;
 		/**
-		 * < 45<br>
+		 * 45<br>
 		 * <i>native declaration : line 315</i>
 		 */
 		public static final int KEY_MINUS = 45;
 		/**
-		 * < 46<br>
+		 * 46<br>
 		 * <i>native declaration : line 316</i>
 		 */
 		public static final int KEY_EQUALS = 46;
 		/**
-		 * < 47<br>
+		 * 47<br>
 		 * <i>native declaration : line 317</i>
 		 */
 		public static final int KEY_LBRACKET = 47;
 		/**
-		 * < 48<br>
+		 * 48<br>
 		 * <i>native declaration : line 318</i>
 		 */
 		public static final int KEY_RBRACKET = 48;
 		/**
-		 * < 49<br>
+		 * 49<br>
 		 * <i>native declaration : line 319</i>
 		 */
 		public static final int KEY_BACKSLASH = 49;
 		/**
-		 * < 51<br>
+		 * 51<br>
 		 * <i>native declaration : line 320</i>
 		 */
 		public static final int KEY_SEMICOLON = 51;
 		/**
-		 * < 52<br>
+		 * 52<br>
 		 * <i>native declaration : line 321</i>
 		 */
 		public static final int KEY_APOSTROPHE = 52;
 		/**
-		 * < 53<br>
+		 * 53<br>
 		 * <i>native declaration : line 322</i>
 		 */
 		public static final int KEY_BACKTICK = 53;
 		/**
-		 * < 54<br>
+		 * 54<br>
 		 * <i>native declaration : line 323</i>
 		 */
 		public static final int KEY_COMMA = 54;
 		/**
-		 * < 55<br>
+		 * 55<br>
 		 * <i>native declaration : line 324</i>
 		 */
 		public static final int KEY_PERIOD = 55;
 		/**
-		 * < 56<br>
+		 * 56<br>
 		 * <i>native declaration : line 325</i>
 		 */
 		public static final int KEY_SLASH = 56;
 		/**
-		 * < 57<br>
+		 * 57<br>
 		 * <i>native declaration : line 326</i>
 		 */
 		public static final int KEY_CAPSLOCK = 57;
 		/**
-		 * < 58<br>
+		 * 58<br>
 		 * <i>native declaration : line 327</i>
 		 */
 		public static final int KEY_F1 = 58;
 		/**
-		 * < 59<br>
+		 * 59<br>
 		 * <i>native declaration : line 328</i>
 		 */
 		public static final int KEY_F2 = 59;
 		/**
-		 * < 60<br>
+		 * 60<br>
 		 * <i>native declaration : line 329</i>
 		 */
 		public static final int KEY_F3 = 60;
 		/**
-		 * < 61<br>
+		 * 61<br>
 		 * <i>native declaration : line 330</i>
 		 */
 		public static final int KEY_F4 = 61;
 		/**
-		 * < 62<br>
+		 * 62<br>
 		 * <i>native declaration : line 331</i>
 		 */
 		public static final int KEY_F5 = 62;
 		/**
-		 * < 63<br>
+		 * 63<br>
 		 * <i>native declaration : line 332</i>
 		 */
 		public static final int KEY_F6 = 63;
 		/**
-		 * < 64<br>
+		 * 64<br>
 		 * <i>native declaration : line 333</i>
 		 */
 		public static final int KEY_F7 = 64;
 		/**
-		 * < 65<br>
+		 * 65<br>
 		 * <i>native declaration : line 334</i>
 		 */
 		public static final int KEY_F8 = 65;
 		/**
-		 * < 66<br>
+		 * 66<br>
 		 * <i>native declaration : line 335</i>
 		 */
 		public static final int KEY_F9 = 66;
 		/**
-		 * < 67<br>
+		 * 67<br>
 		 * <i>native declaration : line 336</i>
 		 */
 		public static final int KEY_F10 = 67;
 		/**
-		 * < 68<br>
+		 * 68<br>
 		 * <i>native declaration : line 337</i>
 		 */
 		public static final int KEY_F11 = 68;
 		/**
-		 * < 69<br>
+		 * 69<br>
 		 * <i>native declaration : line 338</i>
 		 */
 		public static final int KEY_F12 = 69;
 		/**
-		 * < 70<br>
+		 * 70<br>
 		 * <i>native declaration : line 339</i>
 		 */
 		public static final int KEY_PRINTSCREEN = 70;
 		/**
-		 * < 71<br>
+		 * 71<br>
 		 * <i>native declaration : line 340</i>
 		 */
 		public static final int KEY_SCROLLLOCK = 71;
 		/**
-		 * < 72<br>
+		 * 72<br>
 		 * <i>native declaration : line 341</i>
 		 */
 		public static final int KEY_PAUSE = 72;
 		/**
-		 * < 73<br>
+		 * 73<br>
 		 * <i>native declaration : line 342</i>
 		 */
 		public static final int KEY_INSERT = 73;
 		/**
-		 * < 74<br>
+		 * 74<br>
 		 * <i>native declaration : line 343</i>
 		 */
 		public static final int KEY_HOME = 74;
 		/**
-		 * < 75<br>
+		 * 75<br>
 		 * <i>native declaration : line 344</i>
 		 */
 		public static final int KEY_PAGEUP = 75;
 		/**
-		 * < 76<br>
+		 * 76<br>
 		 * <i>native declaration : line 345</i>
 		 */
 		public static final int KEY_DELETE = 76;
 		/**
-		 * < 77<br>
+		 * 77<br>
 		 * <i>native declaration : line 346</i>
 		 */
 		public static final int KEY_END = 77;
 		/**
-		 * < 78<br>
+		 * 78<br>
 		 * <i>native declaration : line 347</i>
 		 */
 		public static final int KEY_PAGEDOWN = 78;
 		/**
-		 * < 79<br>
+		 * 79<br>
 		 * <i>native declaration : line 348</i>
 		 */
 		public static final int KEY_RIGHT = 79;
 		/**
-		 * < 80<br>
+		 * 80<br>
 		 * <i>native declaration : line 349</i>
 		 */
 		public static final int KEY_LEFT = 80;
 		/**
-		 * < 81<br>
+		 * 81<br>
 		 * <i>native declaration : line 350</i>
 		 */
 		public static final int KEY_DOWN = 81;
 		/**
-		 * < 82<br>
+		 * 82<br>
 		 * <i>native declaration : line 351</i>
 		 */
 		public static final int KEY_UP = 82;
 		/**
-		 * < 83<br>
+		 * 83<br>
 		 * <i>native declaration : line 352</i>
 		 */
 		public static final int KEY_NUMLOCK = 83;
 		/**
-		 * < 84<br>
+		 * 84<br>
 		 * <i>native declaration : line 353</i>
 		 */
 		public static final int KEY_KP_DIVIDE = 84;
 		/**
-		 * < 85<br>
+		 * 85<br>
 		 * <i>native declaration : line 354</i>
 		 */
 		public static final int KEY_KP_MULTIPLY = 85;
 		/**
-		 * < 86<br>
+		 * 86<br>
 		 * <i>native declaration : line 355</i>
 		 */
 		public static final int KEY_KP_MINUS = 86;
 		/**
-		 * < 87<br>
+		 * 87<br>
 		 * <i>native declaration : line 356</i>
 		 */
 		public static final int KEY_KP_PLUS = 87;
 		/**
-		 * < 88<br>
+		 * 88<br>
 		 * <i>native declaration : line 357</i>
 		 */
 		public static final int KEY_KP_ENTER = 88;
 		/**
-		 * < 89<br>
+		 * 89<br>
 		 * <i>native declaration : line 358</i>
 		 */
 		public static final int KEY_KP_1 = 89;
 		/**
-		 * < 90<br>
+		 * 90<br>
 		 * <i>native declaration : line 359</i>
 		 */
 		public static final int KEY_KP_2 = 90;
 		/**
-		 * < 91<br>
+		 * 91<br>
 		 * <i>native declaration : line 360</i>
 		 */
 		public static final int KEY_KP_3 = 91;
 		/**
-		 * < 92<br>
+		 * 92<br>
 		 * <i>native declaration : line 361</i>
 		 */
 		public static final int KEY_KP_4 = 92;
 		/**
-		 * < 93<br>
+		 * 93<br>
 		 * <i>native declaration : line 362</i>
 		 */
 		public static final int KEY_KP_5 = 93;
 		/**
-		 * < 94<br>
+		 * 94<br>
 		 * <i>native declaration : line 363</i>
 		 */
 		public static final int KEY_KP_6 = 94;
 		/**
-		 * < 95<br>
+		 * 95<br>
 		 * <i>native declaration : line 364</i>
 		 */
 		public static final int KEY_KP_7 = 95;
 		/**
-		 * < 96<br>
+		 * 96<br>
 		 * <i>native declaration : line 365</i>
 		 */
 		public static final int KEY_KP_8 = 96;
 		/**
-		 * < 97<br>
+		 * 97<br>
 		 * <i>native declaration : line 366</i>
 		 */
 		public static final int KEY_KP_9 = 97;
 		/**
-		 * < 98<br>
+		 * 98<br>
 		 * <i>native declaration : line 367</i>
 		 */
 		public static final int KEY_KP_0 = 98;
 		/**
-		 * < 99<br>
+		 * 99<br>
 		 * <i>native declaration : line 368</i>
 		 */
 		public static final int KEY_KP_PERIOD = 99;
 		/**
-		 * < 101<br>
+		 * 101<br>
 		 * <i>native declaration : line 369</i>
 		 */
 		public static final int KEY_APPLICATION = 101;
 		/**
-		 * < 104<br>
+		 * 104<br>
 		 * <i>native declaration : line 370</i>
 		 */
 		public static final int KEY_F13 = 104;
 		/**
-		 * < 105<br>
+		 * 105<br>
 		 * <i>native declaration : line 371</i>
 		 */
 		public static final int KEY_F14 = 105;
 		/**
-		 * < 106<br>
+		 * 106<br>
 		 * <i>native declaration : line 372</i>
 		 */
 		public static final int KEY_F15 = 106;
 		/**
-		 * < 107<br>
+		 * 107<br>
 		 * <i>native declaration : line 373</i>
 		 */
 		public static final int KEY_F16 = 107;
 		/**
-		 * < 108<br>
+		 * 108<br>
 		 * <i>native declaration : line 374</i>
 		 */
 		public static final int KEY_F17 = 108;
 		/**
-		 * < 109<br>
+		 * 109<br>
 		 * <i>native declaration : line 375</i>
 		 */
 		public static final int KEY_F18 = 109;
 		/**
-		 * < 110<br>
+		 * 110<br>
 		 * <i>native declaration : line 376</i>
 		 */
 		public static final int KEY_F19 = 110;
 		/**
-		 * < 118<br>
+		 * 118<br>
 		 * <i>native declaration : line 377</i>
 		 */
 		public static final int KEY_MENU = 118;
 		/**
-		 * < 127<br>
+		 * 127<br>
 		 * <i>native declaration : line 378</i>
 		 */
 		public static final int KEY_MUTE = 127;
 		/**
-		 * < 128<br>
+		 * 128<br>
 		 * <i>native declaration : line 379</i>
 		 */
 		public static final int KEY_VOLUMEUP = 128;
 		/**
-		 * < 129<br>
+		 * 129<br>
 		 * <i>native declaration : line 380</i>
 		 */
 		public static final int KEY_VOLUMEDOWN = 129;
 		/**
-		 * < 224<br>
+		 * 224<br>
 		 * <i>native declaration : line 381</i>
 		 */
 		public static final int KEY_LCTRL = 224;
 		/**
-		 * < 225<br>
+		 * 225<br>
 		 * <i>native declaration : line 382</i>
 		 */
 		public static final int KEY_LSHIFT = 225;
 		/**
-		 * < 226<br>
+		 * 226<br>
 		 * <i>native declaration : line 383</i>
 		 */
 		public static final int KEY_LALT = 226;
 		/**
-		 * < 227<br>
+		 * 227<br>
 		 * <i>native declaration : line 384</i>
 		 */
 		public static final int KEY_LGUI = 227;
 		/**
-		 * < 228<br>
+		 * 228<br>
 		 * <i>native declaration : line 385</i>
 		 */
 		public static final int KEY_RCTRL = 228;
 		/**
-		 * < 229<br>
+		 * 229<br>
 		 * <i>native declaration : line 386</i>
 		 */
 		public static final int KEY_RSHIFT = 229;
 		/**
-		 * < 230<br>
+		 * 230<br>
 		 * <i>native declaration : line 387</i>
 		 */
 		public static final int KEY_RALT = 230;
 		/**
-		 * < 231<br>
+		 * 231<br>
 		 * <i>native declaration : line 388</i>
 		 */
 		public static final int KEY_RGUI = 231;
 		/**
-		 * < 258<br>
+		 * 258<br>
 		 * <i>native declaration : line 389</i>
 		 */
 		public static final int KEY_AUDIONEXT = 258;
 		/**
-		 * < 259<br>
+		 * 259<br>
 		 * <i>native declaration : line 390</i>
 		 */
 		public static final int KEY_AUDIOPREV = 259;
 		/**
-		 * < 260<br>
+		 * 260<br>
 		 * <i>native declaration : line 391</i>
 		 */
 		public static final int KEY_AUDIOSTOP = 260;
 		/**
-		 * < 261<br>
+		 * 261<br>
 		 * <i>native declaration : line 392</i>
 		 */
 		public static final int KEY_AUDIOPLAY = 261;
 		/**
-		 * < 262<br>
+		 * 262<br>
 		 * <i>native declaration : line 393</i>
 		 */
 		public static final int KEY_AUDIOMUTE = 262;
 		/**
-		 * < 263<br>
+		 * 263<br>
 		 * <i>native declaration : line 394</i>
 		 */
 		public static final int KEY_MEDIASELECT = 263;
@@ -1329,57 +1329,57 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecKeymod {
 		/**
-		 * < No modifier key active.<br>
+		 * No modifier key active.<br>
 		 * <i>native declaration : line 401</i>
 		 */
 		public static final int MOD_NONE = 0x0000;
 		/**
-		 * < `LEFT SHIFT` is currently active.<br>
+		 * `LEFT SHIFT` is currently active.<br>
 		 * <i>native declaration : line 402</i>
 		 */
 		public static final int MOD_LSHIFT = 0x0001;
 		/**
-		 * < `RIGHT SHIFT` is currently active.<br>
+		 * `RIGHT SHIFT` is currently active.<br>
 		 * <i>native declaration : line 403</i>
 		 */
 		public static final int MOD_RSHIFT = 0x0002;
 		/**
-		 * < `LEFT CONTROL` is currently active.<br>
+		 * `LEFT CONTROL` is currently active.<br>
 		 * <i>native declaration : line 404</i>
 		 */
 		public static final int MOD_LCTRL = 0x0040;
 		/**
-		 * < `RIGHT CONTROL` is currently active.<br>
+		 * `RIGHT CONTROL` is currently active.<br>
 		 * <i>native declaration : line 405</i>
 		 */
 		public static final int MOD_RCTRL = 0x0080;
 		/**
-		 * < `LEFT ALT` is currently active.<br>
+		 * `LEFT ALT` is currently active.<br>
 		 * <i>native declaration : line 406</i>
 		 */
 		public static final int MOD_LALT = 0x0100;
 		/**
-		 * < `RIGHT ALT` is currently active.<br>
+		 * `RIGHT ALT` is currently active.<br>
 		 * <i>native declaration : line 407</i>
 		 */
 		public static final int MOD_RALT = 0x0200;
 		/**
-		 * < `LEFT GUI` is currently active. This is the Windows / left Command key.<br>
+		 * `LEFT GUI` is currently active. This is the Windows / left Command key.<br>
 		 * <i>native declaration : line 408</i>
 		 */
 		public static final int MOD_LGUI = 0x0400;
 		/**
-		 * < `RIGHT GUI` is currently active. This is the right Command key.<br>
+		 * `RIGHT GUI` is currently active. This is the right Command key.<br>
 		 * <i>native declaration : line 409</i>
 		 */
 		public static final int MOD_RGUI = 0x0800;
 		/**
-		 * < `NUMLOCK` is currently active.<br>
+		 * `NUMLOCK` is currently active.<br>
 		 * <i>native declaration : line 410</i>
 		 */
 		public static final int MOD_NUM = 0x1000;
 		/**
-		 * < `CAPSLOCK` is currently active.<br>
+		 * `CAPSLOCK` is currently active.<br>
 		 * <i>native declaration : line 411</i>
 		 */
 		public static final int MOD_CAPS = 0x2000;
@@ -1389,27 +1389,27 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecMouseButton {
 		/**
-		 * < Left mouse button.<br>
+		 * Left mouse button.<br>
 		 * <i>native declaration : line 418</i>
 		 */
 		public static final int MOUSE_L = 1;
 		/**
-		 * < Middle mouse button.<br>
+		 * Middle mouse button.<br>
 		 * <i>native declaration : line 419</i>
 		 */
 		public static final int MOUSE_MIDDLE = 2;
 		/**
-		 * < Right mouse button.<br>
+		 * Right mouse button.<br>
 		 * <i>native declaration : line 420</i>
 		 */
 		public static final int MOUSE_R = 3;
 		/**
-		 * < Extra mouse button 1.<br>
+		 * Extra mouse button 1.<br>
 		 * <i>native declaration : line 421</i>
 		 */
 		public static final int MOUSE_X1 = 4;
 		/**
-		 * < Extra mouse button 2.<br>
+		 * Extra mouse button 2.<br>
 		 * <i>native declaration : line 422</i>
 		 */
 		public static final int MOUSE_X2 = 5;
@@ -1419,77 +1419,77 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecGamepadButton {
 		/**
-		 * < A button.<br>
+		 * A button.<br>
 		 * <i>native declaration : line 429</i>
 		 */
 		public static final int GAMEPAD_BUTTON_A = 0;
 		/**
-		 * < B button.<br>
+		 * B button.<br>
 		 * <i>native declaration : line 430</i>
 		 */
 		public static final int GAMEPAD_BUTTON_B = 1;
 		/**
-		 * < X button.<br>
+		 * X button.<br>
 		 * <i>native declaration : line 431</i>
 		 */
 		public static final int GAMEPAD_BUTTON_X = 2;
 		/**
-		 * < Y button.<br>
+		 * Y button.<br>
 		 * <i>native declaration : line 432</i>
 		 */
 		public static final int GAMEPAD_BUTTON_Y = 3;
 		/**
-		 * < Back button.<br>
+		 * Back button.<br>
 		 * <i>native declaration : line 433</i>
 		 */
 		public static final int GAMEPAD_BUTTON_BACK = 4;
 		/**
-		 * < Guide button.<br>
+		 * Guide button.<br>
 		 * <i>native declaration : line 434</i>
 		 */
 		public static final int GAMEPAD_BUTTON_GUIDE = 5;
 		/**
-		 * < Start button.<br>
+		 * Start button.<br>
 		 * <i>native declaration : line 435</i>
 		 */
 		public static final int GAMEPAD_BUTTON_START = 6;
 		/**
-		 * < Left thumbstick button.<br>
+		 * Left thumbstick button.<br>
 		 * <i>native declaration : line 436</i>
 		 */
 		public static final int GAMEPAD_BUTTON_LSTICK = 7;
 		/**
-		 * < Right thumbstick button.<br>
+		 * Right thumbstick button.<br>
 		 * <i>native declaration : line 437</i>
 		 */
 		public static final int GAMEPAD_BUTTON_RSTICK = 8;
 		/**
-		 * < Left shoulder (bumper) button.<br>
+		 * Left shoulder (bumper) button.<br>
 		 * <i>native declaration : line 438</i>
 		 */
 		public static final int GAMEPAD_BUTTON_LSHOULDER = 9;
 		/**
-		 * < Right shoulder (bumper) button.<br>
+		 * Right shoulder (bumper) button.<br>
 		 * <i>native declaration : line 439</i>
 		 */
 		public static final int GAMEPAD_BUTTON_RSHOULDER = 10;
 		/**
-		 * < Analog DPAD up.<br>
+		 * Analog DPAD up.<br>
 		 * <i>native declaration : line 440</i>
 		 */
 		public static final int GAMEPAD_BUTTON_DPAD_UP = 11;
 		/**
-		 * < Analog DPAD down.<br>
+		 * Analog DPAD down.<br>
 		 * <i>native declaration : line 441</i>
 		 */
 		public static final int GAMEPAD_BUTTON_DPAD_DOWN = 12;
 		/**
-		 * < Analog DPAD left.<br>
+		 * Analog DPAD left.<br>
 		 * <i>native declaration : line 442</i>
 		 */
 		public static final int GAMEPAD_BUTTON_DPAD_LEFT = 13;
 		/**
-		 * < Analog DPAD right.<br>
+		 * Analog DPAD right.<br>
 		 * <i>native declaration : line 443</i>
 		 */
 		public static final int GAMEPAD_BUTTON_DPAD_RIGHT = 14;
@@ -1501,72 +1501,72 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecGamepadState {
 		/**
-		 * < Analog DPAD up.<br>
+		 * Analog DPAD up.<br>
 		 * <i>native declaration : line 451</i>
 		 */
 		public static final int GAMEPAD_STATE_DPAD_UP = 0x0001;
 		/**
-		 * < Analog DPAD down.<br>
+		 * Analog DPAD down.<br>
 		 * <i>native declaration : line 452</i>
 		 */
 		public static final int GAMEPAD_STATE_DPAD_DOWN = 0x0002;
 		/**
-		 * < Analog DPAD left.<br>
+		 * Analog DPAD left.<br>
 		 * <i>native declaration : line 453</i>
 		 */
 		public static final int GAMEPAD_STATE_DPAD_LEFT = 0x0004;
 		/**
-		 * < Analog DPAD right.<br>
+		 * Analog DPAD right.<br>
 		 * <i>native declaration : line 454</i>
 		 */
 		public static final int GAMEPAD_STATE_DPAD_RIGHT = 0x0008;
 		/**
-		 * < Start button.<br>
+		 * Start button.<br>
 		 * <i>native declaration : line 455</i>
 		 */
 		public static final int GAMEPAD_STATE_START = 0x0010;
 		/**
-		 * < Back button.<br>
+		 * Back button.<br>
 		 * <i>native declaration : line 456</i>
 		 */
 		public static final int GAMEPAD_STATE_BACK = 0x0020;
 		/**
-		 * < Left thumbstick button.<br>
+		 * Left thumbstick button.<br>
 		 * <i>native declaration : line 457</i>
 		 */
 		public static final int GAMEPAD_STATE_LEFT_THUMB = 0x0040;
 		/**
-		 * < Right thumbstick button.<br>
+		 * Right thumbstick button.<br>
 		 * <i>native declaration : line 458</i>
 		 */
 		public static final int GAMEPAD_STATE_RIGHT_THUMB = 0x0080;
 		/**
-		 * < Left shoulder (bumper) button.<br>
+		 * Left shoulder (bumper) button.<br>
 		 * <i>native declaration : line 459</i>
 		 */
 		public static final int GAMEPAD_STATE_LEFT_SHOULDER = 0x0100;
 		/**
-		 * < Right shoulder (bumper) button.<br>
+		 * Right shoulder (bumper) button.<br>
 		 * <i>native declaration : line 460</i>
 		 */
 		public static final int GAMEPAD_STATE_RIGHT_SHOULDER = 0x0200;
 		/**
-		 * < A button.<br>
+		 * A button.<br>
 		 * <i>native declaration : line 461</i>
 		 */
 		public static final int GAMEPAD_STATE_A = 0x1000;
 		/**
-		 * < B button.<br>
+		 * B button.<br>
 		 * <i>native declaration : line 462</i>
 		 */
 		public static final int GAMEPAD_STATE_B = 0x2000;
 		/**
-		 * < X button.<br>
+		 * X button.<br>
 		 * <i>native declaration : line 463</i>
 		 */
 		public static final int GAMEPAD_STATE_X = 0x4000;
 		/**
-		 * < Y button.<br>
+		 * Y button.<br>
 		 * <i>native declaration : line 464</i>
 		 */
 		public static final int GAMEPAD_STATE_Y = 0x8000;
@@ -1576,32 +1576,32 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecGamepadAxis {
 		/**
-		 * < Gamepad left thumbstick x-axis.<br>
+		 * Gamepad left thumbstick x-axis.<br>
 		 * <i>native declaration : line 471</i>
 		 */
 		public static final int GAMEPAD_AXIS_LX = 0;
 		/**
-		 * < Gamepad left thumbstick y-axis.<br>
+		 * Gamepad left thumbstick y-axis.<br>
 		 * <i>native declaration : line 472</i>
 		 */
 		public static final int GAMEPAD_AXIS_LY = 1;
 		/**
-		 * < Gamepad right thumbstick x-axis.<br>
+		 * Gamepad right thumbstick x-axis.<br>
 		 * <i>native declaration : line 473</i>
 		 */
 		public static final int GAMEPAD_AXIS_RX = 2;
 		/**
-		 * < Gamepad right thumbstick y-axis.<br>
+		 * Gamepad right thumbstick y-axis.<br>
 		 * <i>native declaration : line 474</i>
 		 */
 		public static final int GAMEPAD_AXIS_RY = 3;
 		/**
-		 * < Gamepad left trigger value.<br>
+		 * Gamepad left trigger value.<br>
 		 * <i>native declaration : line 475</i>
 		 */
 		public static final int GAMEPAD_AXIS_TRIGGERL = 4;
 		/**
-		 * < Gamepad right trigger value.<br>
+		 * Gamepad right trigger value.<br>
 		 * <i>native declaration : line 476</i>
 		 */
 		public static final int GAMEPAD_AXIS_TRIGGERR = 5;
@@ -1613,47 +1613,47 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecMessageType {
 		/**
-		 * < `keyboard` ::ParsecKeyboardMessage is valid in ::ParsecMessage.<br>
+		 * `keyboard` ::ParsecKeyboardMessage is valid in ::ParsecMessage.<br>
 		 * <i>native declaration : line 484</i>
 		 */
 		public static final int MESSAGE_KEYBOARD = 1;
 		/**
-		 * < `mouseButton` ::ParsecMouseButtonMessage is valid in ::ParsecMessage.<br>
+		 * `mouseButton` ::ParsecMouseButtonMessage is valid in ::ParsecMessage.<br>
 		 * <i>native declaration : line 485</i>
 		 */
 		public static final int MESSAGE_MOUSE_BUTTON = 2;
 		/**
-		 * < `mouseWheel` ::ParsecMouseWheelMessage is valid in ::ParsecMessage.<br>
+		 * `mouseWheel` ::ParsecMouseWheelMessage is valid in ::ParsecMessage.<br>
 		 * <i>native declaration : line 486</i>
 		 */
 		public static final int MESSAGE_MOUSE_WHEEL = 3;
 		/**
-		 * < `mouseMotion` ::ParsecMouseMotionMessage is valid in ::ParsecMessage.<br>
+		 * `mouseMotion` ::ParsecMouseMotionMessage is valid in ::ParsecMessage.<br>
 		 * <i>native declaration : line 487</i>
 		 */
 		public static final int MESSAGE_MOUSE_MOTION = 4;
 		/**
-		 * < `gamepadButton` ::ParsecGamepadButtonMessage is valid in ::ParsecMessage.<br>
+		 * `gamepadButton` ::ParsecGamepadButtonMessage is valid in ::ParsecMessage.<br>
 		 * <i>native declaration : line 488</i>
 		 */
 		public static final int MESSAGE_GAMEPAD_BUTTON = 5;
 		/**
-		 * < `gamepadAxis` ::ParsecGamepadAxisMessage is valid in ::ParsecMessage.<br>
+		 * `gamepadAxis` ::ParsecGamepadAxisMessage is valid in ::ParsecMessage.<br>
 		 * <i>native declaration : line 489</i>
 		 */
 		public static final int MESSAGE_GAMEPAD_AXIS = 6;
 		/**
-		 * < `gamepadUnplug` ::ParsecGamepadUnplugMessage is valid in ::ParsecMessage.<br>
+		 * `gamepadUnplug` ::ParsecGamepadUnplugMessage is valid in ::ParsecMessage.<br>
 		 * <i>native declaration : line 490</i>
 		 */
 		public static final int MESSAGE_GAMEPAD_UNPLUG = 7;
 		/**
-		 * < `gamepadState` ::ParsecGamepadStateMessage is valid in ::ParsecMessage.<br>
+		 * `gamepadState` ::ParsecGamepadStateMessage is valid in ::ParsecMessage.<br>
 		 * <i>native declaration : line 491</i>
 		 */
 		public static final int MESSAGE_GAMEPAD_STATE = 8;
 		/**
-		 * < Message instructing the host to release all input that is currently pressed.<br>
+		 * Message instructing the host to release all input that is currently pressed.<br>
 		 * <i>native declaration : line 492</i>
 		 */
 		public static final int MESSAGE_RELEASE = 9;
@@ -1665,32 +1665,32 @@ public class ParsecLibrary implements Library {
 		/** <i>native declaration : line 499</i> */
 		public static final int FORMAT_UNKNOWN = 0;
 		/**
-		 * < 4:2:0 full width/height Y plane followed by an interleaved half width/height UV plane.<br>
+		 * 4:2:0 full width/height Y plane followed by an interleaved half width/height UV plane.<br>
 		 * <i>native declaration : line 500</i>
 		 */
 		public static final int FORMAT_NV12 = 1;
 		/**
-		 * < 4:2:0 full width/height Y plane followed by a half width/height U plane followed by a half width/height V plane.<br>
+		 * 4:2:0 full width/height Y plane followed by a half width/height U plane followed by a half width/height V plane.<br>
 		 * <i>native declaration : line 501</i>
 		 */
 		public static final int FORMAT_I420 = 2;
 		/**
-		 * < 4:2:2 full width/height Y plane followed by an interleaved half width full height UV plane.<br>
+		 * 4:2:2 full width/height Y plane followed by an interleaved half width full height UV plane.<br>
 		 * <i>native declaration : line 502</i>
 		 */
 		public static final int FORMAT_NV16 = 3;
 		/**
-		 * < 4:2:2 full width/height Y plane followed by a half width full height U plane followed by a half width full height V plane.<br>
+		 * 4:2:2 full width/height Y plane followed by a half width full height U plane followed by a half width full height V plane.<br>
 		 * <i>native declaration : line 503</i>
 		 */
 		public static final int FORMAT_I422 = 4;
 		/**
-		 * < 32-bits per pixel, 8-bits per channel BGRA.<br>
+		 * 32-bits per pixel, 8-bits per channel BGRA.<br>
 		 * <i>native declaration : line 504</i>
 		 */
 		public static final int FORMAT_BGRA = 5;
 		/**
-		 * < 32-bits per pixel, 8-bits per channel RGBA.<br>
+		 * 32-bits per pixel, 8-bits per channel RGBA.<br>
 		 * <i>native declaration : line 505</i>
 		 */
 		public static final int FORMAT_RGBA = 6;
@@ -1700,12 +1700,12 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecProtocol {
 		/**
-		 * < Parsec's low-latency optimized BUD protocol.<br>
+		 * Parsec's low-latency optimized BUD protocol.<br>
 		 * <i>native declaration : line 512</i>
 		 */
 		public static final int PROTO_MODE_BUD = 1;
 		/**
-		 * < SCTP protocol compatible with WebRTC data channels.<br>
+		 * SCTP protocol compatible with WebRTC data channels.<br>
 		 * <i>native declaration : line 513</i>
 		 */
 		public static final int PROTO_MODE_SCTP = 2;
@@ -1715,12 +1715,12 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecContainer {
 		/**
-		 * < Parsec's custom container compatible with native decoding.<br>
+		 * Parsec's custom container compatible with native decoding.<br>
 		 * <i>native declaration : line 520</i>
 		 */
 		public static final int CONTAINER_PARSEC = 0;
 		/**
-		 * < MP4 box container compatible with web browser Media Source Extensions.<br>
+		 * MP4 box container compatible with web browser Media Source Extensions.<br>
 		 * <i>native declaration : line 521</i>
 		 */
 		public static final int CONTAINER_MP4 = 2;
@@ -1730,12 +1730,12 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecPCMFormat {
 		/**
-		 * < 32-bit floating point samples.<br>
+		 * 32-bit floating point samples.<br>
 		 * <i>native declaration : line 528</i>
 		 */
 		public static final int PCM_FORMAT_FLOAT = 1;
 		/**
-		 * < 16-bit signed integer samples.<br>
+		 * 16-bit signed integer samples.<br>
 		 * <i>native declaration : line 529</i>
 		 */
 		public static final int PCM_FORMAT_INT16 = 2;
@@ -1745,27 +1745,27 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecGuestState {
 		/**
-		 * < The guest is currently waiting for the host to allow them via ::ParsecHostAllowGuest. ::HOST_DESKTOP only.<br>
+		 * The guest is currently waiting for the host to allow them via ::ParsecHostAllowGuest. ::HOST_DESKTOP only.<br>
 		 * <i>native declaration : line 536</i>
 		 */
 		public static final int GUEST_WAITING = 0x01;
 		/**
-		 * < The guest is attempting to make a peer-to-peer connection to the host.<br>
+		 * The guest is attempting to make a peer-to-peer connection to the host.<br>
 		 * <i>native declaration : line 537</i>
 		 */
 		public static final int GUEST_CONNECTING = 0x02;
 		/**
-		 * < The guest successfully connected.<br>
+		 * The guest successfully connected.<br>
 		 * <i>native declaration : line 538</i>
 		 */
 		public static final int GUEST_CONNECTED = 0x04;
 		/**
-		 * < The guest disconnected.<br>
+		 * The guest disconnected.<br>
 		 * <i>native declaration : line 539</i>
 		 */
 		public static final int GUEST_DISCONNECTED = 0x08;
 		/**
-		 * < The guest failed peer-to-peer negotiation.<br>
+		 * The guest failed peer-to-peer negotiation.<br>
 		 * <i>native declaration : line 540</i>
 		 */
 		public static final int GUEST_FAILED = 0x10;
@@ -1775,12 +1775,12 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecHostMode {
 		/**
-		 * < The host intends to share their entire desktop. Permission and approval systems apply. Windows only.<br>
+		 * The host intends to share their entire desktop. Permission and approval systems apply. Windows only.<br>
 		 * <i>native declaration : line 547</i>
 		 */
 		public static final int HOST_DESKTOP = 1;
 		/**
-		 * < Parsec is integrated into a game. The game uses the `Submit` model to provide output.<br>
+		 * Parsec is integrated into a game. The game uses the `Submit` model to provide output.<br>
 		 * <i>native declaration : line 548</i>
 		 */
 		public static final int HOST_GAME = 2;
@@ -1790,17 +1790,17 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecHostEventType {
 		/**
-		 * < A guest has changed connection state, `guestStateChange` is valid in ::ParsecHostEvent.<br>
+		 * A guest has changed connection state, `guestStateChange` is valid in ::ParsecHostEvent.<br>
 		 * <i>native declaration : line 555</i>
 		 */
 		public static final int HOST_EVENT_GUEST_STATE_CHANGE = 1;
 		/**
-		 * < User-defined message from a guest, `userData` is valid in ::ParsecHostEvent.<br>
+		 * User-defined message from a guest, `userData` is valid in ::ParsecHostEvent.<br>
 		 * <i>native declaration : line 556</i>
 		 */
 		public static final int HOST_EVENT_USER_DATA = 2;
 		/**
-		 * < The host's Session ID has become invalid.<br>
+		 * The host's Session ID has become invalid.<br>
 		 * <i>native declaration : line 557</i>
 		 */
 		public static final int HOST_EVENT_INVALID_SESSION_ID = 4;
@@ -1810,27 +1810,27 @@ public class ParsecLibrary implements Library {
 	/** enum values */
 	public static interface ParsecClientEventType {
 		/**
-		 * < A cursor mode change or image update is available, `cursor` is valid in ::ParsecClientEvent. Call ::ParsecGetBuffer in the case of an image update.<br>
+		 * A cursor mode change or image update is available, `cursor` is valid in ::ParsecClientEvent. Call ::ParsecGetBuffer in the case of an image update.<br>
 		 * <i>native declaration : line 564</i>
 		 */
 		public static final int CLIENT_EVENT_CURSOR = 1;
 		/**
-		 * < Gamepad rumble event, `rumble` is valid in ::ParsecClientEvent.<br>
+		 * Gamepad rumble event, `rumble` is valid in ::ParsecClientEvent.<br>
 		 * <i>native declaration : line 565</i>
 		 */
 		public static final int CLIENT_EVENT_RUMBLE = 2;
 		/**
-		 * < User-defined message from the host, `userData` is valid in ::ParsecClientEvent.<br>
+		 * User-defined message from the host, `userData` is valid in ::ParsecClientEvent.<br>
 		 * <i>native declaration : line 566</i>
 		 */
 		public static final int CLIENT_EVENT_USER_DATA = 3;
 		/**
-		 * < The client has been temporarily blocked from sending input and receiving host output.<br>
+		 * The client has been temporarily blocked from sending input and receiving host output.<br>
 		 * <i>native declaration : line 567</i>
 		 */
 		public static final int CLIENT_EVENT_BLOCKED = 4;
 		/**
-		 * < The client has returned to normal operation after receiving a ::CLIENT_EVENT_BLOCKED.<br>
+		 * The client has returned to normal operation after receiving a ::CLIENT_EVENT_BLOCKED.<br>
 		 * <i>native declaration : line 568</i>
 		 */
 		public static final int CLIENT_EVENT_UNBLOCKED = 5;
@@ -1871,7 +1871,7 @@ public class ParsecLibrary implements Library {
 	 */
 	public static native int ParsecInit(int ver, ParsecConfig cfg, Pointer reserved, PointerByReference ps);
 	/**
-	 * @param[in] ps ::Parsec instance returned by ::ParsecInit.<br>
+	 * @param ps ::Parsec instance returned by ::ParsecInit.<br>
 	 * Original signature : <code>void ParsecDestroy(Parsec*)</code><br>
 	 * <i>native declaration : line 987</i><br>
 	 * @deprecated use the safer method {@link #ParsecDestroy(com.sun.jna.ptr.PointerByReference)} instead
@@ -1879,7 +1879,7 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native void ParsecDestroy(Pointer ps);
 	/**
-	 * @param[in] ps ::Parsec instance returned by ::ParsecInit.<br>
+	 * @param ps ::Parsec instance returned by ::ParsecInit.<br>
 	 * Original signature : <code>void ParsecDestroy(Parsec*)</code><br>
 	 * <i>native declaration : line 987</i>
 	 */
@@ -1913,13 +1913,13 @@ public class ParsecLibrary implements Library {
 	 */
 	public static native Pointer ParsecGetBuffer(PointerByReference ps, int key);
 	/**
-	 * @param[in] ptr Buffer return by ::ParsecGetBuffer.<br>
+	 * @param ptr Buffer return by ::ParsecGetBuffer.<br>
 	 * Original signature : <code>void ParsecFree(void*)</code><br>
 	 * <i>native declaration : line 1010</i>
 	 */
 	public static native void ParsecFree(Pointer ptr);
 	/**
-	 * @param[in] opaque User supplied context to be passed through `callback`.<br>
+	 * @param opaque User supplied context to be passed through `callback`.<br>
 	 * Original signature : <code>void ParsecSetLogCallback(ParsecLogCallback, void*)</code><br>
 	 * <i>native declaration : line 1019</i>
 	 */
@@ -1931,7 +1931,7 @@ public class ParsecLibrary implements Library {
 	 */
 	public static native int ParsecVersion();
 	/**
-	 * @returns ::PARSEC_OK if the connection attempt is underway, ::PARSEC_ALREADY_RUNNING if there is an active connection.<br>
+	 * @return ::PARSEC_OK if the connection attempt is underway, ::PARSEC_ALREADY_RUNNING if there is an active connection.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientConnect(Parsec*, ParsecClientConfig*, char*, char*)</code><br>
 	 * <i>native declaration : line 1039</i><br>
 	 * @deprecated use the safer methods
@@ -1939,19 +1939,19 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecClientConnect(Pointer ps, ParsecClientConfig cfg, Pointer sessionID, Pointer peerID);
 	/**
-	 * @returns ::PARSEC_OK if the connection attempt is underway, ::PARSEC_ALREADY_RUNNING if there is an active connection.<br>
+	 * @return ::PARSEC_OK if the connection attempt is underway, ::PARSEC_ALREADY_RUNNING if there is an active connection.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientConnect(Parsec*, ParsecClientConfig*, char*, char*)</code><br>
 	 * <i>native declaration : line 1039</i>
 	 */
 	public static native int ParsecClientConnect(PointerByReference ps, ParsecClientConfig cfg, ByteBuffer sessionID, ByteBuffer peerID);
 	/**
-	 * @returns ::PARSEC_OK if the connection attempt is underway, ::PARSEC_ALREADY_RUNNING if there is an active connection.<br>
+	 * @return ::PARSEC_OK if the connection attempt is underway, ::PARSEC_ALREADY_RUNNING if there is an active connection.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientConnect(Parsec*, ParsecClientConfig*, char*, char*)</code><br>
 	 * <i>native declaration : line 1039</i>
 	 */
 	public static native int ParsecClientConnect(PointerByReference ps, ParsecClientConfig cfg, Pointer sessionID, Pointer peerID);
 	/**
-	 * @param[in] ps ::Parsec instance returned by ::ParsecInit.<br>
+	 * @param ps ::Parsec instance returned by ::ParsecInit.<br>
 	 * Original signature : <code>void ParsecClientDisconnect(Parsec*)</code><br>
 	 * <i>native declaration : line 1044</i><br>
 	 * @deprecated use the safer method {@link #ParsecClientDisconnect(com.sun.jna.ptr.PointerByReference)} instead
@@ -1959,7 +1959,7 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native void ParsecClientDisconnect(Pointer ps);
 	/**
-	 * @param[in] ps ::Parsec instance returned by ::ParsecInit.<br>
+	 * @param ps ::Parsec instance returned by ::ParsecInit.<br>
 	 * Original signature : <code>void ParsecClientDisconnect(Parsec*)</code><br>
 	 * <i>native declaration : line 1044</i>
 	 */
@@ -1979,7 +1979,7 @@ public class ParsecLibrary implements Library {
 	 */
 	public static native int ParsecClientGetStatus(PointerByReference ps, ParsecClientStatus status);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the client is not connected.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the client is not connected.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientSetDimensions(Parsec*, uint32_t, uint32_t, float)</code><br>
 	 * <i>native declaration : line 1067</i><br>
 	 * @deprecated use the safer method {@link #ParsecClientSetDimensions(com.sun.jna.ptr.PointerByReference, int, int, float)} instead
@@ -1987,7 +1987,7 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecClientSetDimensions(Pointer ps, int width, int height, float scale);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the client is not connected.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the client is not connected.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientSetDimensions(Parsec*, uint32_t, uint32_t, float)</code><br>
 	 * <i>native declaration : line 1067</i>
 	 */
@@ -2035,7 +2035,7 @@ public class ParsecLibrary implements Library {
 	 */
 	public static native byte ParsecClientPollEvents(PointerByReference ps, int timeout, ParsecClientEvent event);
 	/**
-	 * @returns ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientGLRenderFrame(Parsec*, ParsecPreRenderCallback, void*, uint32_t)</code><br>
 	 * <i>native declaration : line 1107</i><br>
 	 * @deprecated use the safer method
@@ -2043,13 +2043,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecClientGLRenderFrame(Pointer ps, ParsecLibrary.ParsecPreRenderCallback pre, Pointer opaque, int timeout);
 	/**
-	 * @returns ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientGLRenderFrame(Parsec*, ParsecPreRenderCallback, void*, uint32_t)</code><br>
 	 * <i>native declaration : line 1107</i>
 	 */
 	public static native int ParsecClientGLRenderFrame(PointerByReference ps, ParsecLibrary.ParsecPreRenderCallback pre, Pointer opaque, int timeout);
 	/**
-	 * @returns ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientMetalRenderFrame(Parsec*, ParsecMetalCommandQueue*, ParsecMetalTexture**, ParsecPreRenderCallback, void*, uint32_t)</code><br>
 	 * <i>native declaration : line 1120</i><br>
 	 * @deprecated use the safer method
@@ -2057,13 +2057,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecClientMetalRenderFrame(Pointer ps, ParsecLibrary.ParsecMetalCommandQueue cq, PointerByReference target, ParsecLibrary.ParsecPreRenderCallback pre, Pointer opaque, int timeout);
 	/**
-	 * @returns ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientMetalRenderFrame(Parsec*, ParsecMetalCommandQueue*, ParsecMetalTexture**, ParsecPreRenderCallback, void*, uint32_t)</code><br>
 	 * <i>native declaration : line 1120</i>
 	 */
 	public static native int ParsecClientMetalRenderFrame(PointerByReference ps, ParsecLibrary.ParsecMetalCommandQueue cq, PointerByReference target, ParsecLibrary.ParsecPreRenderCallback pre, Pointer opaque, int timeout);
 	/**
-	 * @returns ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientD3D9RenderFrame(Parsec*, ParsecD3D9Device*, ParsecPreRenderCallback, void*, uint32_t)</code><br>
 	 * <i>native declaration : line 1132</i><br>
 	 * @deprecated use the safer method
@@ -2071,13 +2071,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecClientD3D9RenderFrame(Pointer ps, ParsecLibrary.ParsecD3D9Device device, ParsecLibrary.ParsecPreRenderCallback pre, Pointer opaque, int timeout);
 	/**
-	 * @returns ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientD3D9RenderFrame(Parsec*, ParsecD3D9Device*, ParsecPreRenderCallback, void*, uint32_t)</code><br>
 	 * <i>native declaration : line 1132</i>
 	 */
 	public static native int ParsecClientD3D9RenderFrame(PointerByReference ps, ParsecLibrary.ParsecD3D9Device device, ParsecLibrary.ParsecPreRenderCallback pre, Pointer opaque, int timeout);
 	/**
-	 * @returns ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientD3D11RenderFrame(Parsec*, ParsecD3D11Device*, ParsecD3D11DeviceContext*, ParsecPreRenderCallback, void*, uint32_t)</code><br>
 	 * <i>native declaration : line 1145</i><br>
 	 * @deprecated use the safer method
@@ -2085,13 +2085,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecClientD3D11RenderFrame(Pointer ps, ParsecLibrary.ParsecD3D11Device device, ParsecLibrary.ParsecD3D11DeviceContext context, ParsecLibrary.ParsecPreRenderCallback pre, Pointer opaque, int timeout);
 	/**
-	 * @returns ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if a frame was rendered successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientD3D11RenderFrame(Parsec*, ParsecD3D11Device*, ParsecD3D11DeviceContext*, ParsecPreRenderCallback, void*, uint32_t)</code><br>
 	 * <i>native declaration : line 1145</i>
 	 */
 	public static native int ParsecClientD3D11RenderFrame(PointerByReference ps, ParsecLibrary.ParsecD3D11Device device, ParsecLibrary.ParsecD3D11DeviceContext context, ParsecLibrary.ParsecPreRenderCallback pre, Pointer opaque, int timeout);
 	/**
-	 * @param[in] ps ::Parsec instance returned by ::ParsecInit.<br>
+	 * @param ps ::Parsec instance returned by ::ParsecInit.<br>
 	 * Original signature : <code>void ParsecClientGLDestroy(Parsec*)</code><br>
 	 * <i>native declaration : line 1152</i><br>
 	 * @deprecated use the safer method {@link #ParsecClientGLDestroy(com.sun.jna.ptr.PointerByReference)} instead
@@ -2099,13 +2099,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native void ParsecClientGLDestroy(Pointer ps);
 	/**
-	 * @param[in] ps ::Parsec instance returned by ::ParsecInit.<br>
+	 * @param ps ::Parsec instance returned by ::ParsecInit.<br>
 	 * Original signature : <code>void ParsecClientGLDestroy(Parsec*)</code><br>
 	 * <i>native declaration : line 1152</i>
 	 */
 	public static native void ParsecClientGLDestroy(PointerByReference ps);
 	/**
-	 * @returns ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientSendMessage(Parsec*, ParsecMessage*)</code><br>
 	 * <i>native declaration : line 1162</i><br>
 	 * @deprecated use the safer method
@@ -2113,13 +2113,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecClientSendMessage(Pointer ps, ParsecMessage msg);
 	/**
-	 * @returns ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientSendMessage(Parsec*, ParsecMessage*)</code><br>
 	 * <i>native declaration : line 1162</i>
 	 */
 	public static native int ParsecClientSendMessage(PointerByReference ps, ParsecMessage msg);
 	/**
-	 * @returns ::PARSEC_OK if the pause message was sent successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the pause message was sent successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientPause(Parsec*, bool, bool)</code><br>
 	 * <i>native declaration : line 1172</i><br>
 	 * @deprecated use the safer method {@link #ParsecClientPause(com.sun.jna.ptr.PointerByReference, byte, byte)} instead
@@ -2127,13 +2127,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecClientPause(Pointer ps, byte pauseVideo, byte pauseAudio);
 	/**
-	 * @returns ::PARSEC_OK if the pause message was sent successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the pause message was sent successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientPause(Parsec*, bool, bool)</code><br>
 	 * <i>native declaration : line 1172</i>
 	 */
 	public static native int ParsecClientPause(PointerByReference ps, byte pauseVideo, byte pauseAudio);
 	/**
-	 * @returns ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientSendUserData(Parsec*, uint32_t, char*)</code><br>
 	 * <i>native declaration : line 1184</i><br>
 	 * @deprecated use the safer methods {@link #ParsecClientSendUserData(com.sun.jna.ptr.PointerByReference, int, java.nio.ByteBuffer)} and {@link #ParsecClientSendUserData(com.sun.jna.ptr.PointerByReference, int, com.sun.jna.Pointer)} instead
@@ -2141,19 +2141,19 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecClientSendUserData(Pointer ps, int id, Pointer text);
 	/**
-	 * @returns ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientSendUserData(Parsec*, uint32_t, char*)</code><br>
 	 * <i>native declaration : line 1184</i>
 	 */
 	public static native int ParsecClientSendUserData(PointerByReference ps, int id, ByteBuffer text);
 	/**
-	 * @returns ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the message was sent successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecClientSendUserData(Parsec*, uint32_t, char*)</code><br>
 	 * <i>native declaration : line 1184</i>
 	 */
 	public static native int ParsecClientSendUserData(PointerByReference ps, int id, Pointer text);
 	/**
-	 * @returns Always ::PARSEC_OK on Windows, otherwise ::PARSEC_OK in ::HOST_GAME or ::PARSEC_NOT_IMPLEMENTED.<br>
+	 * @return Always ::PARSEC_OK on Windows, otherwise ::PARSEC_OK in ::HOST_GAME or ::PARSEC_NOT_IMPLEMENTED.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostStart(Parsec*, ParsecHostMode, ParsecHostConfig*, char*)</code><br>
 	 * <i>native declaration : line 1202</i><br>
 	 * @deprecated use the safer methods
@@ -2161,19 +2161,19 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostStart(Pointer ps, int mode, ParsecHostConfig cfg, Pointer sessionID);
 	/**
-	 * @returns Always ::PARSEC_OK on Windows, otherwise ::PARSEC_OK in ::HOST_GAME or ::PARSEC_NOT_IMPLEMENTED.<br>
+	 * @return Always ::PARSEC_OK on Windows, otherwise ::PARSEC_OK in ::HOST_GAME or ::PARSEC_NOT_IMPLEMENTED.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostStart(Parsec*, ParsecHostMode, ParsecHostConfig*, char*)</code><br>
 	 * <i>native declaration : line 1202</i>
 	 */
 	public static native int ParsecHostStart(PointerByReference ps, int mode, ParsecHostConfig cfg, ByteBuffer sessionID);
 	/**
-	 * @returns Always ::PARSEC_OK on Windows, otherwise ::PARSEC_OK in ::HOST_GAME or ::PARSEC_NOT_IMPLEMENTED.<br>
+	 * @return Always ::PARSEC_OK on Windows, otherwise ::PARSEC_OK in ::HOST_GAME or ::PARSEC_NOT_IMPLEMENTED.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostStart(Parsec*, ParsecHostMode, ParsecHostConfig*, char*)</code><br>
 	 * <i>native declaration : line 1202</i>
 	 */
 	public static native int ParsecHostStart(PointerByReference ps, int mode, ParsecHostConfig cfg, Pointer sessionID);
 	/**
-	 * @param[in] ps ::Parsec instance returned by ::ParsecInit.<br>
+	 * @param ps ::Parsec instance returned by ::ParsecInit.<br>
 	 * Original signature : <code>void ParsecHostStop(Parsec*)</code><br>
 	 * <i>native declaration : line 1207</i><br>
 	 * @deprecated use the safer method {@link #ParsecHostStop(com.sun.jna.ptr.PointerByReference)} instead
@@ -2181,13 +2181,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native void ParsecHostStop(Pointer ps);
 	/**
-	 * @param[in] ps ::Parsec instance returned by ::ParsecInit.<br>
+	 * @param ps ::Parsec instance returned by ::ParsecInit.<br>
 	 * Original signature : <code>void ParsecHostStop(Parsec*)</code><br>
 	 * <i>native declaration : line 1207</i>
 	 */
 	public static native void ParsecHostStop(PointerByReference ps);
 	/**
-	 * @param[out] status Host runtime status.<br>
+	 * @param status Host runtime status.<br>
 	 * Original signature : <code>void ParsecHostGetStatus(Parsec*, ParsecHostStatus*)</code><br>
 	 * <i>native declaration : line 1213</i><br>
 	 * @deprecated use the safer method
@@ -2195,13 +2195,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native void ParsecHostGetStatus(Pointer ps, ParsecHostStatus status);
 	/**
-	 * @param[out] status Host runtime status.<br>
+	 * @param status Host runtime status.<br>
 	 * Original signature : <code>void ParsecHostGetStatus(Parsec*, ParsecHostStatus*)</code><br>
 	 * <i>native declaration : line 1213</i>
 	 */
 	public static native void ParsecHostGetStatus(PointerByReference ps, ParsecHostStatus status);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSetConfig(Parsec*, ParsecHostConfig*, char*)</code><br>
 	 * <i>native declaration : line 1223</i><br>
 	 * @deprecated use the safer methods
@@ -2209,19 +2209,19 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostSetConfig(Pointer ps, ParsecHostConfig cfg, Pointer sessionID);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSetConfig(Parsec*, ParsecHostConfig*, char*)</code><br>
 	 * <i>native declaration : line 1223</i>
 	 */
 	public static native int ParsecHostSetConfig(PointerByReference ps, ParsecHostConfig cfg, ByteBuffer sessionID);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSetConfig(Parsec*, ParsecHostConfig*, char*)</code><br>
 	 * <i>native declaration : line 1223</i>
 	 */
 	public static native int ParsecHostSetConfig(PointerByReference ps, ParsecHostConfig cfg, Pointer sessionID);
 	/**
-	 * @returns The length of the array returned in `guests`.<br>
+	 * @return The length of the array returned in `guests`.<br>
 	 * Original signature : <code>uint32_t ParsecHostGetGuests(Parsec*, uint32_t, ParsecGuest**)</code><br>
 	 * <i>native declaration : line 1232</i><br>
 	 * @deprecated use the safer method
@@ -2229,13 +2229,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostGetGuests(Pointer ps, int state, PointerByReference guests);
 	/**
-	 * @returns The length of the array returned in `guests`.<br>
+	 * @return The length of the array returned in `guests`.<br>
 	 * Original signature : <code>uint32_t ParsecHostGetGuests(Parsec*, uint32_t, ParsecGuest**)</code><br>
 	 * <i>native declaration : line 1232</i>
 	 */
 	//public static native int ParsecHostGetGuests(PointerByReference ps, int state, ParsecGuest.ByReference guests[]);
 	/**
-	 * @returns ::PARSEC_OK if the guest was successfully kicked, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the guest was successfully kicked, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostKickGuest(Parsec*, uint32_t)</code><br>
 	 * <i>native declaration : line 1239</i><br>
 	 * @deprecated use the safer method {@link #ParsecHostKickGuest(com.sun.jna.ptr.PointerByReference, int)} instead
@@ -2243,13 +2243,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostKickGuest(Pointer ps, int guestID);
 	/**
-	 * @returns ::PARSEC_OK if the guest was successfully kicked, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the guest was successfully kicked, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostKickGuest(Parsec*, uint32_t)</code><br>
 	 * <i>native declaration : line 1239</i>
 	 */
 	public static native int ParsecHostKickGuest(PointerByReference ps, int guestID);
 	/**
-	 * @returns ::PARSEC_OK if the message was successfully sent, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the message was successfully sent, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSendUserData(Parsec*, uint32_t, uint32_t, char*)</code><br>
 	 * <i>native declaration : line 1248</i><br>
 	 * @deprecated use the safer methods {@link #ParsecHostSendUserData(com.sun.jna.ptr.PointerByReference, int, int, java.nio.ByteBuffer)} and {@link #ParsecHostSendUserData(com.sun.jna.ptr.PointerByReference, int, int, com.sun.jna.Pointer)} instead
@@ -2257,13 +2257,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostSendUserData(Pointer ps, int guestID, int id, Pointer text);
 	/**
-	 * @returns ::PARSEC_OK if the message was successfully sent, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the message was successfully sent, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSendUserData(Parsec*, uint32_t, uint32_t, char*)</code><br>
 	 * <i>native declaration : line 1248</i>
 	 */
 	public static native int ParsecHostSendUserData(PointerByReference ps, int guestID, int id, ByteBuffer text);
 	/**
-	 * @returns ::PARSEC_OK if the message was successfully sent, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the message was successfully sent, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSendUserData(Parsec*, uint32_t, uint32_t, char*)</code><br>
 	 * <i>native declaration : line 1248</i>
 	 */
@@ -2283,7 +2283,7 @@ public class ParsecLibrary implements Library {
 	 */
 	public static native byte ParsecHostPollEvents(PointerByReference ps, int timeout, ParsecHostEvent event);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostAllowGuest(Parsec*, uint32_t, bool)</code><br>
 	 * <i>native declaration : line 1265</i><br>
 	 * @deprecated use the safer method {@link #ParsecHostAllowGuest(com.sun.jna.ptr.PointerByReference, int, byte)} instead
@@ -2291,13 +2291,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostAllowGuest(Pointer ps, int guestID, byte allow);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostAllowGuest(Parsec*, uint32_t, bool)</code><br>
 	 * <i>native declaration : line 1265</i>
 	 */
 	public static native int ParsecHostAllowGuest(PointerByReference ps, int guestID, byte allow);
 	/**
-	 * @returns ::PARSEC_OK if permissions were set successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if permissions were set successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSetPermissions(Parsec*, uint32_t, ParsecPermissions*)</code><br>
 	 * <i>native declaration : line 1274</i><br>
 	 * @deprecated use the safer method
@@ -2305,7 +2305,7 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostSetPermissions(Pointer ps, int guestID, ParsecPermissions perms);
 	/**
-	 * @returns ::PARSEC_OK if permissions were set successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if permissions were set successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSetPermissions(Parsec*, uint32_t, ParsecPermissions*)</code><br>
 	 * <i>native declaration : line 1274</i>
 	 */
@@ -2325,7 +2325,7 @@ public class ParsecLibrary implements Library {
 	 */
 	public static native byte ParsecHostPollInput(PointerByReference ps, int timeout, ParsecGuest guest, ParsecMessage msg);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSubmitAudio(Parsec*, ParsecPCMFormat, uint32_t, uint8_t*, uint32_t)</code><br>
 	 * <i>native declaration : line 1295</i><br>
 	 * @deprecated use the safer methods {@link #ParsecHostSubmitAudio(com.sun.jna.ptr.PointerByReference, int, int, java.nio.ByteBuffer, int)} and {@link #ParsecHostSubmitAudio(com.sun.jna.ptr.PointerByReference, int, int, com.sun.jna.Pointer, int)} instead
@@ -2333,19 +2333,19 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostSubmitAudio(Pointer ps, int format, int sampleRate, Pointer pcm, int frames);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSubmitAudio(Parsec*, ParsecPCMFormat, uint32_t, uint8_t*, uint32_t)</code><br>
 	 * <i>native declaration : line 1295</i>
 	 */
 	public static native int ParsecHostSubmitAudio(PointerByReference ps, int format, int sampleRate, ByteBuffer pcm, int frames);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSubmitAudio(Parsec*, ParsecPCMFormat, uint32_t, uint8_t*, uint32_t)</code><br>
 	 * <i>native declaration : line 1295</i>
 	 */
 	public static native int ParsecHostSubmitAudio(PointerByReference ps, int format, int sampleRate, Pointer pcm, int frames);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSubmitCursor(Parsec*, ParsecCursor*, uint8_t*)</code><br>
 	 * <i>native declaration : line 1304</i><br>
 	 * @deprecated use the safer methods
@@ -2353,19 +2353,19 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostSubmitCursor(Pointer ps, ParsecCursor cursor, Pointer image);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSubmitCursor(Parsec*, ParsecCursor*, uint8_t*)</code><br>
 	 * <i>native declaration : line 1304</i>
 	 */
 	public static native int ParsecHostSubmitCursor(PointerByReference ps, ParsecCursor cursor, ByteBuffer image);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSubmitCursor(Parsec*, ParsecCursor*, uint8_t*)</code><br>
 	 * <i>native declaration : line 1304</i>
 	 */
 	public static native int ParsecHostSubmitCursor(PointerByReference ps, ParsecCursor cursor, Pointer image);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSubmitRumble(Parsec*, uint32_t, uint32_t, uint8_t, uint8_t)</code><br>
 	 * <i>native declaration : line 1314</i><br>
 	 * @deprecated use the safer method {@link #ParsecHostSubmitRumble(com.sun.jna.ptr.PointerByReference, int, int, byte, byte)} instead
@@ -2373,13 +2373,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostSubmitRumble(Pointer ps, int guestID, int gamepadID, byte motorBig, byte motorSmall);
 	/**
-	 * @returns ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
+	 * @return ::PARSEC_OK on success or ::PARSEC_NOT_RUNNING if the host has not been started.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostSubmitRumble(Parsec*, uint32_t, uint32_t, uint8_t, uint8_t)</code><br>
 	 * <i>native declaration : line 1314</i>
 	 */
 	public static native int ParsecHostSubmitRumble(PointerByReference ps, int guestID, int gamepadID, byte motorBig, byte motorSmall);
 	/**
-	 * @returns ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostGLSubmitFrame(Parsec*, ParsecGLuint)</code><br>
 	 * <i>native declaration : line 1321</i><br>
 	 * @deprecated use the safer method {@link #ParsecHostGLSubmitFrame(com.sun.jna.ptr.PointerByReference, int)} instead
@@ -2387,13 +2387,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostGLSubmitFrame(Pointer ps, int frame);
 	/**
-	 * @returns ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostGLSubmitFrame(Parsec*, ParsecGLuint)</code><br>
 	 * <i>native declaration : line 1321</i>
 	 */
 	public static native int ParsecHostGLSubmitFrame(PointerByReference ps, int frame);
 	/**
-	 * @returns ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostD3D9SubmitFrame(Parsec*, ParsecD3D9Device*, ParsecD3D9Surface*)</code><br>
 	 * <i>native declaration : line 1329</i><br>
 	 * @deprecated use the safer method
@@ -2401,13 +2401,13 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostD3D9SubmitFrame(Pointer ps, ParsecLibrary.ParsecD3D9Device device, ParsecLibrary.ParsecD3D9Surface frame);
 	/**
-	 * @returns ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostD3D9SubmitFrame(Parsec*, ParsecD3D9Device*, ParsecD3D9Surface*)</code><br>
 	 * <i>native declaration : line 1329</i>
 	 */
 	public static native int ParsecHostD3D9SubmitFrame(PointerByReference ps, ParsecLibrary.ParsecD3D9Device device, ParsecLibrary.ParsecD3D9Surface frame);
 	/**
-	 * @returns ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostD3D11SubmitFrame(Parsec*, ParsecD3D11Device*, ParsecD3D11DeviceContext*, ParsecD3D11Texture2D*)</code><br>
 	 * <i>native declaration : line 1338</i><br>
 	 * @deprecated use the safer method
@@ -2415,7 +2415,7 @@ public class ParsecLibrary implements Library {
 	@Deprecated 
 	public static native int ParsecHostD3D11SubmitFrame(Pointer ps, ParsecLibrary.ParsecD3D11Device device, ParsecLibrary.ParsecD3D11DeviceContext context, ParsecLibrary.ParsecD3D11Texture2D frame);
 	/**
-	 * @returns ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
+	 * @return ::PARSEC_OK if the frame was submitted successfully, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostD3D11SubmitFrame(Parsec*, ParsecD3D11Device*, ParsecD3D11DeviceContext*, ParsecD3D11Texture2D*)</code><br>
 	 * <i>native declaration : line 1338</i>
 	 */

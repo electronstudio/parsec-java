@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class ParsecGuestStateChangeEvent extends Structure {
 	/**
-	 * < Guest properties. The `state` member can be used to evaluate the guest's state change.<br>
+	 * Guest properties. The `state` member can be used to evaluate the guest's state change.<br>
 	 * C type : ParsecGuest
 	 */
 	public ParsecGuest guest;
@@ -21,7 +21,7 @@ public class ParsecGuestStateChangeEvent extends Structure {
 		return Arrays.asList("guest");
 	}
 	/**
-	 * @param guest < Guest properties. The `state` member can be used to evaluate the guest's state change.<br>
+	 * @param guest  Guest properties. The `state` member can be used to evaluate the guest's state change.<br>
 	 * C type : ParsecGuest
 	 */
 	public ParsecGuestStateChangeEvent(ParsecGuest guest) {

@@ -11,11 +11,11 @@ import java.util.List;
 public class ParsecMouseButtonMessage extends Structure {
 	/**
 	 * @see ParsecLibrary.ParsecMouseButton
-	 * < Mouse button.<br>
+	 * Mouse button.<br>
 	 * C type : ParsecMouseButton
 	 */
 	public int button;
-	/** < `true` if clicked, `false` if released. */
+	/**  `true` if clicked, `false` if released. */
 	public byte pressed;
 	/** C type : uint8_t[3] */
 	public byte[] __pad = new byte[3];
@@ -26,10 +26,9 @@ public class ParsecMouseButtonMessage extends Structure {
 		return Arrays.asList("button", "pressed", "__pad");
 	}
 	/**
-	 * @param button @see ParsecMouseButton<br>
-	 * < Mouse button.<br>
-	 * C type : ParsecMouseButton<br>
-	 * @param pressed < `true` if clicked, `false` if released.<br>
+	 * @param button Mouse button.<br>
+	 * C type : @see ParsecMouseButton<br>
+	 * @param pressed  `true` if clicked, `false` if released.<br>
 	 * @param __pad C type : uint8_t[3]
 	 */
 	public ParsecMouseButtonMessage(int button, byte pressed, byte __pad[]) {

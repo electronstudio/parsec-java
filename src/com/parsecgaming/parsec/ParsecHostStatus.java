@@ -10,17 +10,17 @@ import java.util.List;
  */
 public class ParsecHostStatus extends Structure {
 	/**
-	 * < The currently active host configuration.<br>
+	 * The currently active host configuration.<br>
 	 * C type : ParsecHostConfig
 	 */
 	public ParsecHostConfig cfg;
-	/** < The number of guests currently in state ::GUEST_CONNECTED. */
+	/**  The number of guests currently in state ::GUEST_CONNECTED. */
 	public int numGuests;
-	/** < The host is currently accepting guests after calling ::ParsecHostStart. */
+	/**  The host is currently accepting guests after calling ::ParsecHostStart. */
 	public byte running;
-	/** < `true` if the host's Session ID has become invalid. The host must call ::ParsecHostSetConfig with a valid `sessionID` to continue hosting. */
+	/**  `true` if the host's Session ID has become invalid. The host must call ::ParsecHostSetConfig with a valid `sessionID` to continue hosting. */
 	public byte invalidSessionID;
-	/** < `true` if the virtual gamepad driver is working properly, otherwise `false`. ::HOST_DESKTOP only. */
+	/**  `true` if the virtual gamepad driver is working properly, otherwise `false`. ::HOST_DESKTOP only. */
 	public byte gamepadSupport;
 	/** C type : uint8_t[1] */
 	public byte[] __pad = new byte[1];
@@ -31,12 +31,12 @@ public class ParsecHostStatus extends Structure {
 		return Arrays.asList("cfg", "numGuests", "running", "invalidSessionID", "gamepadSupport", "__pad");
 	}
 	/**
-	 * @param cfg < The currently active host configuration.<br>
+	 * @param cfg  The currently active host configuration.<br>
 	 * C type : ParsecHostConfig<br>
-	 * @param numGuests < The number of guests currently in state ::GUEST_CONNECTED.<br>
-	 * @param running < The host is currently accepting guests after calling ::ParsecHostStart.<br>
-	 * @param invalidSessionID < `true` if the host's Session ID has become invalid. The host must call ::ParsecHostSetConfig with a valid `sessionID` to continue hosting.<br>
-	 * @param gamepadSupport < `true` if the virtual gamepad driver is working properly, otherwise `false`. ::HOST_DESKTOP only.<br>
+	 * @param numGuests  The number of guests currently in state ::GUEST_CONNECTED.<br>
+	 * @param running  The host is currently accepting guests after calling ::ParsecHostStart.<br>
+	 * @param invalidSessionID  `true` if the host's Session ID has become invalid. The host must call ::ParsecHostSetConfig with a valid `sessionID` to continue hosting.<br>
+	 * @param gamepadSupport `true` if the virtual gamepad driver is working properly, otherwise `false`. ::HOST_DESKTOP only.<br>
 	 * @param __pad C type : uint8_t[1]
 	 */
 	public ParsecHostStatus(ParsecHostConfig cfg, int numGuests, byte running, byte invalidSessionID, byte gamepadSupport, byte __pad[]) {

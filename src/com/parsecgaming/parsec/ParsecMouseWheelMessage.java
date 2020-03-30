@@ -9,9 +9,9 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecMouseWheelMessage extends Structure {
-	/** < Horizontal delta of mouse wheel rotation. Negative values scroll left. */
+	/**  Horizontal delta of mouse wheel rotation. Negative values scroll left. */
 	public int x;
-	/** < Vertical delta of mouse wheel rotation. Negative values scroll up. */
+	/**  Vertical delta of mouse wheel rotation. Negative values scroll up. */
 	public int y;
 	public ParsecMouseWheelMessage() {
 		super();
@@ -20,8 +20,8 @@ public class ParsecMouseWheelMessage extends Structure {
 		return Arrays.asList("x", "y");
 	}
 	/**
-	 * @param x < Horizontal delta of mouse wheel rotation. Negative values scroll left.<br>
-	 * @param y < Vertical delta of mouse wheel rotation. Negative values scroll up.
+	 * @param x  Horizontal delta of mouse wheel rotation. Negative values scroll left.<br>
+	 * @param y  Vertical delta of mouse wheel rotation. Negative values scroll up.
 	 */
 	public ParsecMouseWheelMessage(int x, int y) {
 		super();

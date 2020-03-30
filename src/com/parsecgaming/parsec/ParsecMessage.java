@@ -12,7 +12,7 @@ import java.util.List;
 public class ParsecMessage extends Structure {
 	/**
 	 * @see ParsecLibrary.ParsecMessageType
-	 * < Input message type.<br>
+	 * Input message type.<br>
 	 * C type : ParsecMessageType
 	 */
 	public int type;
@@ -21,42 +21,42 @@ public class ParsecMessage extends Structure {
 	/** <i>native declaration : line 726</i> */
 	public static class field1_union extends Union {
 		/**
-		 * < Keyboard message.<br>
+		 * Keyboard message.<br>
 		 * C type : ParsecKeyboardMessage
 		 */
 		public ParsecKeyboardMessage keyboard;
 		/**
-		 * < Mouse button message.<br>
+		 * Mouse button message.<br>
 		 * C type : ParsecMouseButtonMessage
 		 */
 		public ParsecMouseButtonMessage mouseButton;
 		/**
-		 * < Mouse wheel message.<br>
+		 * Mouse wheel message.<br>
 		 * C type : ParsecMouseWheelMessage
 		 */
 		public ParsecMouseWheelMessage mouseWheel;
 		/**
-		 * < Mouse motion message.<br>
+		 * Mouse motion message.<br>
 		 * C type : ParsecMouseMotionMessage
 		 */
 		public ParsecMouseMotionMessage mouseMotion;
 		/**
-		 * < Gamepad button message.<br>
+		 * Gamepad button message.<br>
 		 * C type : ParsecGamepadButtonMessage
 		 */
 		public ParsecGamepadButtonMessage gamepadButton;
 		/**
-		 * < Gamepad axis message.<br>
+		 * Gamepad axis message.<br>
 		 * C type : ParsecGamepadAxisMessage
 		 */
 		public ParsecGamepadAxisMessage gamepadAxis;
 		/**
-		 * < Gamepad unplug message.<br>
+		 * Gamepad unplug message.<br>
 		 * C type : ParsecGamepadUnplugMessage
 		 */
 		public ParsecGamepadUnplugMessage gamepadUnplug;
 		/**
-		 * < Gamepad state message.<br>
+		 * Gamepad state message.<br>
 		 * C type : ParsecGamepadStateMessage
 		 */
 		public ParsecGamepadStateMessage gamepadState;
@@ -64,7 +64,7 @@ public class ParsecMessage extends Structure {
 			super();
 		}
 		/**
-		 * @param keyboard < Keyboard message.<br>
+		 * @param keyboard  Keyboard message.<br>
 		 * C type : ParsecKeyboardMessage
 		 */
 		public field1_union(ParsecKeyboardMessage keyboard) {
@@ -73,7 +73,7 @@ public class ParsecMessage extends Structure {
 			setType(ParsecKeyboardMessage.class);
 		}
 		/**
-		 * @param mouseButton < Mouse button message.<br>
+		 * @param mouseButton  Mouse button message.<br>
 		 * C type : ParsecMouseButtonMessage
 		 */
 		public field1_union(ParsecMouseButtonMessage mouseButton) {
@@ -82,7 +82,7 @@ public class ParsecMessage extends Structure {
 			setType(ParsecMouseButtonMessage.class);
 		}
 		/**
-		 * @param mouseWheel < Mouse wheel message.<br>
+		 * @param mouseWheel  Mouse wheel message.<br>
 		 * C type : ParsecMouseWheelMessage
 		 */
 		public field1_union(ParsecMouseWheelMessage mouseWheel) {
@@ -91,7 +91,7 @@ public class ParsecMessage extends Structure {
 			setType(ParsecMouseWheelMessage.class);
 		}
 		/**
-		 * @param mouseMotion < Mouse motion message.<br>
+		 * @param mouseMotion  Mouse motion message.<br>
 		 * C type : ParsecMouseMotionMessage
 		 */
 		public field1_union(ParsecMouseMotionMessage mouseMotion) {
@@ -100,7 +100,7 @@ public class ParsecMessage extends Structure {
 			setType(ParsecMouseMotionMessage.class);
 		}
 		/**
-		 * @param gamepadButton < Gamepad button message.<br>
+		 * @param gamepadButton  Gamepad button message.<br>
 		 * C type : ParsecGamepadButtonMessage
 		 */
 		public field1_union(ParsecGamepadButtonMessage gamepadButton) {
@@ -109,7 +109,7 @@ public class ParsecMessage extends Structure {
 			setType(ParsecGamepadButtonMessage.class);
 		}
 		/**
-		 * @param gamepadAxis < Gamepad axis message.<br>
+		 * @param gamepadAxis Gamepad axis message.<br>
 		 * C type : ParsecGamepadAxisMessage
 		 */
 		public field1_union(ParsecGamepadAxisMessage gamepadAxis) {
@@ -118,7 +118,7 @@ public class ParsecMessage extends Structure {
 			setType(ParsecGamepadAxisMessage.class);
 		}
 		/**
-		 * @param gamepadUnplug < Gamepad unplug message.<br>
+		 * @param gamepadUnplug  Gamepad unplug message.<br>
 		 * C type : ParsecGamepadUnplugMessage
 		 */
 		public field1_union(ParsecGamepadUnplugMessage gamepadUnplug) {
@@ -127,7 +127,7 @@ public class ParsecMessage extends Structure {
 			setType(ParsecGamepadUnplugMessage.class);
 		}
 		/**
-		 * @param gamepadState < Gamepad state message.<br>
+		 * @param gamepadState  Gamepad state message.<br>
 		 * C type : ParsecGamepadStateMessage
 		 */
 		public field1_union(ParsecGamepadStateMessage gamepadState) {
@@ -152,8 +152,7 @@ public class ParsecMessage extends Structure {
 		return Arrays.asList("type", "field1");
 	}
 	/**
-	 * @param type @see ParsecMessageType<br>
-	 * < Input message type.<br>
+	 * @param type Input message type.<br> @see ParsecMessageType<br>
 	 * C type : ParsecMessageType<br>
 	 * @param field1 C type : field1_union
 	 */

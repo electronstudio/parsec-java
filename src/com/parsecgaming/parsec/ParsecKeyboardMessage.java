@@ -11,17 +11,17 @@ import java.util.List;
 public class ParsecKeyboardMessage extends Structure {
 	/**
 	 * @see ParsecLibrary.ParsecKeycode
-	 * < Keyboard input.<br>
+	 * Keyboard input.<br>
 	 * C type : ParsecKeycode
 	 */
 	public int code;
 	/**
 	 * @see ParsecLibrary.ParsecKeymod
-	 * < Stateful modifier keys applied to keyboard input.<br>
+	 * Stateful modifier keys applied to keyboard input.<br>
 	 * C type : ParsecKeymod
 	 */
 	public int mod;
-	/** < `true` if pressed, `false` if released. */
+	/**  `true` if pressed, `false` if released. */
 	public byte pressed;
 	/** C type : uint8_t[3] */
 	public byte[] __pad = new byte[3];
@@ -32,13 +32,13 @@ public class ParsecKeyboardMessage extends Structure {
 		return Arrays.asList("code", "mod", "pressed", "__pad");
 	}
 	/**
-	 * @param code @see ParsecKeycode<br>
-	 * < Keyboard input.<br>
+	 * @param code Keyboard input.<br> @see ParsecKeycode<br>
+	 *
 	 * C type : ParsecKeycode<br>
-	 * @param mod @see ParsecKeymod<br>
-	 * < Stateful modifier keys applied to keyboard input.<br>
+	 * @param mod Stateful modifier keys applied to keyboard input.<br> @see ParsecKeymod<br>
+	 *
 	 * C type : ParsecKeymod<br>
-	 * @param pressed < `true` if pressed, `false` if released.<br>
+	 * @param pressed  `true` if pressed, `false` if released.<br>
 	 * @param __pad C type : uint8_t[3]
 	 */
 	public ParsecKeyboardMessage(int code, int mod, byte pressed, byte __pad[]) {

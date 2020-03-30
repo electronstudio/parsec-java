@@ -9,9 +9,9 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecClientUserDataEvent extends Structure {
-	/** < User-defined message ID set by the host. */
+	/**  User-defined message ID set by the host. */
 	public int id;
-	/** < Buffer lookup key passed to ::ParsecGetBuffer to retrieve the message. */
+	/**  Buffer lookup key passed to ::ParsecGetBuffer to retrieve the message. */
 	public int key;
 	public ParsecClientUserDataEvent() {
 		super();
@@ -20,8 +20,8 @@ public class ParsecClientUserDataEvent extends Structure {
 		return Arrays.asList("id", "key");
 	}
 	/**
-	 * @param id < User-defined message ID set by the host.<br>
-	 * @param key < Buffer lookup key passed to ::ParsecGetBuffer to retrieve the message.
+	 * @param id  User-defined message ID set by the host.<br>
+	 * @param key  Buffer lookup key passed to ::ParsecGetBuffer to retrieve the message.
 	 */
 	public ParsecClientUserDataEvent(int id, int key) {
 		super();

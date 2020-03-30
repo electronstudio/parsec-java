@@ -12,7 +12,7 @@ import java.util.List;
 public class ParsecClientEvent extends Structure {
 	/**
 	 * @see ParsecLibrary.ParsecClientEventType
-	 * < Client event type.<br>
+	 * Client event type.<br>
 	 * C type : ParsecClientEventType
 	 */
 	public int type;
@@ -21,17 +21,17 @@ public class ParsecClientEvent extends Structure {
 	/** <i>native declaration : line 794</i> */
 	public static class field1_union extends Union {
 		/**
-		 * < Cursor mode/image update event.<br>
+		 * Cursor mode/image update event.<br>
 		 * C type : ParsecClientCursorEvent
 		 */
 		public ParsecClientCursorEvent cursor;
 		/**
-		 * < Gamepad rumble data event.<br>
+		 * Gamepad rumble data event.<br>
 		 * C type : ParsecClientRumbleEvent
 		 */
 		public ParsecClientRumbleEvent rumble;
 		/**
-		 * < User-defined host message event.<br>
+		 * User-defined host message event.<br>
 		 * C type : ParsecClientUserDataEvent
 		 */
 		public ParsecClientUserDataEvent userData;
@@ -39,7 +39,7 @@ public class ParsecClientEvent extends Structure {
 			super();
 		}
 		/**
-		 * @param cursor < Cursor mode/image update event.<br>
+		 * @param cursor  Cursor mode/image update event.<br>
 		 * C type : ParsecClientCursorEvent
 		 */
 		public field1_union(ParsecClientCursorEvent cursor) {
@@ -48,7 +48,7 @@ public class ParsecClientEvent extends Structure {
 			setType(ParsecClientCursorEvent.class);
 		}
 		/**
-		 * @param rumble < Gamepad rumble data event.<br>
+		 * @param rumble  Gamepad rumble data event.<br>
 		 * C type : ParsecClientRumbleEvent
 		 */
 		public field1_union(ParsecClientRumbleEvent rumble) {
@@ -57,7 +57,7 @@ public class ParsecClientEvent extends Structure {
 			setType(ParsecClientRumbleEvent.class);
 		}
 		/**
-		 * @param userData < User-defined host message event.<br>
+		 * @param userData  User-defined host message event.<br>
 		 * C type : ParsecClientUserDataEvent
 		 */
 		public field1_union(ParsecClientUserDataEvent userData) {
@@ -82,8 +82,7 @@ public class ParsecClientEvent extends Structure {
 		return Arrays.asList("type", "field1");
 	}
 	/**
-	 * @param type @see ParsecClientEventType<br>
-	 * < Client event type.<br>
+	 * @param type Client event type.<br> @see ParsecClientEventType<br>
 	 * C type : ParsecClientEventType<br>
 	 * @param field1 C type : field1_union
 	 */

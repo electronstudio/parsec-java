@@ -9,11 +9,11 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecConfig extends Structure {
-	/** < `1` enables and maintains UPnP to assist NAT traversal, `0` disables it. */
+	/**  `1` enables and maintains UPnP to assist NAT traversal, `0` disables it. */
 	public int upnp;
-	/** < First port tried for client connections. A value of `0` uses a pseudo random default. */
+	/**  First port tried for client connections. A value of `0` uses a pseudo random default. */
 	public int clientPort;
-	/** < First port used to accept host connections. A value of `0` uses a pseudo random default. */
+	/**  First port used to accept host connections. A value of `0` uses a pseudo random default. */
 	public int hostPort;
 	public ParsecConfig() {
 		super();
@@ -22,9 +22,9 @@ public class ParsecConfig extends Structure {
 		return Arrays.asList("upnp", "clientPort", "hostPort");
 	}
 	/**
-	 * @param upnp < `1` enables and maintains UPnP to assist NAT traversal, `0` disables it.<br>
-	 * @param clientPort < First port tried for client connections. A value of `0` uses a pseudo random default.<br>
-	 * @param hostPort < First port used to accept host connections. A value of `0` uses a pseudo random default.
+	 * @param upnp  `1` enables and maintains UPnP to assist NAT traversal, `0` disables it.<br>
+	 * @param clientPort  First port tried for client connections. A value of `0` uses a pseudo random default.<br>
+	 * @param hostPort  First port used to accept host connections. A value of `0` uses a pseudo random default.
 	 */
 	public ParsecConfig(int upnp, int clientPort, int hostPort) {
 		super();

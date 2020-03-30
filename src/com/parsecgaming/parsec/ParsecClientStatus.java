@@ -10,13 +10,13 @@ import java.util.List;
  */
 public class ParsecClientStatus extends Structure {
 	/**
-	 * < Latency performance metrics.<br>
+	 * Latency performance metrics.<br>
 	 * C type : ParsecMetrics
 	 */
 	public ParsecMetrics metrics;
-	/** < Client is currently experiencing network failure. */
+	/**  Client is currently experiencing network failure. */
 	public byte networkFailure;
-	/** < `true` if the client had to fallback to software decoding after being unable to internally initialize a hardware accelerated decoder. */
+	/**  `true` if the client had to fallback to software decoding after being unable to internally initialize a hardware accelerated decoder. */
 	public byte decoderFallback;
 	/** C type : uint8_t[1] */
 	public byte[] __pad = new byte[1];
@@ -27,10 +27,10 @@ public class ParsecClientStatus extends Structure {
 		return Arrays.asList("metrics", "networkFailure", "decoderFallback", "__pad");
 	}
 	/**
-	 * @param metrics < Latency performance metrics.<br>
+	 * @param metrics  Latency performance metrics.<br>
 	 * C type : ParsecMetrics<br>
-	 * @param networkFailure < Client is currently experiencing network failure.<br>
-	 * @param decoderFallback < `true` if the client had to fallback to software decoding after being unable to internally initialize a hardware accelerated decoder.<br>
+	 * @param networkFailure  Client is currently experiencing network failure.<br>
+	 * @param decoderFallback  `true` if the client had to fallback to software decoding after being unable to internally initialize a hardware accelerated decoder.<br>
 	 * @param __pad C type : uint8_t[1]
 	 */
 	public ParsecClientStatus(ParsecMetrics metrics, byte networkFailure, byte decoderFallback, byte __pad[]) {

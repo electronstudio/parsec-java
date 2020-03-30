@@ -9,45 +9,45 @@ import java.util.List;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  */
 public class ParsecHostConfig extends Structure {
-	/** < Resolution width. ::HOST_DESKTOP owner only. */
+	/**  Resolution width. ::HOST_DESKTOP owner only. */
 	public int resolutionX;
-	/** < Resolution height. ::HOST_DESKTOP owner only. */
+	/**  Resolution height. ::HOST_DESKTOP owner only. */
 	public int resolutionY;
-	/** < Refresh rate in Hz. ::HOST_DESKTOP owner only. */
+	/**  Refresh rate in Hz. ::HOST_DESKTOP owner only. */
 	public int refreshRate;
-	/** < Mute local audio on owner connection. ::HOST_DESKTOP owner only. */
+	/**  Mute local audio on owner connection. ::HOST_DESKTOP owner only. */
 	public int adminMute;
-	/** < Block remote input when local host input occurs. ::HOST_DESKTOP only. */
+	/**  Block remote input when local host input occurs. ::HOST_DESKTOP only. */
 	public int exclusiveInput;
-	/** < Desired frames per second. */
+	/**  Desired frames per second. */
 	public int encoderFPS;
-	/** < Maximum output bitrate in Mbps, split between guests. */
+	/**  Maximum output bitrate in Mbps, split between guests. */
 	public int encoderMaxBitrate;
-	/** < Allow H.265 codec. */
+	/**  Allow H.265 codec. */
 	public int encoderH265;
-	/** < Total number of guests allowed at once. This number should not include the local host. */
+	/**  Total number of guests allowed at once. This number should not include the local host. */
 	public int maxGuests;
 	/**
-	 * < UTF-8 null-terminated name string. May be zeroed to use hostname.<br>
+	 * UTF-8 null-terminated name string. May be zeroed to use hostname.<br>
 	 * C type : char[256]
 	 */
 	public byte[] name = new byte[256];
 	/**
-	 * < UTF-8 null-terminated description string. ::HOST_GAME only.<br>
+	 * UTF-8 null-terminated description string. ::HOST_GAME only.<br>
 	 * C type : char[512]
 	 */
 	public byte[] desc = new byte[512];
 	/**
-	 * < Game unique identifier issued by Parsec. ::HOST_GAME only.<br>
+	 * Game unique identifier issued by Parsec. ::HOST_GAME only.<br>
 	 * C type : char[72]
 	 */
 	public byte[] gameID = new byte[72];
 	/**
-	 * < ASCII null-terminated secret code that can be distributed to guests to allow temporary access. Minimum 8 characters.<br>
+	 * ASCII null-terminated secret code that can be distributed to guests to allow temporary access. Minimum 8 characters.<br>
 	 * C type : char[32]
 	 */
 	public byte[] secret = new byte[32];
-	/** < Set to `true` to allow the hosting session to be visible publicly in the Parsec Arcade. ::HOST_GAME only. */
+	/**  Set to `true` to allow the hosting session to be visible publicly in the Parsec Arcade. ::HOST_GAME only. */
 	public byte publicGame;
 	/** C type : uint8_t[3] */
 	public byte[] __pad = new byte[3];
