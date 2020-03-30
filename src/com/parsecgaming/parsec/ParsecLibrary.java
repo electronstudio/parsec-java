@@ -2233,7 +2233,7 @@ public class ParsecLibrary implements Library {
 	 * Original signature : <code>uint32_t ParsecHostGetGuests(Parsec*, uint32_t, ParsecGuest**)</code><br>
 	 * <i>native declaration : line 1232</i>
 	 */
-	public static native int ParsecHostGetGuests(PointerByReference ps, int state, ParsecGuest.ByReference guests[]);
+	//public static native int ParsecHostGetGuests(PointerByReference ps, int state, ParsecGuest.ByReference guests[]);
 	/**
 	 * @returns ::PARSEC_OK if the guest was successfully kicked, otherwise a ::ParsecStatus error value.<br>
 	 * Original signature : <code>ParsecStatus ParsecHostKickGuest(Parsec*, uint32_t)</code><br>
